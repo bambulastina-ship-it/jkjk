@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   DAISY NAILS — DESIGN TOKENS  ("Ink Garden")
+   ----------------------------------------------------------------------------
+   Palette rationale: a daisy is white petals + a golden-ochre heart sitting in
+   deep garden shadow. That is the whole system — warm paper, warm near-black
+   ink, one ochre accent, one deep moss ground. Deliberately NOT the default
+   pink/lavender nail-salon palette (see README "Design notes").
+
+   Contrast (verified, WCAG 2.1):
+     ink   on bone  16.19:1  AAA      bone      on moss 9.26:1  AAA
+     muted on bone   5.02:1  AA       ochre     on ink  6.01:1  AA
+     ochreInk on bone 4.84:1 AA       boneDim   on moss 5.89:1  AA
+     ochreGlow on moss 6.58:1 AA      ochreGlow on ink 11.51:1  AAA
+   RULE: --color-ochre is decorative only (rules, borders, icons, large
+   display). For ochre-colored *text* on a light ground use --color-ochre-ink.
+   ========================================================================== */
+
+@theme {
+  /* --- Core palette ------------------------------------------------------ */
+  --color-ink: #17150f; /* warm near-black: headings, body, primary buttons */
+  --color-ink-soft: #2a2620; /* raised surfaces on dark sections */
+  --color-bone: #f5f1e8; /* warm paper: page ground */
+  --color-bone-dim: #c9c2b4; /* muted text on dark grounds */
+  --color-paper: #fffdf8; /* cards, elevated surfaces */
+  --color-muted: #6e6659; /* secondary text on light grounds */
+  --color-ochre: #c08a2e; /* daisy heart — DECOR ONLY on light grounds */
+  --color-ochre-ink: #8a6220; /* accessible ochre for text on light grounds */
+  --color-ochre-glow: #efc87f; /* accent on dark grounds (AA on ink/moss
+                                   and over the hero canvas: 4.9–11.5:1) */
+  --color-moss: #38432f; /* deep garden green: dark section ground */
+  --color-line: #e2dcd0; /* hairline borders on light */
+  --color-line-dark: #4a5340; /* hairline borders on moss */
+
+  /* --- Typography -------------------------------------------------------- */
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  /* --- Spacing scale (density dial 3/10 — spacious marketing rhythm) ------ */
+  --spacing-section: 6rem; /* 96px vertical section rhythm (mobile) */
+  --spacing-section-lg: 9rem; /* 144px (desktop) */
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Anchor targets clear the sticky header instead of hiding beneath it. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* A single, consistently visible focus ring — never removed. */
+  :focus-visible {
+    outline: 2px solid var(--color-ochre-ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Dark grounds need the light-side ring to stay visible. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-ochre-glow);
+  }
+
+  ::selection {
+    background: var(--color-ochre);
+    color: var(--color-ink);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+   ------------------------------------------------------------------------ */
+@layer utilities {
+  /* Small uppercase mono eyebrow. Echoes the monospaced glyph grid of the
+     ASCII hero — the type system and the hero effect share a vocabulary. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .section-y {
+    padding-block: var(--spacing-section);
+  }
+
+  @media (min-width: 1024px) {
+    .section-y {
+      padding-block: var(--spacing-section-lg);
+    }
+  }
+
+  /* Hairline rule that fades out — used between sections and beside eyebrows */
+  .rule-fade {
+    background: linear-gradient(
+      to right,
+      var(--color-ochre),
+      transparent
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion preferences — honoured globally, and again inside the canvas effect.
+   ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll-reveal primitive.
+
+   The default state is VISIBLE. The hidden-then-revealed state is opt-in via
+   `.js-motion` on <html>, which a tiny synchronous script in the document sets
+   before first paint (see app/layout.tsx). That ordering matters: if the hidden
+   state were the CSS default, then any failure to run the observer — JS
+   disabled, a script error, or simply scrolling past a section before React has
+   hydrated it — would leave that content permanently invisible. Making
+   visibility the default means the animation can only ever add polish, never
+   remove content.
+
+   `.is-visible` is applied by components/Reveal.tsx.
+   ------------------------------------------------------------------------ */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js-motion .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
+}
+
+.js-motion .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reduced motion: never hide anything in the first place. */
+@media (prefers-reduced-motion: reduce) {
+  .js-motion .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
