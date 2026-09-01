@@ -260,16 +260,36 @@ export const TESTIMONIALS: Testimonial[] = [
 /* -------------------------------------------------------------------------- */
 
 /**
- * PLACEHOLDER IMAGERY. These are procedurally rendered colour studies, not
- * photographs of the salon's work — see scripts/generate-images.mjs and the
- * README. Replace the files at these paths with real photography and update
- * each `alt` to describe the actual work shown.
+ * Two boxed pictures shown near the top of the page. They are LINKS into the
+ * gallery rather than a second gallery — the point is a glimpse of real work
+ * above the fold, not a wall of photos before the visitor has read anything.
+ *
+ * AWAITING REAL PHOTOS — see README "Replacing the placeholder imagery".
+ */
+export const FEATURED = [
+  {
+    src: '/img/feature-coffin-chrome.webp',
+    alt: 'Long coffin nails finished in a soft pink chrome with an aura French tip.',
+    caption: 'Coffin chrome',
+  },
+  {
+    src: '/img/feature-red-crystal.webp',
+    alt: 'Deep red stiletto nails set with rhinestones and hand-painted snowflake detail.',
+    caption: 'Crystal detail',
+  },
+] as const;
+
+/**
+ * PLACEHOLDER IMAGERY, except where noted. The generic `work-0X` tiles are
+ * procedurally rendered colour studies, not photographs of the salon's work —
+ * see scripts/generate-images.mjs and the README. Replace the files at these
+ * paths with real photography and update each `alt` to describe the work shown.
  */
 export const GALLERY = [
-  { src: '/img/work-01.webp', alt: 'Placeholder — warm nude lacquer colour study' },
+  { src: '/img/work-mauve-chrome.webp', alt: 'Short almond nails in a mauve chrome finish.' },
   { src: '/img/work-02.webp', alt: 'Placeholder — smoke grey lacquer colour study' },
   { src: '/img/work-03.webp', alt: 'Placeholder — terracotta lacquer colour study' },
-  { src: '/img/work-04.webp', alt: 'Placeholder — deep sage lacquer colour study' },
+  { src: '/img/salon-interior.webp', alt: 'The pedicure room at Daisy Nails, with spa chairs along the wall.' },
   { src: '/img/work-05.webp', alt: 'Placeholder — golden amber lacquer colour study' },
   { src: '/img/work-06.webp', alt: 'Placeholder — soft taupe lacquer colour study' },
   { src: '/img/work-07.webp', alt: 'Placeholder — dusty plum lacquer colour study' },

@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Featured from '@/components/Featured';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import Gallery from '@/components/Gallery';
@@ -19,6 +20,7 @@ export default function Page() {
       <Header />
       <main id="main">
         <Hero />
+        <Featured />
         <About />
         <Services />
         <Gallery />

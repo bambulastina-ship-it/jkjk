@@ -168,7 +168,25 @@ Ink Garden, so the flower is both the brand motif and — more practically — a
 bright, centre-weighted subject against a dark ground, which is exactly the
 luminance structure the dither grid needs to resolve into a recognisable shape.
 
-To swap in real photography, drop files at the same paths and aspect ratios:
+### Photo slots awaiting the salon's own images
+
+Four paths are reserved for supplied photographs. Overwrite the file, keep the
+filename, and the layout needs no other change. The stand-ins currently there
+approximate each photo's colour so the page previews truthfully.
+
+| Path | Shown as | Intended photo |
+| --- | --- | --- |
+| `feature-coffin-chrome.webp` | Featured box 1, below the hero | Long coffin nails, pink chrome / aura French |
+| `feature-red-crystal.webp` | Featured box 2, below the hero | Deep red nails, rhinestones + snowflake art |
+| `work-mauve-chrome.webp` | Gallery, first tile | Short almond nails, mauve chrome |
+| `salon-interior.webp` | Gallery, fourth tile | The pedicure room |
+
+All four are cropped to 4:5 by `object-cover`, so supply anything portrait-ish
+and centre the subject. Update the `alt` text in `lib/content.ts` if the photo
+that lands differs from the description above.
+
+To swap in the remaining generic tiles, drop files at the same paths and aspect
+ratios:
 
 | Path | Ratio | Should become |
 | --- | --- | --- |

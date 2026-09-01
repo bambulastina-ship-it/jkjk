@@ -219,6 +219,20 @@ function renderDaisy(w, h) {
  * so they look deliberate while real work photos are pending.
  */
 const TILES = [
+  // --- Slots awaiting the salon's real photographs ------------------------
+  // These four stand in for supplied photos at fixed paths. Overwrite the file,
+  // keep the name, and nothing else needs to change. Colours here approximate
+  // each intended photo so the layout previews truthfully.
+  //   feature-coffin-chrome : long coffin nails, pink chrome / aura French
+  //   feature-red-crystal   : deep red nails, rhinestones + snowflake art
+  //   work-mauve-chrome     : short almond nails, mauve chrome
+  //   salon-interior        : the pedicure room
+  { file: 'feature-coffin-chrome', kind: 'sweep', base: '#7d5f7a', lift: '#f2cfe4', seed: 101 },
+  { file: 'feature-red-crystal',   kind: 'drop',  base: '#7c1f2c', lift: '#f0b9ae', seed: 103 },
+  { file: 'work-mauve-chrome',     kind: 'drop',  base: '#7a5f75', lift: '#e8cfe0', seed: 107 },
+  { file: 'salon-interior',        kind: 'split', base: '#8a7358', lift: '#f0e2c6', seed: 109 },
+
+  // --- Generic colour studies ---------------------------------------------
   { file: 'work-01', kind: 'drop',   base: '#8a5a4a', lift: '#e8c4a8', seed: 11 },
   { file: 'work-02', kind: 'sweep',  base: '#3d3a44', lift: '#c8b6c9', seed: 23 },
   { file: 'work-03', kind: 'rings',  base: '#7a3c3c', lift: '#e2a98c', seed: 37 },
