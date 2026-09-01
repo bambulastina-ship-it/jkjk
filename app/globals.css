@@ -105,7 +105,9 @@
      ASCII hero — the type system and the hero effect share a vocabulary. */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    /* 12px floor. Uppercase mono at wide tracking reads smaller than its
+       nominal size, so this is the smallest it should ever go. */
+    font-size: 0.75rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     font-weight: 500;

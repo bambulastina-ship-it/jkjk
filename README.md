@@ -259,3 +259,14 @@ node scripts/dev/reveal-check.mjs           # every reveal fires at normal scrol
 node scripts/dev/menu.mjs                  # mobile menu open/close + Escape
 node scripts/dev/audit.mjs http://localhost:3000/   # landmarks, headings, ARIA, SEO tags
 ```
+
+`scripts/dev/viewports.mjs` runs against the built preview file rather than the
+dev server, and sweeps 320 / 375 / 390 / 430 / 767 / 768 / 1024 / 1440px —
+checking each for horizontal overflow, sub-44px touch targets, text under 12px,
+and a live canvas. The two widths either side of the `md` boundary are in the
+list on purpose: 767 and 768px are where the service menu switches between
+accordion and tabs, and breakpoint edges are where responsive layouts break.
+
+```bash
+npm run build:preview && node scripts/dev/viewports.mjs
+```

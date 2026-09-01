@@ -70,12 +70,12 @@ export default function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-2 md:flex">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`inline-flex min-h-11 items-center text-sm transition-colors ${
+              className={`inline-flex min-h-11 items-center px-3 text-sm transition-colors ${
                 onDark
                   ? 'text-bone-dim hover:text-bone'
                   : 'text-muted hover:text-ink'
@@ -86,7 +86,7 @@ export default function Header() {
           ))}
           <a
             href={BUSINESS.phoneHref}
-            className={`inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-sm font-medium transition-colors ${
+            className={`ml-4 inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-sm font-medium transition-colors ${
               onDark
                 ? 'bg-bone text-ink hover:bg-white'
                 : 'bg-ink text-bone hover:bg-ink-soft'
