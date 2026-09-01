@@ -9,9 +9,10 @@ the hero.
 
 ```bash
 npm install
-npm run dev          # http://localhost:3000
-npm run build        # production build
-npm run gen:images   # re-render the placeholder imagery
+npm run dev            # http://localhost:3000
+npm run build          # production build
+npm run gen:images     # re-render the placeholder imagery
+npm run build:preview  # single-file shareable preview
 ```
 
 ---
@@ -198,6 +199,31 @@ Set `NEXT_PUBLIC_SITE_URL` at deploy time so canonical and Open Graph URLs are
 absolute.
 
 ---
+
+## Single-file preview
+
+`npm run build:preview` folds a static export into one self-contained HTML file
+at `preview/daisy-nails-preview.html` — stylesheet, scripts, webfonts and images
+all inlined, no external requests at all. It exists so the page can be shared as
+a single link for review without standing up a host. It is **not** the
+deployment target; deploy the Next.js app itself.
+
+Two things the builder has to get right, both of which fail silently otherwise:
+
+- Asset paths are substituted **before** the bundles are inlined. Doing it
+  afterwards splices base64 through the webpack runtime and blanks the page.
+- Replacements go through a **function**, never a string. `$&` and `$'` in a
+  string replacement are interpreted as patterns, and minified React is full of
+  `$` — the result is corrupted output with no error.
+
+The preview swaps the Google Maps iframe for a labelled address panel, because
+shared previews block cross-origin frames and an empty grey box reads as a
+broken site. That swap happens after hydration (editing the server HTML would
+trip a React hydration mismatch and get the iframe restored) and applies to the
+preview only — the app still ships the real embed.
+
+`scripts/dev/preview-check.mjs` verifies the output renders, hydrates, animates
+and makes zero network requests.
 
 ## Stack
 

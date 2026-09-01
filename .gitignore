@@ -2,6 +2,7 @@ node_modules/
 .next/
 out/
 build/
+preview/
 .DS_Store
 *.pem
 .env*
