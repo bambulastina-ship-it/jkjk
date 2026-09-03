@@ -121,6 +121,12 @@ p {
   text-wrap: pretty;
 }
 
+dl,
+dd,
+dt {
+  margin: 0;
+}
+
 a {
   color: inherit;
 }
@@ -498,6 +504,10 @@ a {
   inset: 0;
   z-index: 0;
   background: linear-gradient(150deg, var(--sage-pale) 0%, #cfd9c8 100%);
+}
+
+.frame.is-missing > img {
+  opacity: 0;
 }
 
 .frame > img {
@@ -897,7 +907,7 @@ a {
 .footer {
   background: var(--canal-deep);
   color: var(--ink-onDark-soft);
-  padding-block: clamp(2.5rem, 5vw, 3.5rem) clamp(6rem, 12vw, 4rem);
+  padding-block: clamp(2.5rem, 5vw, 3.5rem) 7.5rem;
   font-size: 0.9rem;
 }
 

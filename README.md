@@ -8,11 +8,15 @@ motion. Not five skins of one template.
 
 | # | Business | Assets received | Build |
 |---|----------|-----------------|-------|
-| 1 | _awaiting details_ | ❌ | not started |
-| 2 | _awaiting details_ | ❌ | not started |
-| 3 | _awaiting details_ | ❌ | not started |
-| 4 | _awaiting details_ | ❌ | not started |
-| 5 | _awaiting details_ | ❌ | not started |
+| 1 | Nice To See You, York | photos in chat, files pending | in progress |
+| 2 | Caen Hill Cafe, Devizes | photos in chat, files pending | in progress |
+| 3 | Sandy's Sweet Cakes, Potterne | photos in chat, files pending | **cancelled by client** |
+| 4 | The Stroppy Cow Biscuit Company, Devizes | photos in chat, files pending | **cancelled by client** |
+| 5 | SoupChick | assets in chat, files pending | in progress |
+
+Businesses 3 and 4 were cancelled by the client on 2026-09-03 and are not to be
+built. Their briefs and any partial code are retained for reference only; no
+further work should be done on `sites/03-*` or `sites/04-*`.
 
 Nothing is built until that business's images and details arrive. Supplied
 photography drives the design, so placeholders and stock imagery are not used.

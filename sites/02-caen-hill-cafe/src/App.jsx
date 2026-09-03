@@ -7,6 +7,7 @@ import {
   useReducedMotion,
 } from './lib/env.js'
 import GlassDock from './components/GlassDock.jsx'
+import Photo from './components/Photo.jsx'
 
 const CanalWater = lazy(() => import('./effects/CanalWater.jsx'))
 const LockFlight = lazy(() => import('./effects/LockFlight.jsx'))
@@ -129,16 +130,14 @@ export default function App() {
               </div>
 
               <figure className="hero__figure">
-                <div className="frame frame--toastie">
-                  <img
-                    src={`${IMG}toastie.jpg`}
-                    width="1200"
-                    height="800"
-                    alt="A toasted granary sandwich cut in half with melted cheese, served with ready salted crisps in a kraft cardboard tray on a weathered wooden table outside."
-                    loading="eager"
-                    decoding="async"
-                  />
-                </div>
+                <Photo
+                  variant="toastie"
+                  src={`${IMG}toastie.jpg`}
+                  width={1200}
+                  height={800}
+                  eager
+                  alt="A toasted granary sandwich cut in half with melted cheese, served with ready salted crisps in a kraft cardboard tray on a weathered wooden table outside."
+                />
                 <figcaption className="caption">
                   A toastie and crisps, taken out to the benches.
                 </figcaption>
@@ -170,16 +169,13 @@ export default function App() {
         <section className="band band--cream-deep" id="stop" aria-labelledby="stop-title">
           <div className="shell stop__grid">
             <Drift as="figure" className="stop__figure">
-              <div className="frame frame--interior">
-                <img
-                  src={`${IMG}interior.jpg`}
-                  width="1200"
-                  height="900"
-                  alt="Inside the café: sage green walls, a red brick fireplace with a framed photograph of the canal locks propped inside it, a large roman numeral wall clock, a round table with floral oilcloth and white folding chairs, and a member of staff working at the wooden counter."
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <Photo
+                variant="interior"
+                src={`${IMG}interior.jpg`}
+                width={1200}
+                height={900}
+                alt="Inside the café: sage green walls, a red brick fireplace with a framed photograph of the canal locks propped inside it, a large roman numeral wall clock, a round table with floral oilcloth and white folding chairs, and a member of staff working at the wooden counter."
+              />
               <figcaption className="caption">
                 One warm room: sage walls, the fireplace, and the counter.
               </figcaption>
