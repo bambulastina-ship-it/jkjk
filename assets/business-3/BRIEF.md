@@ -1,18 +1,58 @@
-# Business 3 — brief
+# Business 3 — Sandy's Sweet Cakes
 
-Fill this in (or just paste the info in chat) and drop the photos into `images/`.
+Home-based custom cake maker, Potterne, Devizes, Wiltshire.
+Baker: Sandra Calvert.
 
-- **Business name:**
-- **What they do:**
-- **Location / areas served (UK):**
-- **Who the customers are:**
-- **Services or products to feature:**
-- **Tone:** (e.g. traditional, modern, luxury, industrial, warm/family-run)
-- **Preferred CTA:** (call / enquiry form / request a quote / book a consultation / visit us)
-- **Contact details to display:** (phone, email, address, opening hours)
-- **Anything real worth mentioning:** (years trading, accreditations, notable work)
-  Leave blank if unknown — nothing here gets invented.
+⚠️ SOURCE WARNING: the details below were relayed from another AI assistant's
+summary, not from the owner or a primary listing. They are UNVERIFIED. Nothing
+here should be stated as fact on a live page until confirmed with the owner.
 
-## Images
-Put supplied photos in `images/`. Helpful to note per image:
-- what it shows, and whether it's a hero / gallery / service / background candidate.
+## What was relayed (treat as unconfirmed)
+- Home-baked business, not a shop — no storefront, no display cases, no seating
+- Operates from a private residence, Highlands Lodge, Potterne
+- Collection by appointment, arranged directly; delivery also possible
+- Sells at local Devizes community markets and craft fairs (pop-up stalls)
+- Branding described as a pink and brown circular logo
+- Range described as brownies, sweet treats and custom cakes
+- Celebration cakes: custom tiered designs, themed birthday cakes
+- Anniversary / wedding: fondant work, floral detail, roses and ribbons
+
+## Social (supplied)
+- Facebook: https://www.facebook.com/sandysweetcakes/
+- Instagram: https://www.instagram.com/sandy.sweetcakes/
+
+These are the first real social URLs supplied for any of the five businesses.
+
+## ⚠️ PRIVACY — decision needed before building
+"Highlands Lodge, Potterne" is a **private residence**. Publishing a full home
+address on a public landing page is a real safety and privacy exposure for a
+sole trader working from home, and is different in kind from publishing a
+high-street shop address.
+
+Default position unless the owner says otherwise: show **"Potterne, Devizes —
+collection by appointment"** and nothing more precise. The exact address is
+shared privately when an order is arranged. Do not put it on the page.
+
+## CTA direction
+No shop to visit and no walk-in trade. The whole business runs on enquiries:
+primary CTA is **Enquire about your cake** / **Request a quote**, with the
+event date and type. Secondary: the Instagram and Facebook galleries.
+No ordering, no deposits, no payment of any kind.
+
+## BLOCKED — no images at all
+Zero photographs have been supplied. For a custom cake maker the cake
+photographs ARE the product; a gallery is the entire proposition. This is the
+one business of the five where building before images arrive produces something
+close to worthless.
+
+## STILL NEEDED
+- **Cake photographs** — the single blocking item. 8–15 covering the range:
+  tiered wedding/anniversary, themed children's birthdays, brownies and
+  sweet treats, and a market stall shot.
+- **The logo file** — described as pink and brown circular. Needed for the site
+  generally, and specifically as the Liquid Metal mask.
+- **Confirmation of every relayed detail above**, from the owner.
+- **Phone / email / enquiry route** — none supplied.
+- **Service area** — how far she delivers around Devizes.
+- **Lead time** — how far ahead to order.
+- **Decision on the home address** (see PRIVACY above).
