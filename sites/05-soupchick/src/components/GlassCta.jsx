@@ -3,17 +3,20 @@ import { loadLiquidGlass, destroyGlass } from '../lib/liquidGlass.js'
 import { supportsWebGL1 } from '../lib/env.js'
 
 /*
- * Liquid Glass JS (vendored, MIT) with exactly one job: the sticky
- * "Find us at the locks" action that follows you down the page.
+ * Liquid Glass JS (dashersw/liquid-glass-js, vendored, MIT — see
+ * public/vendor/liquid-glass-js/LICENSE) with exactly one job: the sticky
+ * "Find us in the Shambles" / "Call" tray that appears once you have scrolled
+ * past the hero.
  *
- * The accessible control is a real <a> — focusable, 56px tall, with its own
- * solid background. The glass plate is a decorative, pointer-events-free
- * layer behind it, so if WebGL, html2canvas or the vendored scripts fail the
- * button is unchanged.
+ * Both controls are real <a> elements with their own solid backgrounds and
+ * 46px tap targets. The glass plate is a decorative, pointer-events-free
+ * layer *behind* them, so if WebGL, html2canvas or the vendored scripts fail,
+ * the tray is unchanged. It is deliberately kept at the foot of the viewport
+ * and never over the menu — prices beat refraction every time.
  */
 
-export default function GlassDock({ href, label, shown, enabled }) {
-  const plateRef = useRef(null)
+export default function GlassCta({ mapUrl, phoneHref, phoneLabel, shown, enabled }) {
+  const trayRef = useRef(null)
   const instanceRef = useRef(null)
   const [glassOn, setGlassOn] = useState(false)
 
@@ -28,16 +31,16 @@ export default function GlassDock({ href, label, shown, enabled }) {
     let lastWidth = window.innerWidth
 
     const build = async () => {
-      const host = plateRef.current
+      const host = trayRef.current
       if (!host || cancelled) return
 
       api = await loadLiquidGlass()
       if (cancelled) return
 
       /*
-       * Take the page snapshot ourselves rather than letting the library do
-       * it: this way the dock is excluded from its own refraction, and the
-       * expensive html2canvas pass happens exactly once.
+       * Take the page snapshot here rather than letting the library take its
+       * own: this keeps the tray out of its own refraction and makes the
+       * expensive html2canvas pass happen exactly once per layout.
        */
       if (!api.Container.pageSnapshot) {
         api.Container.pageSnapshot = await window.html2canvas(document.body, {
@@ -48,7 +51,7 @@ export default function GlassDock({ href, label, shown, enabled }) {
           backgroundColor: null,
           ignoreElements: (el) =>
             Boolean(
-              el.classList?.contains('dock') ||
+              el.classList?.contains('sticky-cta') ||
                 el.classList?.contains('glass-container') ||
                 el.tagName === 'CANVAS'
             ),
@@ -56,25 +59,15 @@ export default function GlassDock({ href, label, shown, enabled }) {
       }
       if (cancelled) return
 
-      const instance = new api.Container({ type: 'pill', borderRadius: 28, tintOpacity: 0.22 })
+      const instance = new api.Container({ type: 'pill', borderRadius: 999, tintOpacity: 0.24 })
       instance.element.setAttribute('aria-hidden', 'true')
       host.appendChild(instance.element)
       instance.updateSizeFromDOM()
       instanceRef.current = instance
       setGlassOn(true)
 
-      /*
-       * One more measure after layout settles (fonts, safe-area insets).
-       * updateSizeFromDOM only fixes the viewport and uniforms — the library
-       * repaints on scroll and nothing else — so ask for a frame afterwards,
-       * or the plate can sit blank until the visitor happens to scroll.
-       */
-      window.setTimeout(() => {
-        const live = instanceRef.current
-        if (!live) return
-        live.updateSizeFromDOM()
-        window.requestAnimationFrame(() => instanceRef.current?.render?.())
-      }, 160)
+      // one more measure once fonts and safe-area insets have settled
+      window.setTimeout(() => instanceRef.current?.updateSizeFromDOM(), 140)
     }
 
     const onResize = () => {
@@ -95,7 +88,7 @@ export default function GlassDock({ href, label, shown, enabled }) {
     const start = () => build().catch(() => setGlassOn(false))
     const idle = window.requestIdleCallback
       ? window.requestIdleCallback(start, { timeout: 1500 })
-      : window.setTimeout(start, 400)
+      : window.setTimeout(start, 500)
 
     window.addEventListener('resize', onResize, { passive: true })
 
@@ -113,19 +106,35 @@ export default function GlassDock({ href, label, shown, enabled }) {
   }, [enabled, shown])
 
   return (
-    <div className={`dock${shown ? ' is-shown' : ''}${glassOn ? ' is-glass' : ''}`}>
-      <div className="dock__inner">
-        <div className="dock__glass" ref={plateRef} aria-hidden="true" />
-        <a
-          className="dock__cta"
-          href={href}
-          target="_blank"
-          rel="noreferrer noopener"
-          tabIndex={shown ? 0 : -1}
-        >
-          {label}
-        </a>
-      </div>
+    <div
+      className={`sticky-cta${shown ? ' is-visible' : ''}${glassOn ? ' is-glass' : ''}`}
+      ref={trayRef}
+    >
+      <a
+        className="sticky-cta__link"
+        href={mapUrl}
+        target="_blank"
+        rel="noreferrer noopener"
+        tabIndex={shown ? 0 : -1}
+      >
+        Find us in the Shambles
+      </a>
+      <a
+        className="sticky-cta__call"
+        href={phoneHref}
+        tabIndex={shown ? 0 : -1}
+        aria-label={`Call SoupChick on ${phoneLabel}`}
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3Z"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Call
+      </a>
     </div>
   )
 }

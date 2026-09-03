@@ -820,3 +820,40 @@ a {
     padding-bottom: clamp(3rem, 6vw, 4.5rem);
   }
 }
+
+/* ---------- masthead: narrow-screen phone label ---------- */
+
+.navlink__short {
+  display: none;
+}
+
+@media (max-width: 419px) {
+  .navlink__long {
+    display: none;
+  }
+
+  .navlink__short {
+    display: inline;
+  }
+}
+
+/* ---------- photo frame with no file on disk yet ---------- */
+
+.frame.is-missing::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.16) 0 12px,
+    rgba(255, 255, 255, 0) 12px 24px
+  );
+}
+
+.frame--green.is-missing::after {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.07) 0 12px,
+    rgba(255, 255, 255, 0) 12px 24px
+  );
+}

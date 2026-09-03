@@ -3,7 +3,7 @@ import Photo from './Photo.jsx'
 import Reveal from './Reveal.jsx'
 import { ADDRESS_ONE_LINE, BUSINESS, DIRECTIONS_URL } from '../lib/site.js'
 
-export default function Hero({ innerRef }) {
+export default function Hero({ innerRef, active }) {
   return (
     <section className="hero on-ink" ref={innerRef} aria-labelledby="hero-title">
       <div className="shell hero__inner">
@@ -11,7 +11,7 @@ export default function Hero({ innerRef }) {
           <p className="eyebrow">Family-run coffee shop · York</p>
 
           <div id="hero-title">
-            <MetalWordmark />
+            <MetalWordmark active={active} />
           </div>
 
           <p className="hero__standfirst">Right by the Minster, on Goodramgate.</p>
@@ -42,7 +42,7 @@ export default function Hero({ innerRef }) {
             alt="The shopfront of Nice To See You on Goodramgate: a glossy black frontage with NICE TO SEE YOU in spaced capitals on a white fascia board, four tall arched windows with black glazing bars, and the door standing open."
             width={1200}
             height={1600}
-            tone="#26221e"
+            tone="#3b352e"
             position="50% 42%"
             sizes="(min-width: 900px) 40vw, 100vw"
             loading="eager"

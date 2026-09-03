@@ -20,7 +20,7 @@ import { BUSINESS } from '../lib/site.js'
  * Real text is always present underneath for the accessibility tree and for
  * every case where the shader cannot run.
  */
-export default function MetalWordmark() {
+export default function MetalWordmark({ active: onScreen = true }) {
   const wide = useMediaQuery('(min-width: 780px)')
   const reduced = usePrefersReducedMotion()
   const small = useMediaQuery('(max-width: 700px)')
@@ -49,6 +49,12 @@ export default function MetalWordmark() {
 
   const active = Boolean(mask)
 
+  // Remounting would re-run the mask's edge-gradient pre-pass and blink the
+  // wordmark, so the canvas stays put and the animation is simply parked when
+  // the hero leaves the viewport (ShaderMount does this itself too; being
+  // explicit means it also holds while the sticky pill's snapshot runs).
+  const speed = reduced || !onScreen ? 0 : 0.28
+
   const style = mask
     ? {
         '--wm-ar': mask.aspect,
@@ -76,18 +82,20 @@ export default function MetalWordmark() {
             <LiquidMetal
               image={mask.src}
               style={{ width: '100%', height: '100%' }}
-              colorBack="#100e0c"
-              colorTint="#e8a45c"
-              /* restrained: slow drift, shallow dispersion, soft contour */
-              speed={reduced ? 0 : 0.28}
+              colorBack="#241c14"
+              /* near-bone tint: colour-burn keeps the letterforms bright and
+                 only warms them, so the wordmark reads as painted signwriting
+                 with a sheen, not as a neon outline */
+              colorTint="#ffffff"
+              speed={speed}
               frame={reduced ? 9000 : 0}
-              softness={0.34}
-              repetition={2.4}
-              shiftRed={0.06}
-              shiftBlue={-0.06}
+              softness={0.62}
+              repetition={5.5}
+              shiftRed={0.05}
+              shiftBlue={-0.05}
               distortion={0.05}
-              contour={0.52}
-              angle={92}
+              contour={0.3}
+              angle={96}
               scale={1}
               fit="contain"
               minPixelRatio={1}

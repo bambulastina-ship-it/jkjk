@@ -199,3 +199,77 @@
   text-transform: uppercase;
   color: rgba(247, 239, 224, 0.5);
 }
+
+/* section footnote — e.g. "Milk alternative add 30p." */
+.menu__section-foot {
+  margin: 1.1rem 0 0;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+/* the long group titles must never force a sideways scroll on a phone */
+.menu__section h3 {
+  white-space: normal;
+}
+
+@media (max-width: 559px) {
+  .menu__section-head::after {
+    display: none;
+  }
+}
+
+@media (min-width: 560px) {
+  .menu__section h3 {
+    white-space: nowrap;
+  }
+}
+
+/* incidental reference to the printed menu — small, and never the menu itself */
+.menu__scan {
+  margin: 2rem auto 0;
+  width: min(15rem, 62%);
+}
+
+.menu__scan .caption {
+  text-align: center;
+}
+
+/* liquid-metal plate: the plain wordmark stays in the DOM and fades out only
+   once the shader is actually up */
+.plate__inner .plate__static {
+  transition: opacity 0.6s var(--ease);
+}
+
+.plate__inner.is-live .plate__static {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate__inner .plate__static {
+    transition: none;
+  }
+}
+
+/* Phone setting.
+   Below 560px the dotted leader is dropped — a long item name would shrink it
+   to a stub or push it onto its own line — and a hairline between rows does
+   the same job of tying each name to its price. Prices stay right-aligned in
+   one tabular column, which is what makes the list scannable at 360px. */
+@media (max-width: 559px) {
+  .menu-list {
+    gap: 0;
+  }
+
+  .menu-name::after {
+    display: none;
+  }
+
+  .menu-row {
+    padding-block: 0.7rem;
+  }
+
+  .menu-row + .menu-row {
+    border-top: 1px solid var(--rule-soft);
+  }
+}

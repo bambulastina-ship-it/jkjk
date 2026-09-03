@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
 import {
+  prefersLightweight,
   supportsWebGL2,
   useInView,
   useIsNarrow,
@@ -36,11 +37,11 @@ function Drift({ as: Tag = 'div', delay = 0, className = '', children, ...rest }
 }
 
 const MENU = [
-  { name: 'Hot drinks', note: 'Coffee and the rest of the hot list, all day.' },
+  { name: 'Hot drinks', note: 'Coffee, and the rest of the hot board.' },
   { name: 'Cold drinks', note: "Chalked up on the board by the counter." },
   { name: 'Toasted sandwiches', note: 'In a kraft tray, with a pile of crisps.' },
   { name: 'Cakes', note: 'On the counter, under the dome.' },
-  { name: 'Marshfield Farm ice cream', note: 'Real dairy, scooped.' },
+  { name: 'Marshfield Farm ice cream', note: 'Real dairy, signed at the counter.' },
   { name: 'Plant-based & sorbet', note: 'Dairy-free flavours on the board.' },
   { name: 'Ice cream for dogs', note: 'They walked here too.' },
 ]
@@ -58,7 +59,7 @@ export default function App() {
   const reduced = useReducedMotion()
   const isNarrow = useIsNarrow()
   const pageVisible = usePageVisible()
-  const gl = supportsWebGL2()
+  const gl = supportsWebGL2() && !prefersLightweight()
 
   const [heroRef, heroInView] = useInView({ rootMargin: '0px', threshold: 0 })
   const [serveRef, serveInView] = useInView({ rootMargin: '15% 0px' })
@@ -111,8 +112,8 @@ export default function App() {
                   Coffee, toasties and ice cream <em>at the locks</em>.
                 </h1>
                 <p className="hero__sub">
-                  A canal-side café right by the Caen Hill Locks in Devizes. Benches out front,
-                  a small room inside, dogs welcome — and ice cream for them too.
+                  A canal-side café at the Caen Hill Locks in Devizes. Benches outside, a small
+                  room in, dogs welcome — and ice cream for them too.
                 </p>
                 <div className="hero__actions">
                   <a
@@ -139,7 +140,7 @@ export default function App() {
                   alt="A toasted granary sandwich cut in half with melted cheese, served with ready salted crisps in a kraft cardboard tray on a weathered wooden table outside."
                 />
                 <figcaption className="caption">
-                  A toastie and crisps, taken out to the benches.
+                  A toastie and crisps, out in the open air.
                 </figcaption>
               </figure>
             </div>
@@ -159,7 +160,7 @@ export default function App() {
               </div>
               <div className="strip__cell">
                 <dt className="strip__value">Benches outside</dt>
-                <dd className="strip__label">Right by the towpath</dd>
+                <dd className="strip__label">Out at the locks</dd>
               </div>
             </dl>
           </div>
@@ -193,14 +194,14 @@ export default function App() {
                   chalked up behind the counter.
                 </p>
                 <p>
-                  Most people take it back outside. The benches along the front are where the
-                  walkers, cyclists and boat crews end up, dogs included, halfway through
-                  whatever they came out to do.
+                  There is far more seating outside than in. The benches are where the walkers,
+                  cyclists and boat crews end up, dogs included, halfway through whatever they
+                  came out to do.
                 </p>
               </div>
               <ul className="notes">
                 <li>Dog friendly, inside and out — with ice cream for them too.</li>
-                <li>Benches out front; a small seating area indoors.</li>
+                <li>Plenty of benches outside; a small seating area indoors.</li>
                 <li>On the canal at the Caen Hill Locks — arrive on foot, by bike or by boat.</li>
               </ul>
             </Drift>
@@ -402,7 +403,7 @@ export default function App() {
         href={DIRECTIONS}
         label="Find us at the locks"
         shown={!heroInView}
-        enabled={!reduced}
+        enabled={!reduced && !prefersLightweight()}
       />
     </>
   )

@@ -94,25 +94,29 @@ export function useInView({ rootMargin = '0px', threshold = 0, once = false } = 
   return [ref, inView]
 }
 
-/*
- * Data-saver / very slow connection.
- * This café is on a towpath in rural Wiltshire; a visitor standing at the locks
- * on one bar should not be asked to download three.js. When this is true every
- * canvas stays unmounted and the CSS fallbacks carry the page.
- */
-let lightweight = null
-export function prefersLightweight() {
-  if (lightweight !== null) return lightweight
-  if (typeof navigator === 'undefined') return false
-  const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection
-  lightweight = Boolean(
-    c && (c.saveData === true || /^(slow-2g|2g)$/.test(c.effectiveType || ''))
-  )
-  return lightweight
-}
-
 /* DPR ceiling: 1.25 on phones, 1.5 elsewhere. */
 export function dprCap(isNarrow) {
   if (typeof window === 'undefined') return 1
   return Math.min(window.devicePixelRatio || 1, isNarrow ? 1.25 : 1.5)
+}
+
+/**
+ * One WebGL slot.
+ *
+ * Latches `mount` the first time the host element comes near the viewport, so
+ * the canvas is never built for a section nobody scrolled to; `animate` then
+ * tracks live visibility, the tab's visibility and prefers-reduced-motion, so
+ * only the section you are actually looking at is drawing frames.
+ */
+export function useCanvasSlot({ rootMargin = '250px' } = {}) {
+  const [ref, near] = useInView({ rootMargin })
+  const [mounted, setMounted] = useState(false)
+  const reduced = useReducedMotion()
+  const pageVisible = usePageVisible()
+
+  useEffect(() => {
+    if (near) setMounted(true)
+  }, [near])
+
+  return [ref, mounted, near && pageVisible && !reduced]
 }
