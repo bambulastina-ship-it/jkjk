@@ -1,18 +1,41 @@
-# Business 1 — brief
+# Business 1 — Nice To See You
 
-Fill this in (or just paste the info in chat) and drop the photos into `images/`.
+Family-run café in central York. Source: supplied Google Business listing + owner blurb.
 
-- **Business name:**
-- **What they do:**
-- **Location / areas served (UK):**
-- **Who the customers are:**
-- **Services or products to feature:**
-- **Tone:** (e.g. traditional, modern, luxury, industrial, warm/family-run)
-- **Preferred CTA:** (call / enquiry form / request a quote / book a consultation / visit us)
-- **Contact details to display:** (phone, email, address, opening hours)
-- **Anything real worth mentioning:** (years trading, accreditations, notable work)
-  Leave blank if unknown — nothing here gets invented.
+- **Business name:** Nice To See You
+- **Type:** Café / coffee shop / brunch
+- **Address:** 30 Goodramgate, York YO1 7LG, United Kingdom
+- **Phone:** +44 7707 559048
+- **Location note:** right by York Minster, in the heart of York
+- **Price:** £10–20 per person
+- **Rating (supplied, Google):** 4.6 from 434 reviews
+- **Also listed:** 5/5 on Facebook from 33 votes
 
-## Images
-Put supplied photos in `images/`. Helpful to note per image:
-- what it shows, and whether it's a hero / gallery / service / background candidate.
+## In their own words (supplied)
+"We are a family-run coffee shop located right by the minster in the heart of York.
+We are well-known for our orange and cranberry scones served with clotted cream and jam.
+Our food menu offers a variety of brunch options including avocado on toast..."
+
+## Known menu references (supplied — do not extend)
+- Orange & cranberry scones with clotted cream and jam (their signature)
+- Avocado on toast
+- Brunch options
+- Chai latte
+- Polish breakfast plate
+- Cakes, brownies, scones (visible on the counter display)
+- Fresh juices / smoothies, matcha, frappuccino (chalkboard)
+
+## Real supplied review quotes (Google)
+- Andrea Payne — "Then we had a selection of main meals - again quality, tasty, fresh food."
+- Cillian Hanna — "I ordered a chai latte and a polish breakfast plate."
+- Amy — "Excellent choice, generous servings, yummy and great service."
+
+## CTA direction
+Local walk-in café — primary CTA is **Visit us** / **Directions**, secondary **Call**.
+No booking system, no ordering, no payment.
+
+## STILL NEEDED
+- **Image files on disk** (see images/README.md) — photos were shown in chat but no files exist yet.
+- **Full opening hours** — only "closes 5pm" is known. Do not invent a hours table.
+- **Social URLs** — Facebook, TikTok and Instagram profiles exist but no links supplied.
+- **Email address** — none supplied; contact is currently phone + walk-in only.
