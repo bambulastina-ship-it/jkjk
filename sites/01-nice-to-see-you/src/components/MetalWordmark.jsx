@@ -82,19 +82,19 @@ export default function MetalWordmark({ active: onScreen = true }) {
             <LiquidMetal
               image={mask.src}
               style={{ width: '100%', height: '100%' }}
-              colorBack="#241c14"
-              /* near-bone tint: colour-burn keeps the letterforms bright and
-                 only warms them, so the wordmark reads as painted signwriting
-                 with a sheen, not as a neon outline */
-              colorTint="#ffffff"
+              colorBack="#000000"
+              /* Screened over the real type (see .wordmark__metal in the CSS),
+                 so black contributes nothing and only the highlights land.
+                 The tint is the espresso amber — the sheen is the warm bit. */
+              colorTint="#e8a45c"
               speed={speed}
               frame={reduced ? 9000 : 0}
-              softness={0.62}
-              repetition={5.5}
+              softness={0.5}
+              repetition={4.5}
               shiftRed={0.05}
               shiftBlue={-0.05}
-              distortion={0.05}
-              contour={0.3}
+              distortion={0.06}
+              contour={0.45}
               angle={96}
               scale={1}
               fit="contain"

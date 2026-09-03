@@ -2,3 +2,7 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# agent scratch / smoke-test artifacts
+.dom-out/
+.dom-run.mjs

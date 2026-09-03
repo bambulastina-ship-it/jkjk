@@ -749,15 +749,21 @@ a {
   }
 }
 
+/* The metal is a sheen laid over the real letters, not a replacement for
+   them: colorBack is black and the layer is screened, so the wordmark can
+   never become less legible than the plain type underneath. */
 .wordmark__metal {
   position: absolute;
   inset: 0;
   opacity: 0;
+  mix-blend-mode: screen;
   transition: opacity 1.2s var(--ease);
 }
 
-.wordmark.is-metal .wordmark__fallback {
-  opacity: 0;
+@supports not (mix-blend-mode: screen) {
+  .wordmark__metal {
+    display: none;
+  }
 }
 
 .wordmark.is-metal .wordmark__metal {
