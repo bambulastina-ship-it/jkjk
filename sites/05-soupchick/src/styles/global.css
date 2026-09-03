@@ -25,14 +25,14 @@
   --paper-deep: #efdfc2;
   --ink: #221f19;
   --ink-soft: #4e483d;
-  --ink-faint: #7a7365;
+  --ink-faint: #6a6455;
 
   /* the place */
   --green: #1f4a32;
   --green-deep: #16351f;
   --green-soft: #3f6b4d;
   --amber: #dd9a30;
-  --amber-deep: #b97a1c;
+  --amber-deep: #8f5a10;
   --tomato: #c33f2c;
 
   --rule: rgba(34, 31, 25, 0.16);
@@ -812,7 +812,7 @@ a {
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule-on-green);
   font-size: 0.8rem;
-  color: rgba(247, 239, 224, 0.5);
+  color: rgba(247, 239, 224, 0.64);
 }
 
 @media (min-width: 720px) {
@@ -856,4 +856,24 @@ a {
     rgba(255, 255, 255, 0.07) 0 12px,
     rgba(255, 255, 255, 0) 12px 24px
   );
+}
+
+/* ---------- .stack rhythm corrections ----------
+   .stack owns the vertical rhythm inside a column, so the elements it
+   contains give up their own trailing margins and let it do the spacing. */
+
+.stack > .eyebrow {
+  margin-bottom: 0;
+}
+
+.stack > p {
+  margin-bottom: 0;
+}
+
+.stack > h2 {
+  margin-top: 0.9rem;
+}
+
+.stack > .note {
+  margin-top: 1.7rem;
 }

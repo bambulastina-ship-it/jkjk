@@ -30,6 +30,10 @@ where each one appears and what it should be. Every slot has a fixed aspect
 ratio and a warm fallback gradient, so the layout does not move when the files
 arrive and there is no layout shift either way.
 
+Until the files exist the browser will log four 404s for `/images/*.jpg` — that
+is the intended behaviour of the fallback, not a bug. The `<img>` removes
+itself on error and the frame keeps its tone and its proportions.
+
 ## Where the four libraries are used
 
 | Library | Where | Why there |
