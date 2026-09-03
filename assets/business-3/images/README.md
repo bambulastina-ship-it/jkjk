@@ -1,14 +1,13 @@
-# Sandy's Sweet Cakes — images needed (nothing supplied yet)
+# Sandy's Sweet Cakes — image files needed
 
-No photographs have been provided. This business cannot be built without them:
-for a custom cake maker the photography is the product.
+Three photos were shared in chat but did not arrive as files on disk.
+Drop them here with these exact names:
 
-Useful set, roughly 8–15 images:
-- 3–4 tiered celebration cakes (wedding / anniversary / milestone birthday)
-- 2–3 themed children's birthday cakes
-- 2–3 brownies and sweet treats
-- 1–2 market stall / craft fair setups
-- The pink and brown circular logo, ideally SVG or PNG on transparent
+| Filename | Photo |
+|---|---|
+| `trays.jpg` | Macro close-up along trays of brownies topped with Kinder Bueno halves and chocolate chunks, very shallow depth of field, rich and chocolatey |
+| `box-of-six.jpg` | Top-down mixed box of six on crumpled parchment: caramel swirl blondie, nut brownie, flake brownie, lemon blondie, honeycomb brownie, chocolate-orange brownie |
+| `caramel-box.jpg` | Angled box of six caramel-drizzled brownies with fudge cubes and chocolate chunks, lined with white parchment, warm kitchen behind |
 
-Galleries exist on Facebook and Instagram, but those are login-walled and the
-images are not ours to scrape — the owner should export the ones she wants used.
+STILL MISSING: the pink-and-brown circular logo, and any photographs of the
+tiered / celebration / wedding cake work.

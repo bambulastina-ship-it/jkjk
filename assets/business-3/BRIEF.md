@@ -56,3 +56,42 @@ close to worthless.
 - **Service area** — how far she delivers around Devizes.
 - **Lead time** — how far ahead to order.
 - **Decision on the home address** (see PRIVACY above).
+
+---
+
+# UPDATE — photography received
+
+Three photos supplied. **All three are brownies and traybakes.** None show
+tiered cakes, fondant work, wedding or anniversary cakes, or themed children's
+cakes.
+
+This materially changes the brief. The relayed description led with custom
+celebration and wedding cakes, but the actual evidence is a brownie and
+traybake business. Build what the photographs support:
+
+- LEAD with brownies, blondies and traybakes — that is what is demonstrably made
+- Custom orders may be referenced in general terms (the business runs on
+  enquiries), but do NOT display, claim or describe a wedding / tiered /
+  themed cake portfolio there are no images for
+- Do not describe the cowgirl cake, the teddy bear cake, or the roses-and-ribbon
+  anniversary cakes. Those remain unverified and unillustrated.
+
+## Flavours visible in the photos (describe only what is shown)
+- Kinder Bueno topped brownies, and chocolate-chunk topped traybakes (photo 1)
+- A mixed box of six (photo 2): caramel swirl blondie with chocolate discs;
+  chocolate brownie with nuts; brownie with chocolate flake shards; lemon
+  blondie with white chocolate drizzle and candied lemon; brownie with
+  honeycomb pieces; brownie topped with a chocolate orange segment
+- A box of six (photo 3): caramel drizzle with fudge cubes, white and dark
+  chips, chocolate chunks and a caramel bar piece
+
+Do not name commercial confectionery brands as if they were official flavour
+names — describe them generically unless the owner confirms her own names.
+
+## Still outstanding for this business
+- **The pink-and-brown circular logo file** — still not supplied. A typographic
+  wordmark will be used as the Liquid Metal mask in the meantime; swap in the
+  real logo when it arrives.
+- Photos of the celebration / tiered cake work, if that side is to be shown
+- Confirmation of delivery, lead time, service area, and a contact route
+- The home-address privacy decision (see PRIVACY above) — still stands
