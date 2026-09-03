@@ -8,11 +8,11 @@ motion. Not five skins of one template.
 
 | # | Business | Assets received | Build |
 |---|----------|-----------------|-------|
-| 1 | Nice To See You, York | photos in chat, files pending | in progress |
-| 2 | Caen Hill Cafe, Devizes | photos in chat, files pending | in progress |
+| 1 | Nice To See You, York | photos in chat, files pending | ✅ built & reviewed |
+| 2 | Caen Hill Cafe, Devizes | photos in chat, files pending | ✅ built & reviewed |
 | 3 | Sandy's Sweet Cakes, Potterne | photos in chat, files pending | **cancelled by client** |
 | 4 | The Stroppy Cow Biscuit Company, Devizes | photos in chat, files pending | **cancelled by client** |
-| 5 | SoupChick | assets in chat, files pending | in progress |
+| 5 | SoupChick, Devizes | assets in chat, files pending | ✅ built & reviewed |
 
 Businesses 3 and 4 were cancelled by the client on 2026-09-03 and are not to be
 built. Their briefs and any partial code are retained for reference only; no

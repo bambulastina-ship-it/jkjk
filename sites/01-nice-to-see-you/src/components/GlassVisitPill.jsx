@@ -30,6 +30,31 @@ import { hasWebGL2, usePrefersReducedMotion } from '../lib/env.js'
 const VENDOR = `${import.meta.env.BASE_URL}vendor/liquid-glass-js/`
 const SCRIPTS = ['container.js', 'button.js', 'expose.js']
 
+/**
+ * html2canvas clones the document into an iframe and waits on that clone's
+ * `document.fonts.ready`. If a web-font stylesheet is slow or blocked, that
+ * promise never settles and the snapshot hangs forever. Nothing here is
+ * load-bearing, so the whole attempt is given a deadline and then abandoned.
+ */
+const SNAPSHOT_DEADLINE_MS = 6000
+
+function withDeadline(promise, ms) {
+  let timer
+  return Promise.race([
+    promise.finally(() => clearTimeout(timer)),
+    new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error('snapshot timed out')), ms)
+    }),
+  ])
+}
+
+/** html2canvas leaves its clone iframe behind if it never finishes. */
+function sweepHtml2canvasLeftovers() {
+  document
+    .querySelectorAll('iframe.html2canvas-container')
+    .forEach((node) => node.remove())
+}
+
 function loadOnce(url, tag, attrs) {
   return new Promise((resolve, reject) => {
     const existing = document.querySelector(`${tag}[data-lg="${url}"]`)
@@ -76,27 +101,34 @@ export default function GlassVisitPill({ shown }) {
 
   useEffect(() => {
     // Only build the glass once the action is actually on screen, and only
-    // where it can succeed.
-    if (!shown || glass || reduced || !hasWebGL2()) return
+    // where it can succeed. `glass` is deliberately NOT a dependency: setting
+    // it would re-run this effect and immediately tear down the container it
+    // had just built.
+    if (!shown || reduced || !hasWebGL2()) return
     if (document.body.scrollHeight > 20000) return // snapshot would be silly-large
 
     let container = null
     let cancelled = false
     let resizeTimer = 0
 
-    const snapshot = async (html2canvas) =>
-      html2canvas(document.body, {
-        scale: 1,
-        logging: false,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#100e0c',
-        ignoreElements: (el) =>
-          el.tagName === 'CANVAS' ||
-          el.classList.contains('glass-container') ||
-          el.classList.contains('glass-button') ||
-          el.classList.contains('glass-button-text'),
-      })
+    const snapshot = (html2canvas) =>
+      withDeadline(
+        html2canvas(document.body, {
+          scale: 1,
+          logging: false,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#100e0c',
+          // Without this html2canvas waits 15s on every image it cannot fetch.
+          imageTimeout: 2000,
+          ignoreElements: (el) =>
+            el.tagName === 'CANVAS' ||
+            el.classList.contains('glass-container') ||
+            el.classList.contains('glass-button') ||
+            el.classList.contains('glass-button-text'),
+        }),
+        SNAPSHOT_DEADLINE_MS
+      )
 
     const build = async () => {
       const [{ default: html2canvas }, lib] = await Promise.all([
@@ -137,6 +169,8 @@ export default function GlassVisitPill({ shown }) {
     }
 
     build().catch(() => {
+      // The frosted CSS plate is the design; losing the glass costs nothing.
+      sweepHtml2canvasLeftovers()
       if (!cancelled) setGlass(false)
     })
 
@@ -159,6 +193,7 @@ export default function GlassVisitPill({ shown }) {
         /* nothing to release */
       }
       container.element?.remove()
+      sweepHtml2canvasLeftovers()
       const all = window.LiquidGlass?.Container?.instances
       if (all) {
         const i = all.indexOf(container)
@@ -167,7 +202,8 @@ export default function GlassVisitPill({ shown }) {
       container = null
       setGlass(false)
     }
-  }, [shown, glass, reduced])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shown, reduced])
 
   return (
     <div className={`glasspill ${shown ? 'is-shown' : ''} ${glass ? 'is-glass' : ''}`}>

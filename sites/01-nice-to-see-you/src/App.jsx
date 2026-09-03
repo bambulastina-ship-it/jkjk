@@ -19,9 +19,11 @@ import { useInView } from './lib/env.js'
  *   →  two-up reversed (paper)      →  voices (ink, R3F)
  *   →  visit (ink, ShaderGradient)  →  footer
  *
- * WebGL budget: the three heavy canvases live in the hero, the voices section
- * and the visit section, and each is mounted only while its own section is on
- * screen. They are separated by enough page that in practice at most one runs.
+ * WebGL budget: three canvases, none of them ever competing. The Liquid Metal
+ * wordmark is a small masthead-sized surface that stays put and is parked when
+ * the hero scrolls away; the R3F crema field and the ShaderGradient backdrop
+ * are code-split, mounted only while their own section is on screen, and made
+ * mutually exclusive below.
  */
 export default function App() {
   const heroRef = useRef(null)
@@ -30,8 +32,15 @@ export default function App() {
 
   const heroInView = useInView(heroRef, { rootMargin: '10% 0px' })
   const heroSeen = useInView(heroRef, { once: true })
-  const voicesInView = useInView(voicesRef, { rootMargin: '15% 0px' })
-  const visitInView = useInView(visitRef, { rootMargin: '15% 0px' })
+  const voicesInView = useInView(voicesRef, { rootMargin: '10% 0px' })
+  // Negative margin: the closing panel only counts as "here" once it has
+  // genuinely arrived, which keeps it from stealing the section above.
+  const visitInView = useInView(visitRef, { rootMargin: '-25% 0px' })
+
+  // The two sections are close enough that both can be on screen at once.
+  // Only one heavy canvas ever runs: the closing panel wins, because that is
+  // where the reader is heading.
+  const cremaActive = voicesInView && !visitInView
 
   // The sticky action appears once the hero's own buttons have gone, and steps
   // aside again when the closing panel puts the same two actions on screen.
@@ -52,7 +61,7 @@ export default function App() {
         <BleedBand />
         <Signature />
         <Counter />
-        <Voices innerRef={voicesRef} active={voicesInView} />
+        <Voices innerRef={voicesRef} active={cremaActive} />
         <Visit innerRef={visitRef} active={visitInView} />
       </main>
 

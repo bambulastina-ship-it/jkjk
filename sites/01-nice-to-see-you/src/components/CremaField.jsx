@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useLayoutEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import Safe from './Safe.jsx'
@@ -100,13 +100,13 @@ const fragmentShader = /* glsl */ `
     vec3 l = normalize(vec3(-0.55, 0.72, 0.42));
 
     float lambert = max(dot(n, l), 0.0);
-    float spec = pow(max(dot(reflect(-l, n), v), 0.0), 42.0);
+    float spec = pow(max(dot(reflect(-l, n), v), 0.0), 26.0);
     float fres = pow(1.0 - max(dot(n, v), 0.0), 3.2);
 
     vec3 col = uInk;
-    col += uAmber * (lambert * 0.10);
-    col += uAmber * (spec * 0.95);
-    col += uAmber * (fres * 0.13);
+    col += uAmber * (lambert * 0.26);
+    col += uAmber * (spec * 1.45);
+    col += uAmber * (fres * 0.34);
 
     // fade the far edge and the corners so the plane has no visible border
     float edge = smoothstep(0.0, 0.30, vUv.y) * smoothstep(1.0, 0.62, vUv.y);
@@ -119,13 +119,22 @@ const fragmentShader = /* glsl */ `
 
 function Crema({ segments, amplitude, animate }) {
   const material = useRef(null)
-  const { camera } = useThree()
+  const { camera, invalidate } = useThree()
+
+  // R3F leaves the default camera looking straight down -Z. Aim it at the
+  // surface so the plane fills the lower two thirds of the frame instead of
+  // grazing the very bottom edge.
+  useLayoutEffect(() => {
+    camera.lookAt(0, -0.35, 0)
+    camera.updateProjectionMatrix()
+    invalidate()
+  }, [camera, invalidate])
 
   const uniforms = useMemo(
     () => ({
       uTime: { value: 6.0 },
       uAmp: { value: amplitude },
-      uInk: { value: new THREE.Color('#12100e') },
+      uInk: { value: new THREE.Color('#1b1512') },
       uAmber: { value: new THREE.Color('#e08b3c') },
       uCamera: { value: new THREE.Vector3() },
     }),

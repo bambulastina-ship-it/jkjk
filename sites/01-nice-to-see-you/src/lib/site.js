@@ -38,7 +38,7 @@ export const REVIEWS = [
 export const COUNTER = [
   {
     name: 'Orange & cranberry scones',
-    note: 'Served with clotted cream and jam. The thing people come back for.',
+    note: 'Served with clotted cream and jam. The one the shop is known for.',
   },
   { name: 'Avocado on toast', note: 'From the brunch menu.' },
   { name: 'Polish breakfast plate', note: null },

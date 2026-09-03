@@ -44,14 +44,14 @@ export default function VisitBackdrop({ active }) {
             /* reduced motion keeps the frame, drops the movement */
             animate={reduced ? 'off' : 'on'}
             uTime={4.2}
-            uSpeed={0.09}
-            uStrength={1.6}
+            uSpeed={0.08}
+            uStrength={2.2}
             uDensity={1.1}
             uFrequency={0}
             uAmplitude={0}
             color1="#0b0a09"
             color2="#3a2413"
-            color3="#b4600f"
+            color3="#c96a10"
             cDistance={3.1}
             cAzimuthAngle={180}
             cPolarAngle={96}
@@ -63,7 +63,7 @@ export default function VisitBackdrop({ active }) {
             rotationY={0}
             rotationZ={-62}
             lightType="3d"
-            brightness={0.85}
+            brightness={1.15}
             grain="on"
             grainBlending={0.2}
             reflection={0.1}

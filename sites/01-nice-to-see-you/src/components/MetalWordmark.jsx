@@ -82,7 +82,7 @@ export default function MetalWordmark({ active: onScreen = true }) {
             <LiquidMetal
               image={mask.src}
               style={{ width: '100%', height: '100%' }}
-              colorBack="#000000"
+              colorBack="#00000000"
               /* Screened over the real type (see .wordmark__metal in the CSS),
                  so black contributes nothing and only the highlights land.
                  The tint is the espresso amber — the sheen is the warm bit. */
