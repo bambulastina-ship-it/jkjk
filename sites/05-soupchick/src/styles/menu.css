@@ -225,10 +225,10 @@
   }
 }
 
-/* incidental reference to the printed menu — small, and never the menu itself */
+/* the printed menu, shown at its full landscape proportions */
 .menu__scan {
-  margin: 2rem auto 0;
-  width: min(15rem, 62%);
+  margin: 2.75rem auto 0;
+  width: min(46rem, 100%);
 }
 
 .menu__scan .caption {

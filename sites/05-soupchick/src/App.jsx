@@ -73,6 +73,22 @@ export default function App() {
       </header>
 
       <main id="top">
+        {/* ------------------------------------------ liquid metal nameplate */}
+        <div className="plate" ref={plateRef}>
+          <div className="shell">
+            {gl && plateMount ? (
+              <Suspense fallback={<div className="plate__inner"><p className="plate__static">SoupChick</p></div>}>
+                <MetalWordmark animate={plateAnimate && !reduced} isNarrow={isNarrow} />
+              </Suspense>
+            ) : (
+              <div className="plate__inner">
+                <p className="plate__static">SoupChick</p>
+              </div>
+            )}
+            <p className="plate__caption">Fresh · Local · Devizes</p>
+          </div>
+        </div>
+
         {/* ---------------------------------------------------------- hero */}
         <section className="hero" ref={heroRef} aria-labelledby="hero-title">
           <div className="shell">
@@ -131,14 +147,73 @@ export default function App() {
           </div>
         </section>
 
-        {/* ------------------------------------------------------- signage */}
-        <section className="signage" aria-label="What the stall sells">
+
+
+
+
+
+        {/* ---------------------------------------------------------- menu */}
+        <section className="menu band" id="menu" aria-labelledby="menu-title">
           <div className="shell">
-            <ul className="signage__list">
-              {SIGNAGE.map((word) => (
-                <li key={word}>{word}</li>
-              ))}
-            </ul>
+            <div className="menu__head">
+              <p className="eyebrow">The menu</p>
+              <h2 id="menu-title">Everything, with the prices.</h2>
+              <p>
+                As printed on the menu at the counter. Soups change daily; the board by the till has
+                today&rsquo;s.
+              </p>
+            </div>
+
+            <Menu />
+
+            <div className="menu__foot">
+              <p>
+                <strong>Orders are taken at the counter.</strong> There is nothing to buy on this
+                page — it is here so you know what is on and what it costs before you walk over.
+              </p>
+              <figure className="menu__scan">
+                <Photo
+                  shape="wide"
+                  src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788520005/0101_ivlw4p.webp"
+                  alt="The printed SoupChick menu board at the stall, listing the same soups, baked potatoes, toasties and drinks set out in text above."
+                  width={1354}
+                  height={1010}
+                />
+                <figcaption className="caption">The printed menu at the stall.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------------------------------------------------- room */}
+        <section className="room band" aria-labelledby="room-title">
+          <div className="shell feature">
+            <div className="feature__media">
+              <Rise>
+                <figure className="figure">
+                  <Photo
+                    shape="wide"
+                    tone="green"
+                    src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788519998/010_ewrpdj.webp"
+                    alt="The seating room: white painted brick under an arched ceiling, four coloured pendant shades, framed landscape photographs on the walls, tartan blankets over the chairs, fairy lights, candles and flowers on the tables."
+                    width={1400}
+                    height={875}
+                  />
+                </figure>
+              </Rise>
+            </div>
+            <div className="feature__body stack">
+              <p className="eyebrow eyebrow--light">Eat in</p>
+              <h2 id="room-title">And a room to sit down in.</h2>
+              <p>
+                White painted brick under an arched ceiling, four coloured pendant shades, framed
+                landscapes on the walls, tartan blankets over the backs of the chairs, fairy lights
+                and candles. Bring a book; the soup is hot.
+              </p>
+              <p className="note">
+                Eat in from <strong>£5.50</strong>, take away from <strong>£4.50</strong>.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -183,52 +258,14 @@ export default function App() {
           </div>
         </section>
 
-        {/* ------------------------------------------ liquid metal nameplate */}
-        <div className="plate" ref={plateRef}>
+        {/* ------------------------------------------------------- signage */}
+        <section className="signage" aria-label="What the stall sells">
           <div className="shell">
-            {gl && plateMount ? (
-              <Suspense fallback={<div className="plate__inner"><p className="plate__static">SoupChick</p></div>}>
-                <MetalWordmark animate={plateAnimate && !reduced} isNarrow={isNarrow} />
-              </Suspense>
-            ) : (
-              <div className="plate__inner">
-                <p className="plate__static">SoupChick</p>
-              </div>
-            )}
-            <p className="plate__caption">Fresh · Local · Devizes</p>
-          </div>
-        </div>
-
-        {/* ---------------------------------------------------------- menu */}
-        <section className="menu band" id="menu" aria-labelledby="menu-title">
-          <div className="shell">
-            <div className="menu__head">
-              <p className="eyebrow">The menu</p>
-              <h2 id="menu-title">Everything, with the prices.</h2>
-              <p>
-                As printed on the menu at the counter. Soups change daily; the board by the till has
-                today&rsquo;s.
-              </p>
-            </div>
-
-            <Menu />
-
-            <div className="menu__foot">
-              <p>
-                <strong>Orders are taken at the counter.</strong> There is nothing to buy on this
-                page — it is here so you know what is on and what it costs before you walk over.
-              </p>
-              <figure className="menu__scan">
-                <Photo
-                  shape="tall"
-                  src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788520005/0101_ivlw4p.webp"
-                  alt="The printed SoupChick menu board at the stall, listing the same soups, baked potatoes, toasties and drinks set out in text above."
-                  width={600}
-                  height={750}
-                />
-                <figcaption className="caption">The printed menu at the stall.</figcaption>
-              </figure>
-            </div>
+            <ul className="signage__list">
+              {SIGNAGE.map((word) => (
+                <li key={word}>{word}</li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -261,37 +298,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* ---------------------------------------------------------- room */}
-        <section className="room band" aria-labelledby="room-title">
-          <div className="shell feature">
-            <div className="feature__media">
-              <Rise>
-                <figure className="figure">
-                  <Photo
-                    shape="wide"
-                    tone="green"
-                    src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788519998/010_ewrpdj.webp"
-                    alt="The seating room: white painted brick under an arched ceiling, four coloured pendant shades, framed landscape photographs on the walls, tartan blankets over the chairs, fairy lights, candles and flowers on the tables."
-                    width={1400}
-                    height={875}
-                  />
-                </figure>
-              </Rise>
-            </div>
-            <div className="feature__body stack">
-              <p className="eyebrow eyebrow--light">Eat in</p>
-              <h2 id="room-title">And a room to sit down in.</h2>
-              <p>
-                White painted brick under an arched ceiling, four coloured pendant shades, framed
-                landscapes on the walls, tartan blankets over the backs of the chairs, fairy lights
-                and candles. Bring a book; the soup is hot.
-              </p>
-              <p className="note">
-                Eat in from <strong>£5.50</strong>, take away from <strong>£4.50</strong>.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* --------------------------------------------------------- visit */}
         <section className="visit band" id="visit" aria-labelledby="visit-title" ref={washRef}>
