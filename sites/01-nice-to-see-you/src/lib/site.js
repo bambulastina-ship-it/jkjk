@@ -47,4 +47,16 @@ export const COUNTER = [
   { name: 'Fresh juices and smoothies', note: null },
 ]
 
-export const IMG = (file) => `${import.meta.env.BASE_URL}images/${file}`
+/**
+ * Supplied photography, hosted by the client on Cloudinary.
+ * Swap a value for a local `images/…` path if the files are ever self-hosted.
+ */
+const REMOTE = {
+  'shopfront.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519486/001_uquzmv.webp',
+  'espresso.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519516/002_hy6pme.webp',
+  'pancakes.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519535/003_g5gjnq.webp',
+  'interior.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519563/004_yzdnsz.webp',
+  'juice.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519582/005_vnjak7.webp',
+}
+
+export const IMG = (file) => REMOTE[file] ?? `${import.meta.env.BASE_URL}images/${file}`
