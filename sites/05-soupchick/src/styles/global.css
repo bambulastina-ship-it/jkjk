@@ -28,9 +28,9 @@
   --ink-faint: #6a6455;
 
   /* the place */
-  --green: #1f4a32;
-  --green-deep: #16351f;
-  --green-soft: #3f6b4d;
+  --green: #7c2a17;
+  --green-deep: #571a0d;
+  --green-soft: #a4482c;
   --amber: #dd9a30;
   --amber-deep: #8f5a10;
   --tomato: #c33f2c;
@@ -313,7 +313,7 @@ a {
 }
 
 .frame--green {
-  background-image: linear-gradient(150deg, #2c5a3d 0%, #1f4a32 60%, #16351f 100%);
+  background-image: linear-gradient(150deg, #94381f 0%, #7c2a17 60%, #571a0d 100%);
 }
 
 .frame > img {

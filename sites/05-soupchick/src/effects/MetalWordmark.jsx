@@ -95,7 +95,7 @@ export default function MetalWordmark({ animate, isNarrow }) {
             <LiquidMetal
               image={mask}
               style={{ width: '100%', height: '100%' }}
-              colorBack="#16351f"
+              colorBack="#571a0d"
               colorTint="#f2d9a4"
               speed={animate ? 0.4 : 0}
               softness={0.3}

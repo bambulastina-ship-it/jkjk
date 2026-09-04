@@ -43,7 +43,7 @@ export default function MarketWash({ animate, isNarrow }) {
           uAmplitude={0}
           color1="#f6ead3"
           color2="#dda850"
-          color3="#2f6142"
+          color3="#8c3418"
           cAzimuthAngle={180}
           cPolarAngle={95}
           cDistance={3}
