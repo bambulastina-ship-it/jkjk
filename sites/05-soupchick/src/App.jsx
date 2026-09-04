@@ -152,26 +152,10 @@ export default function App() {
 
 
 
-        {/* ---------------------------------------------------------- menu */}
-        <section className="menu band" id="menu" aria-labelledby="menu-title">
+        {/* ------------------------------------------------- the printed menu */}
+        <section className="band scan" aria-label="The printed menu at the stall">
           <div className="shell">
-            <div className="menu__head">
-              <p className="eyebrow">The menu</p>
-              <h2 id="menu-title">Everything, with the prices.</h2>
-              <p>
-                As printed on the menu at the counter. Soups change daily; the board by the till has
-                today&rsquo;s.
-              </p>
-            </div>
-
-            <Menu />
-
-            <div className="menu__foot">
-              <p>
-                <strong>Orders are taken at the counter.</strong> There is nothing to buy on this
-                page — it is here so you know what is on and what it costs before you walk over.
-              </p>
-              <figure className="menu__scan">
+            <figure className="menu__scan">
                 <Photo
                   shape="wide"
                   src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788520005/0101_ivlw4p.webp"
@@ -181,7 +165,6 @@ export default function App() {
                 />
                 <figcaption className="caption">The printed menu at the stall.</figcaption>
               </figure>
-            </div>
           </div>
         </section>
 
@@ -216,6 +199,31 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* ---------------------------------------------------------- menu */}
+        <section className="menu band" id="menu" aria-labelledby="menu-title">
+          <div className="shell">
+            <div className="menu__head">
+              <p className="eyebrow">The menu</p>
+              <h2 id="menu-title">Everything, with the prices.</h2>
+              <p>
+                As printed on the menu at the counter. Soups change daily; the board by the till has
+                today&rsquo;s.
+              </p>
+            </div>
+
+            <Menu />
+
+            <div className="menu__foot">
+              <p>
+                <strong>Orders are taken at the counter.</strong> There is nothing to buy on this
+                page — it is here so you know what is on and what it costs before you walk over.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
 
         {/* ---------------------------------------------------- soup + R3F */}
         <section className="band" aria-labelledby="pot-title">

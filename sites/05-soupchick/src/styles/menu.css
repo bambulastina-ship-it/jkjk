@@ -227,8 +227,8 @@
 
 /* the printed menu, shown at its full landscape proportions */
 .menu__scan {
-  margin: 2.75rem auto 0;
-  width: min(46rem, 100%);
+  margin: 0 auto;
+  width: min(52rem, 100%);
 }
 
 .menu__scan .caption {
