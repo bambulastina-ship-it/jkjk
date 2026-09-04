@@ -6,3 +6,4 @@ dist/
 # agent scratch / smoke-test artifacts
 .dom-out/
 .dom-run.mjs
+dist-single/
