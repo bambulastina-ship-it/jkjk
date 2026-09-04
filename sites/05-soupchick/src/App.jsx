@@ -120,7 +120,7 @@ export default function App() {
               <figure className="figure hero__figure">
                 <Photo
                   shape="wide"
-                  src="/images/stall.jpg"
+                  src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788519985/008_ux490a.webp"
                   alt="The SoupChick stall inside The Shambles Market Hall: black chalkboard signs reading Fresh Soups, Juice Bar and Healthy Take-Away above a pallet-clad counter and display fridge, festoon lights and bunting overhead, and red and white tables where customers are eating."
                   width={1600}
                   height={900}
@@ -150,7 +150,7 @@ export default function App() {
                 <figure className="figure">
                   <Photo
                     shape="wide"
-                    src="/images/soup.jpg"
+                    src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788519991/009_t6uyhp.webp"
                     alt="A bowl of creamy, chunky soup with the spoon lifted from it, a blue-and-white patterned bowl of sliced sourdough alongside and a pepper grinder on a white table."
                     width={1400}
                     height={875}
@@ -221,7 +221,7 @@ export default function App() {
               <figure className="menu__scan">
                 <Photo
                   shape="tall"
-                  src="/images/menu.jpg"
+                  src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788520005/0101_ivlw4p.webp"
                   alt="The printed SoupChick menu board at the stall, listing the same soups, baked potatoes, toasties and drinks set out in text above."
                   width={600}
                   height={750}
@@ -270,7 +270,7 @@ export default function App() {
                   <Photo
                     shape="wide"
                     tone="green"
-                    src="/images/seating.jpg"
+                    src="https://res.cloudinary.com/ew67r2lv/image/upload/v1788519998/010_ewrpdj.webp"
                     alt="The seating room: white painted brick under an arched ceiling, four coloured pendant shades, framed landscape photographs on the walls, tartan blankets over the chairs, fairy lights, candles and flowers on the tables."
                     width={1400}
                     height={875}
