@@ -14,7 +14,15 @@ const CanalWater = lazy(() => import('./effects/CanalWater.jsx'))
 const LockFlight = lazy(() => import('./effects/LockFlight.jsx'))
 const MetalWordmark = lazy(() => import('./effects/MetalWordmark.jsx'))
 
-const IMG = import.meta.env.BASE_URL + 'images/'
+/**
+ * Supplied photography, hosted by the client on Cloudinary.
+ * Swap a value for a local `images/…` path if the files are ever self-hosted.
+ */
+const REMOTE = {
+  'toastie.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519863/006_pcs9pu.webp',
+  'interior.jpg': 'https://res.cloudinary.com/ew67r2lv/image/upload/v1788519879/007_iaqrtv.webp',
+}
+const photo = (file) => REMOTE[file] ?? `${import.meta.env.BASE_URL}images/${file}`
 
 const DIRECTIONS =
   'https://www.google.com/maps/dir/?api=1&destination=Caen%20Hill%20Cafe%2C%20The%20Locks%2C%20Devizes%20SN10%201QR'
@@ -133,7 +141,7 @@ export default function App() {
               <figure className="hero__figure">
                 <Photo
                   variant="toastie"
-                  src={`${IMG}toastie.jpg`}
+                  src={photo('toastie.jpg')}
                   width={1200}
                   height={800}
                   eager
@@ -172,7 +180,7 @@ export default function App() {
             <Drift as="figure" className="stop__figure">
               <Photo
                 variant="interior"
-                src={`${IMG}interior.jpg`}
+                src={photo('interior.jpg')}
                 width={1200}
                 height={900}
                 alt="Inside the café: sage green walls, a red brick fireplace with a framed photograph of the canal locks propped inside it, a large roman numeral wall clock, a round table with floral oilcloth and white folding chairs, and a member of staff working at the wooden counter."
