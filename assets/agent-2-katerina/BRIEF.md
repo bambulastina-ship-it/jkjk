@@ -56,3 +56,20 @@ set arrives.
 - No payment functionality of any kind.
 - No invented reviews, awards, deal volumes, ROI figures, or guarantees.
 - No stock or AI imagery. No Agent 1 imagery.
+
+---
+## Asset audit — 2026-09-07
+Removed two files that were byte-identical duplicates of Agent 1's images
+(Dubai Opera night, marble penthouse). Client confirmed these belong to Lara only.
+
+Remaining files are NOT usable at premium quality:
+- interior-dining-LOWRES.png — 398x299. Would need ~3.5x upscaling for a hero. Too soft.
+- thumb-UNUSABLE.jpg — 150x150 thumbnail. Cannot be used at any size.
+
+BUILD REMAINS BLOCKED. Still required from client:
+- [ ] 1 portrait of Katerina, ideally 1000px+ wide (her face leads the page)
+- [ ] 5-7 property images of her own listings, ideally 1000px+ wide
+- [ ] BRN number
+- [ ] WhatsApp / phone
+- [ ] Year she started
+- [ ] Tagline decision (see compliance flag above)
