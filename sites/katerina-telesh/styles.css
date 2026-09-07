@@ -195,7 +195,9 @@ a{ color:inherit; }
   font-family:var(--ff-disp); font-weight:500;
   font-size:clamp(2.9rem, 12.4vw, 9.5rem);
   line-height:.86; letter-spacing:-.045em;
-  margin:0 0 clamp(2rem,4.5vw,3.4rem);
+  margin:0 0 clamp(2rem,4.5vw,3.2rem);
+  padding-bottom:clamp(1.4rem,3vw,2.4rem);
+  border-bottom:1px solid var(--line);
   display:grid;
 }
 .wordmark__a{ color:var(--ivory); }
@@ -361,39 +363,65 @@ a{ color:inherit; }
 .def--no dt{ color:var(--oxblood-2); }
 
 /* --------------------------------------------------------------- band */
+/* Offset half-band: the shared interior is pinned to the right edge and
+   held close to its native 767px so it is never meaningfully upscaled.
+   Type sits on solid ground to the left, never over the picture.        */
 .band{
+  --bh:clamp(190px, 52vw, 280px);
   position:relative; isolation:isolate; overflow:hidden;
-  min-height:clamp(300px, 42vw, 470px);
-  display:grid; align-items:end;
-  padding-block:clamp(2.5rem,5vw,4rem);
+  background:var(--noir);
   border-block:1px solid var(--line);
+  padding-block:0 clamp(2.2rem,5vw,3rem);
+}
+.band__img,
+.band__veil,
+.band > .grain{
+  position:absolute; left:0; right:0; top:0; height:var(--bh);
 }
 .band__img{
-  position:absolute; inset:0; z-index:-2;
+  z-index:0;
   background-image:url("img/interior-penthouse.png");
   background-size:cover;
-  /* hard left crop onto the marble island — a different focal point and a
-     colder tone than any other use of this shared image */
-  background-position:16% 62%;
-  filter:grayscale(.85) contrast(1.16) brightness(.36) saturate(.5);
-  transform:scale(1.04);
+  /* low-left crop: the marble island and the run of cabinetry, not the
+     centred room view */
+  background-position:22% 74%;
+  filter:grayscale(.78) contrast(1.14) brightness(.6) saturate(.45);
 }
-.band::before{
-  content:""; position:absolute; inset:0; z-index:-1;
-  background:
-    linear-gradient(90deg, rgba(16,18,22,.9) 0%, rgba(16,18,22,.35) 55%, rgba(69,80,94,.35) 100%),
-    linear-gradient(0deg, rgba(16,18,22,.92) 0%, rgba(16,18,22,0) 62%);
+.band__veil{
+  z-index:1;
+  background:linear-gradient(180deg, rgba(16,18,22,.3) 0%, rgba(16,18,22,.55) 55%, rgba(16,18,22,.96) 100%);
 }
-.band__in{ position:relative; z-index:3; }
+.band > .grain{ z-index:2; }
+.band__in{
+  position:relative; z-index:3;
+  padding-top:calc(var(--bh) + clamp(1.4rem,4vw,2.2rem));
+}
 .band__line{
   font-family:var(--ff-disp); font-weight:500;
   font-size:clamp(1.25rem,2.7vw,1.95rem);
   line-height:1.18; letter-spacing:-.024em;
-  margin:0 0 .9rem; max-width:24ch; text-wrap:balance;
+  margin:0 0 .9rem; max-width:22ch; text-wrap:balance;
 }
 .band__cap{
   margin:0; font-family:var(--ff-mono); font-size:.64rem;
   letter-spacing:.16em; text-transform:uppercase; color:var(--stone);
+}
+@media (min-width:900px){
+  .band{
+    --bw:min(54%, 880px);
+    min-height:clamp(340px, 33vw, 460px);
+    display:grid; align-items:center;
+    padding-block:clamp(2.5rem,5vw,4rem);
+  }
+  .band__img,
+  .band__veil,
+  .band > .grain{ left:auto; right:0; top:0; height:100%; width:var(--bw); }
+  .band__veil{
+    background:linear-gradient(90deg,
+      var(--noir) 0%, rgba(16,18,22,.72) 20%,
+      rgba(16,18,22,.18) 62%, rgba(69,80,94,.22) 100%);
+  }
+  .band__in{ padding-top:0; }
 }
 
 /* ------------------------------------------------------------ process */

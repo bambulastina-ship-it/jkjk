@@ -49,4 +49,23 @@ is strongly preferred.
   or guarantees.
 - No stock or AI-generated imagery.
 
-## STATUS: BLOCKED — awaiting images.
+---
+## Assets received — BUILD UNBLOCKED
+- portrait-ashmid.png — 471x855 vertical. Full-length, navy suit, white shirt,
+  leaning in a marble lobby, Burj Khalifa and Downtown skyline through the glass,
+  warm late light. Strongest portrait across all three agents. THE HERO.
+- villa-render.png — 894x758. Contemporary Dubai villa render: curved gold-trimmed
+  balconies, bougainvillea, topiary, sports car and SUV on the drive, deep blue sky.
+  A RENDER, not a photograph — caption it as off-plan / render, never as a
+  completed property or a sale.
+
+Shared-image duplicates removed from this folder; assets/shared/ remains available
+but those two already appear on Agents 1 and 2 — use sparingly here.
+
+Only two images. This page must NOT pad a gallery with repeats.
+
+## STILL OUTSTANDING
+- [ ] BRN number — NOT SUPPLIED. Render a visible {{BRN}} placeholder. Never invent one.
+- [ ] WhatsApp / phone — NOT SUPPLIED. CTAs point at instagram.com/ashmid.realestate_
+- [ ] Year started — NOT SUPPLIED. Never state or imply one.
+
