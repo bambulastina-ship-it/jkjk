@@ -60,22 +60,23 @@ set arrives.
 ---
 
 ---
-## Asset audit — 2026-09-07 (folder reset)
-Folder cleared at client's request for a clean re-upload. Previous files were
-unusable: a 150x150 thumbnail and a 398x299 interior, both far too small.
 
-Shared imagery lives in `assets/shared/` and IS available to this site
-(client decision): dubai-opera-night.png, interior-penthouse.png.
-Those must be cropped/overlaid differently here than on Agent 1's site —
-see assets/shared/README.md.
+---
+## Asset audit — FINAL (client approved start)
+Folder holds ONE image: portrait-katerina.jpg (447x447).
+Dining-room interior discarded at client's instruction.
+Opera + penthouse duplicates removed from here; they live in assets/shared/ and
+ARE available to this site, but MUST be cropped and overlaid differently than on
+Agent 1's site — see assets/shared/README.md.
 
-### Required before build starts
-Images (upload to this folder):
-- [ ] 1 portrait of Katerina — 1000px+ wide. Her face leads the page.
-- [ ] 5-7 property images of her own listings — 1000px+ wide.
-Facts:
-- [ ] BRN number (legally required on UAE property marketing)
-- [ ] WhatsApp link / phone
-- [ ] Year she started
-- [ ] Tagline decision (see compliance flag above)
+Client said START with this set. Build typography-led, not photography-led.
+
+### STILL OUTSTANDING — flag as placeholders, never invent
+- [ ] BRN number — NOT SUPPLIED. Legally required on UAE property marketing.
+      Render a visible {{BRN}} placeholder. Do NOT invent a number.
+- [ ] WhatsApp / phone — NOT SUPPLIED. Use https://beacons.ai/ekaterinatelesh
+      as the CTA target until a direct number arrives.
+- [ ] Year started — NOT SUPPLIED. Do not state one anywhere.
+- [ ] Tagline — client has not chosen. Use the compliant alternative and mark it
+      in an HTML comment as pending client approval.
 
