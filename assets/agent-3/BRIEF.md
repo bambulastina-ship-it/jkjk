@@ -1,28 +1,52 @@
-# Agent 3 — awaiting client input
+# Agent 3 — Muhammed Ashmid
 
-## Images — upload to this folder
-- [ ] 1 portrait — 1000px+ wide (or 800px+ square). Face leads the page.
-- [ ] 4-7 property images of their own listings — 800px+ wide.
+## Confirmed facts (from client. Do NOT invent beyond this list.)
+- Name: Muhammed Ashmid
+- Handle: @ashmid.realestate_
+- Positioning: "Dubai real estate made simple"
+- Focus: off-plan and ready properties; investment-oriented
+- Bio claims: "Invest smart. Earn better." · "Trusted off-plan & ready properties"
+- Enquiries: currently via Instagram DM
+- Real, verifiable: 587 Instagram followers, 17 posts
 
-Shared imagery in `assets/shared/` is also available (client decision), but must
-be cropped and toned differently again — it already appears on Agents 1 and 2.
-The more of their own photography we have, the less this page leans on repeats.
-
-## Facts required — never invent any of these
-- [ ] Full name + how it should appear
-- [ ] Instagram handle
+## MISSING — required before build
+- [ ] IMAGES. None supplied. Build cannot start. Need:
+      - 1 portrait, 1000px+ wide (or 800px+ square) — face leads the page
+      - 4-7 property images of their own listings, 800px+ wide
 - [ ] BRN number (legally required on UAE property marketing)
-- [ ] Year started
-- [ ] Services (buying / selling / leasing / off-plan / investment)
-- [ ] Area or specialisation, if any
 - [ ] WhatsApp link or phone
-- [ ] Their own bio / positioning line
+- [ ] Year started
 
-## Hard bans (same as all sites)
+## Copy flags
+- "Earn better" and "DM for deals & ROI" are investment-return language. Usable
+  in general terms, but NEVER attach a number: no yield percentages, no ROI
+  figures, no price-growth statistics, no payback periods. We have nothing to
+  substantiate any figure and inventing one is banned.
+- "Trusted" is their own word — do not escalate it into awards, ratings, or
+  testimonials.
+- Follower count may be referenced only as a follower count, never as clients,
+  deals, or results.
+
+## Differentiation requirement
+Must not reuse Agent 1's or Agent 2's palette, typography, layout, section order,
+or animation. For reference, to avoid:
+  - Agent 1 (Lara Issa): warm alabaster ground, terracotta accent, Bodoni Moda +
+    Archivo, portrait framed beside left-aligned serif display, numbered
+    editorial service rows.
+  - Agent 2 (Katerina Telesh): dark/high-contrast, oxblood accent, grotesque-led.
+Agent 3 should go somewhere neither has: the "made simple" positioning invites a
+brighter, clearer, more structured and diagrammatic direction than either — a
+third distinct register, not a blend of the first two.
+
+## Shared imagery
+`assets/shared/` is available but those two images already appear on Agents 1
+and 2. Use sparingly here and crop/tone differently again. Their own photography
+is strongly preferred.
+
+## Hard bans
 - No payment functionality of any kind.
 - No invented reviews, awards, metrics, deal volumes, ROI figures, certifications
   or guarantees.
 - No stock or AI-generated imagery.
-- Must not reuse Agent 1's or Agent 2's layout, palette, or typography.
 
-BUILD DOES NOT START UNTIL IMAGES AND FACTS ARE SUPPLIED.
+## STATUS: BLOCKED — awaiting images.
