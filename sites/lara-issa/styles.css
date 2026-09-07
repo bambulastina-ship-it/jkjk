@@ -22,7 +22,7 @@
   --shadow:     #0C0A09;
 
   --ink-70: rgba(26,23,20,.70);
-  --ink-52: rgba(26,23,20,.52);
+  --ink-52: rgba(26,23,20,.66); /* meets 4.5:1 on --alabaster at small sizes */
   --line:   rgba(26,23,20,.16);
   --line-soft: rgba(26,23,20,.09);
 
@@ -364,7 +364,8 @@ body.is-locked{ overflow:hidden; }
 }
 .brn{ border:1px solid var(--line); padding:.35rem .7rem; }
 .dot{ width:4px; height:4px; background:var(--terracotta); border-radius:50%; }
-.hero__brn a{ text-decoration:none; }
+.hero__brn a{ display:inline-flex; align-items:center; min-height:44px; text-decoration:none; }
+.footer__meta a{ display:inline-flex; align-items:center; min-height:44px; }
 .hero__brn a:hover{ color:var(--terracotta); }
 
 /* =========================================================
@@ -672,16 +673,22 @@ body.is-locked{ overflow:hidden; }
 }
 .footer__nav{ display:flex; flex-wrap:wrap; gap:.4rem 1.4rem; }
 .footer__nav a{
+  display:inline-flex; align-items:center; min-height:44px;
   font-size:var(--t-xs); letter-spacing:.16em; text-transform:uppercase;
-  text-decoration:none; padding-block:.5rem;
+  text-decoration:none;
   transition:color .3s ease;
 }
 .footer__nav a:hover{ color:var(--amber); }
 .footer__meta{
-  display:grid; gap:.35rem;
+  display:grid; gap:.35rem; align-items:center;
   font-size:var(--t-sm);
 }
-.footer__meta a{ text-decoration:none; border-bottom:1px solid rgba(244,239,233,.25); padding-bottom:1px; }
+.footer__meta a{
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:.28em;
+  text-decoration-color:rgba(244,239,233,.32);
+}
 .footer__meta a:hover{ color:var(--amber); }
 .footer__legal{
   border-top:1px solid rgba(244,239,233,.14);
@@ -718,6 +725,18 @@ body.is-locked{ overflow:hidden; }
 /* =========================================================
    BREAKPOINTS
    ========================================================= */
+/* on phones the portrait is capped so the name and CTAs sit closer to the fold */
+@media (max-width:699px){
+  .portrait__frame{ aspect-ratio:4/5; }
+}
+
+/* tablet: portrait stays the lead but is cropped shorter and given a
+   wider frame so the column does not tower over the copy below it */
+@media (min-width:700px) and (max-width:939px){
+  .portrait{ max-width:min(100%, 560px); }
+  .portrait__frame{ aspect-ratio:5/6; }
+}
+
 @media (max-width:819px){
   .band__media::after{
     background:

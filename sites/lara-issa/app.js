@@ -118,7 +118,9 @@
       var notes = (notesEl.value || '').trim();
       var out = 'Hi Lara — ';
       out += name ? 'this is ' + name + '. ' : '';
-      out += 'I would like to ' + intentEl.value.toLowerCase() + '.';
+      var intent = intentEl.value;
+      intent = intent.charAt(0).toLowerCase() + intent.slice(1);
+      out += 'I would like to ' + intent + '.';
       if (area) out += ' Area or building: ' + area + '.';
       if (notes) out += ' ' + notes;
       out += ' Could we book the free consultation?';
