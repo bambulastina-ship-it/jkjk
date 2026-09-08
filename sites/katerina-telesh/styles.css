@@ -330,3 +330,118 @@ body::after{
   .btn-alt{transition:none}
   .btn-alt:hover{transform:none}
 }
+
+/* ============================================================
+   Premium layer — ported effects
+   ShaderGradient · Liquid Glass · Liquid Logo · 3D tilt
+   ============================================================ */
+
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* scroll progress — a hairline of gold */
+.progress{position:fixed;inset:0 0 auto 0;height:2px;z-index:60;pointer-events:none;
+  background:rgba(242,235,217,.05)}
+.progress span{display:block;height:100%;transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-soft));
+  box-shadow:0 0 14px rgba(216,177,90,.55);will-change:transform}
+
+/* ---------- ShaderGradient canvas ---------- */
+.hero{isolation:isolate}
+#grad{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  opacity:0;transition:opacity 1.4s var(--ease);
+  /* CSS fallback: coarse pointers, reduced motion, or no WebGL */
+  background:
+    radial-gradient(120% 90% at 16% 12%,rgba(216,177,90,.10),transparent 58%),
+    radial-gradient(100% 80% at 84% 78%,rgba(216,177,90,.05),transparent 60%),
+    var(--ink);
+}
+#grad.on,#grad.fallback{opacity:1}
+.hero-inner{position:relative;z-index:1}
+.hero::after{ /* keeps type legible over the flow */
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(100deg,rgba(10,10,12,.78) 0%,rgba(10,10,12,.46) 44%,rgba(10,10,12,.06) 100%);
+}
+@media (max-width:900px){
+  .hero::after{background:linear-gradient(180deg,rgba(10,10,12,.30),rgba(10,10,12,.82) 66%)}
+}
+
+/* ---------- Liquid Glass: refraction ---------- */
+.nav{
+  background:linear-gradient(180deg,rgba(28,28,32,.62),rgba(14,14,16,.52));
+  backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);
+  border-bottom:1px solid rgba(242,235,217,.07);
+  position:fixed;
+}
+.nav::before{ /* specular top edge */
+  content:"";position:absolute;inset:0 0 auto 0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(242,235,217,.28) 30%,rgba(216,177,90,.34) 62%,transparent);
+}
+.shot figcaption{
+  background:linear-gradient(150deg,rgba(30,30,34,.72),rgba(14,14,16,.66));
+  backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(242,235,217,.20),
+    inset 0 0 26px rgba(216,177,90,.06),
+    0 26px 60px -34px rgba(0,0,0,.96);
+}
+.shot figcaption::after{ /* glossy light border */
+  content:"";position:absolute;inset:0;border-radius:2px;pointer-events:none;
+  background:linear-gradient(140deg,rgba(242,235,217,.16),transparent 34%,transparent 68%,rgba(216,177,90,.14));
+  -webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);
+  -webkit-mask-composite:xor;mask-composite:exclude;padding:1px;
+}
+
+/* ---------- Liquid Logo ---------- */
+[data-liquid]{
+  position:relative;display:inline-block;
+  background:linear-gradient(100deg,var(--ivory) 0%,var(--ivory) 38%,var(--gold-soft) 50%,var(--ivory) 62%,var(--ivory) 100%);
+  background-size:280% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:background-position 1.1s var(--ease),filter .5s var(--ease);
+}
+.mark:hover [data-liquid]{background-position:0 0;filter:url(#refract-soft)}
+
+/* ---------- CTA: gold specular sweep ---------- */
+.btn,.btn-alt{position:relative;overflow:hidden;isolation:isolate}
+.btn::after,.btn-alt::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,transparent 32%,rgba(255,255,255,.55) 50%,transparent 68%);
+  transform:translateX(-120%);transition:transform .85s var(--ease);
+}
+.btn-alt::after{background:linear-gradient(105deg,transparent 32%,rgba(216,177,90,.30) 50%,transparent 68%)}
+.btn:hover::after,.btn-alt:hover::after{transform:translateX(120%)}
+
+/* ---------- 3D tilt frames ---------- */
+[data-tilt]{transform-style:preserve-3d;transition:transform .55s var(--ease);will-change:transform}
+.portrait-frame{position:relative}
+.portrait-frame::after{ /* sheen tracks the cursor */
+  background:
+    radial-gradient(60% 45% at var(--gx,50%) var(--gy,50%),rgba(242,235,217,.16),transparent 62%),
+    linear-gradient(190deg,rgba(216,177,90,.07),transparent 34%,rgba(10,10,12,.5));
+  transition:background .25s linear;
+}
+.shot-frame{position:relative}
+.shot[data-tilt]:hover .shot-frame::after{opacity:1}
+.shot-frame::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;
+  transition:opacity .5s var(--ease);
+  background:radial-gradient(55% 40% at var(--gx,50%) var(--gy,50%),rgba(242,235,217,.14),transparent 60%);
+}
+
+/* ---------- headline polish ---------- */
+h1{text-wrap:balance}
+h1 .surname{
+  background:linear-gradient(96deg,var(--gold-soft),var(--gold) 46%,rgba(216,177,90,.55));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.close h2 .accent{
+  background:linear-gradient(96deg,var(--gold-soft),var(--gold) 52%,rgba(216,177,90,.6));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+@media (prefers-reduced-motion:reduce){
+  [data-tilt]{transition:none}
+  .btn::after,.btn-alt::after,[data-liquid]{transition:none}
+  .progress span{transition:none}
+}

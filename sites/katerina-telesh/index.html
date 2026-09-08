@@ -12,9 +12,25 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- Liquid Glass JS: real optical refraction via turbulence + displacement -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="refract" x="-12%" y="-12%" width="124%" height="124%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="2" seed="7" result="t"/>
+    <feGaussianBlur in="t" stdDeviation="1.4" result="tb"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="refract-soft" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.01 0.018" numOctaves="2" seed="3" result="t"/>
+    <feGaussianBlur in="t" stdDeviation="1" result="tb"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="progress" aria-hidden="true"><span></span></div>
+
 <header class="nav">
   <a class="mark" href="#top">
-    <span class="mark-name">Katerina Telesh</span>
+    <span class="mark-name" data-liquid>Katerina Telesh</span>
     <span class="mark-sub">Dubai Real Estate</span>
   </a>
   <a class="btn btn-sm" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Contact now</a>
@@ -24,10 +40,11 @@
 
 <!-- ============ SCROLL 1 — AGENT ============ -->
 <section class="hero" id="top">
+  <canvas id="grad" aria-hidden="true"></canvas>
   <div class="hero-inner">
 
     <figure class="portrait reveal">
-      <div class="portrait-frame">
+      <div class="portrait-frame" data-tilt="5">
         <img src="img/portrait-katerina.jpg" width="447" height="447"
              alt="Katerina Telesh, Dubai real estate advisor."
              fetchpriority="high" decoding="async">
@@ -69,7 +86,7 @@
     <h2 class="reveal">The properties<br>and the market</h2>
 
     <div class="pair">
-      <figure class="shot shot-a reveal">
+      <figure class="shot shot-a reveal" data-tilt="4">
         <div class="shot-frame">
           <img src="img/interior-penthouse.png" width="767" height="511"
                alt="Open-plan residence: marble island, sculptural glass chandelier, sea view through full-height glazing."
@@ -82,7 +99,7 @@
         </figcaption>
       </figure>
 
-      <figure class="shot shot-b reveal">
+      <figure class="shot shot-b reveal" data-tilt="4">
         <div class="shot-frame">
           <img src="img/dubai-opera-night.png" width="767" height="511"
                alt="Dubai Opera lit at night in Downtown Dubai, reflected in the water."
