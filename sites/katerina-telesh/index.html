@@ -2,165 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Katerina Telesh — Dubai Real Estate</title>
-<meta name="description" content="Katerina Telesh — Dubai real estate. Off-market and investment property. Book a consultation.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Katerina Telesh — Private Dubai Property Advisory</title>
+<meta name="description" content="Katerina Telesh — private Dubai property advisory. Off-market, investment and waterfront opportunities. 19+ years in real estate. BRN 57462.">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#ch1">Skip to content</a>
 
-<a class="skip" href="#main">Skip to content</a>
-
-<!-- Liquid Glass JS: real optical refraction via turbulence + displacement -->
+<!-- Liquid Glass JS — optical refraction primitives -->
 <svg class="defs" aria-hidden="true" focusable="false">
-  <filter id="refract" x="-12%" y="-12%" width="124%" height="124%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="2" seed="7" result="t"/>
-    <feGaussianBlur in="t" stdDeviation="1.4" result="tb"/>
-    <feDisplacementMap in="SourceGraphic" in2="tb" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+  <filter id="lg-refract" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.014" numOctaves="2" seed="11" result="t"/>
+    <feGaussianBlur in="t" stdDeviation="1.6" result="tb"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="14" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-  <filter id="refract-soft" x="-8%" y="-8%" width="116%" height="116%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.01 0.018" numOctaves="2" seed="3" result="t"/>
+  <filter id="lg-soft" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="5" result="t"/>
     <feGaussianBlur in="t" stdDeviation="1" result="tb"/>
-    <feDisplacementMap in="SourceGraphic" in2="tb" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="7" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
 </svg>
 
-<div class="progress" aria-hidden="true"><span></span></div>
+<!-- chapter rail -->
+<nav class="rail" aria-label="Sections">
+  <a href="#ch1" data-r="1"><i></i><span>Advisor</span></a>
+  <a href="#ch2" data-r="2"><i></i><span>Properties</span></a>
+  <a href="#ch3" data-r="3"><i></i><span>Advisory</span></a>
+  <a href="#ch4" data-r="4"><i></i><span>Enquire</span></a>
+</nav>
 
 <header class="nav">
-  <a class="mark" href="#top">
-    <span class="mark-name" data-liquid>Katerina Telesh</span>
-    <span class="mark-sub">Dubai Real Estate</span>
+  <a class="mark" href="#ch1">
+    <span class="mark-n" data-liquid>KATERINA TELESH</span>
+    <span class="mark-s">Private Dubai Property Advisory</span>
   </a>
-  <a class="btn btn-sm" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Contact now</a>
+  <a class="cta-mini" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">
+    <span>Contact</span>
+  </a>
 </header>
 
-<main id="main">
+<main>
 
-<!-- ============ SCROLL 1 — AGENT ============ -->
-<section class="hero" id="top">
+<!-- ══════════ I — THE ADVISOR ══════════ -->
+<section class="ch ch-hero" id="ch1">
   <canvas id="grad" aria-hidden="true"></canvas>
-  <div class="hero-inner">
 
-    <figure class="portrait reveal">
-      <div class="portrait-frame" data-tilt="5">
+  <div class="hero-grid">
+    <figure class="hero-fig">
+      <div class="plate" data-tilt="4">
         <img src="img/portrait-katerina.jpg" width="447" height="447"
-             alt="Katerina Telesh, Dubai real estate advisor."
+             alt="Katerina Telesh, private property advisor, Dubai."
              fetchpriority="high" decoding="async">
+        <span class="vig"></span><span class="grain"></span>
       </div>
+      <figcaption>Dubai · UAE</figcaption>
     </figure>
 
-    <div class="hero-copy">
-      <p class="eyebrow reveal">Dubai Real Estate</p>
-      <h1 class="reveal">Katerina<br><span class="surname">Telesh</span></h1>
-      <p class="lede reveal">Off-market and investment property across Dubai.</p>
-
-      <div class="cta-row reveal">
-        <a class="btn btn-lg" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">
-          Contact now
-        </a>
-        <a class="btn-alt" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">
-          Book an appointment
-        </a>
-      </div>
-
-      <p class="credential reveal">
-        <span class="brn">BRN 57462</span>
-        <span class="dot"></span>
-        Katerina Real Estate LLC
-        <span class="dot"></span>
-        Dubai, UAE
+    <div class="hero-type">
+      <p class="marker"><span class="num">I</span><span class="rule"></span>The Advisor</p>
+      <h1>
+        <span class="l1">Katerina</span>
+        <span class="l2">Telesh</span>
+      </h1>
+      <p class="lede">
+        Private property advisory across Dubai — off-market, investment
+        and waterfront opportunities, selected one client at a time.
       </p>
+      <div class="acts">
+        <a class="btn" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Contact now</a>
+        <a class="btn btn-o" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Book an appointment</a>
+      </div>
+      <dl class="creds">
+        <div><dt>Experience</dt><dd>19+ years</dd></div>
+        <div><dt>BRN</dt><dd>57462</dd></div>
+        <div><dt>Languages</dt><dd>English · Russian</dd></div>
+      </dl>
     </div>
+  </div>
+  <span class="scroll-hint" aria-hidden="true"><i></i>Scroll</span>
+</section>
 
+<!-- ══════════ II — THE PROPERTIES ══════════ -->
+<section class="ch ch-work" id="ch2">
+  <div class="wrap">
+    <p class="marker reveal"><span class="num">II</span><span class="rule"></span>The Properties</p>
+    <h2 class="reveal">Carefully<br><em>selected</em></h2>
+  </div>
+
+  <figure class="cine reveal">
+    <div class="cine-img" data-par="0.12">
+      <img src="img/interior-penthouse.png" width="767" height="511"
+           alt="Open-plan residence: veined marble island, sculptural glass chandelier, full-height glazing to the sea."
+           loading="lazy" decoding="async">
+      <span class="grain"></span>
+    </div>
+    <figcaption class="cine-cap">
+      <span class="tag">Residence</span>
+      <h3>Open plan, water facing</h3>
+      <p>Veined marble island, sculptural glass, full-height glazing onto the sea.</p>
+    </figcaption>
+  </figure>
+
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="split-img" data-tilt="3">
+        <img src="img/dubai-opera-night.png" width="767" height="430"
+             alt="Dubai Opera lit at night in Downtown Dubai." loading="lazy" decoding="async">
+        <span class="grain"></span>
+      </div>
+      <div class="split-copy">
+        <span class="tag">Downtown Dubai</span>
+        <h3>The Opera district</h3>
+        <p>Primary and secondary markets, waterfront and prime addresses —
+           the ground most Dubai enquiries begin on.</p>
+        <a class="lnk" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Ask about a property</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ SCROLL 2 — SHOWCASE ============ -->
-<section class="showcase" id="properties">
+<!-- ══════════ III — THE ADVISORY ══════════ -->
+<section class="ch ch-adv" id="ch3">
   <div class="wrap">
-    <p class="eyebrow reveal">Selected</p>
-    <h2 class="reveal">The properties<br>and the market</h2>
+    <p class="marker reveal"><span class="num">III</span><span class="rule"></span>The Advisory</p>
 
-    <div class="pair">
-      <figure class="shot shot-a reveal" data-tilt="4">
-        <div class="shot-frame">
-          <img src="img/interior-penthouse.png" width="767" height="511"
-               alt="Open-plan residence: marble island, sculptural glass chandelier, sea view through full-height glazing."
-               loading="lazy" decoding="async">
-        </div>
-        <figcaption>
-          <span class="tag">Residence</span>
-          <h3>Open plan, water facing</h3>
-          <p>Marble island, full-height glazing, sea beyond.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="shot shot-b reveal" data-tilt="4">
-        <div class="shot-frame">
-          <img src="img/dubai-opera-night.png" width="767" height="511"
-               alt="Dubai Opera lit at night in Downtown Dubai, reflected in the water."
-               loading="lazy" decoding="async">
-        </div>
-        <figcaption>
-          <span class="tag">Downtown Dubai</span>
-          <h3>The Opera district</h3>
-          <p>Where a large share of Dubai enquiries begin.</p>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SCROLL 3 — CLOSE ============ -->
-<section class="close" id="contact">
-  <div class="wrap close-inner">
-    <p class="eyebrow reveal">Enquiries</p>
-    <h2 class="reveal">Your next Dubai<br><span class="accent">property awaits</span></h2>
-    <p class="close-lede reveal">
-      Tell me what you are looking for and I will come back to you personally.
-    </p>
-
-    <div class="cta-row cta-center reveal">
-      <a class="btn btn-lg" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">
-        Contact now
-      </a>
-      <a class="btn-alt" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">
-        Book an appointment
-      </a>
-    </div>
-</div>
-</section>
-
-
-<!-- ============ CODA — gallery + details ============
-     After the closing CTA, per client. Only supplied facts appear here.
-     Further information is expected: add more .d-item blocks. Never invent.
-     No BRN was supplied and none is shown. -->
-<section class="coda" id="details">
-  <div class="wrap">
-    <p class="eyebrow reveal">Profile</p>
-    <div class="strip reveal">
-      <figure class="strip-i"><img src="img/portrait-katerina.jpg" alt="Katerina Telesh." loading="lazy" decoding="async"></figure>
-      <figure class="strip-i"><img src="img/interior-penthouse.png" alt="Open-plan residence, marble island, sea view." loading="lazy" decoding="async"></figure>
-      <figure class="strip-i"><img src="img/dubai-opera-night.png" alt="Dubai Opera at night." loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="prof reveal">
-      <div class="prof-lead">
-        <h3>Private Dubai Property Advisory</h3>
-        <p>Premium property guidance for buyers and investors seeking carefully selected
-           opportunities across Dubai.</p>
-        <div class="stat">
-          <span class="stat-n">19+ years</span>
-          <span class="stat-l">in real estate</span>
-          <p>Experienced across Dubai's property market, with a focus on matching clients
-             with suitable investment and lifestyle opportunities.</p>
-        </div>
+    <div class="adv">
+      <div class="adv-lead reveal">
+        <h2>Premium guidance<br>for buyers and<br><em>investors</em></h2>
+        <p>Carefully selected opportunities across Dubai, matched to the
+           client rather than to the listing sheet.</p>
+        <p class="adv-note">
+          Experienced across Dubai's property market, with a focus on matching
+          clients with suitable investment and lifestyle opportunities.
+        </p>
       </div>
 
-      <div class="prof-cols">
-        <div class="col">
+      <div class="adv-cols">
+        <div class="col reveal">
           <h4>Specialties</h4>
           <ul>
             <li>Luxury residential properties</li>
@@ -171,7 +151,7 @@
             <li>Primary &amp; secondary markets</li>
           </ul>
         </div>
-        <div class="col">
+        <div class="col reveal">
           <h4>Services</h4>
           <ul>
             <li>Property acquisition</li>
@@ -183,31 +163,55 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="details reveal">
-      <div class="d-item"><span class="d-k">Advisor</span><span class="d-v">Katerina Telesh</span></div>
-      <div class="d-item"><span class="d-k">Company</span><span class="d-v">Katerina Real Estate LLC</span></div>
-      <div class="d-item"><span class="d-k">BRN</span><span class="d-v">57462</span></div>
-      <div class="d-item"><span class="d-k">Languages</span><span class="d-v">English · Russian</span></div>
-      <div class="d-item"><span class="d-k">Location</span><span class="d-v">Dubai, UAE</span></div>
-      <div class="d-item"><span class="d-k">Instagram</span><span class="d-v"><a href="https://instagram.com/katerina.telesh" target="_blank" rel="noopener">@katerina.telesh</a></span></div>
+<!-- ══════════ IV — ENQUIRE ══════════ -->
+<section class="ch ch-close" id="ch4">
+  <div class="wrap close-in">
+    <p class="marker reveal"><span class="num">IV</span><span class="rule"></span>Enquire</p>
+    <h2 class="reveal">Your next Dubai<br><em>property awaits</em></h2>
+    <p class="close-lede reveal">
+      Tell me what you are looking for and I will come back to you personally.
+    </p>
+    <div class="acts acts-c reveal">
+      <a class="btn" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Contact now</a>
+      <a class="btn btn-o" href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Book an appointment</a>
     </div>
   </div>
 </section>
 
-<footer class="site-foot"><div class="foot reveal">
-      <span>Katerina Real Estate LLC</span>
-      <span class="dot"></span>
-      <span>BRN 57462</span>
-      <span class="dot"></span>
-      <span>Dubai, UAE</span>
-      <span class="dot"></span>
-      <span><a href="https://instagram.com/katerina.telesh" target="_blank" rel="noopener">@katerina.telesh</a></span>
-      <span class="dot"></span>
-      <span>&copy; <span id="yr">2026</span></span>
-    </div></footer>
-</main>
+<!-- ══════════ CODA ══════════ -->
+<section class="coda" id="details">
+  <div class="wrap">
+    <div class="strip reveal">
+      <figure><img src="img/portrait-katerina.jpg" alt="Katerina Telesh." loading="lazy" decoding="async"><span class="grain"></span></figure>
+      <figure><img src="img/interior-penthouse.png" alt="Open-plan residence, marble island, sea view." loading="lazy" decoding="async"><span class="grain"></span></figure>
+      <figure><img src="img/dubai-opera-night.png" alt="Dubai Opera at night." loading="lazy" decoding="async"><span class="grain"></span></figure>
+    </div>
+    <dl class="facts reveal">
+      <div><dt>Advisor</dt><dd>Katerina Telesh</dd></div>
+      <div><dt>Company</dt><dd>Katerina Real Estate LLC</dd></div>
+      <div><dt>BRN</dt><dd>57462</dd></div>
+      <div><dt>Experience</dt><dd>19+ years in real estate</dd></div>
+      <div><dt>Languages</dt><dd>English · Russian</dd></div>
+      <div><dt>Location</dt><dd>Dubai, UAE</dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://instagram.com/katerina.telesh" target="_blank" rel="noopener">@katerina.telesh</a></dd></div>
+      <div><dt>Enquiries</dt><dd><a href="https://beacons.ai/ekaterinatelesh" target="_blank" rel="noopener">Contact Katerina</a></dd></div>
+    </dl>
+  </div>
+</section>
 
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Katerina Real Estate LLC</span>
+    <span>BRN 57462</span>
+    <span>Dubai, UAE</span>
+    <span>&copy; <span id="yr">2026</span></span>
+  </div>
+</footer>
+
+</main>
 <script src="app.js"></script>
 </body>
 </html>
