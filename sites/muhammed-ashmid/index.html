@@ -1,500 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muhammed Ashmid — Dubai real estate made simple</title>
-<meta name="description" content="Muhammed Ashmid — off-plan and ready property in Dubai, explained plainly. What off-plan actually means, how a purchase runs, and an honest off-plan vs ready comparison. Enquiries via Instagram.">
-<meta name="theme-color" content="#062319">
-<meta name="color-scheme" content="dark">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Muhammed Ashmid — Dubai real estate made simple">
-<meta property="og:description" content="Off-plan and ready property in Dubai, explained plainly. Enquiries via Instagram.">
-<meta property="og:image" content="img/portrait-ashmid.png">
-
-<link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muhammed Ashmid — Dubai Real Estate</title>
+<meta name="description" content="Muhammed Ashmid — Dubai real estate made simple. Off-plan and ready properties. Enquiries via Instagram.">
+<meta name="theme-color" content="#0A0A0C">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body id="top">
+<body>
 
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ===================================================================
-     SVG filter defs. The liquid-glass refraction filters are generated
-     at runtime by app.js and appended into #lg-defs.
-     =================================================================== -->
-<svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
-  <defs id="lg-defs">
-    <!-- Liquid Logo: turbulence + displacement, animated on hover/scroll -->
-    <filter id="liquid-mark" x="-25%" y="-40%" width="150%" height="180%" color-interpolation-filters="sRGB">
-      <feTurbulence id="liquid-mark-turb" type="fractalNoise" baseFrequency="0.006 0.014" numOctaves="3" seed="7" result="n"/>
-      <feDisplacementMap id="liquid-mark-disp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <linearGradient id="bronze-metal" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"   stop-color="#8A6234"/>
-      <stop offset="22%"  stop-color="#C89D66"/>
-      <stop offset="40%"  stop-color="#F6E3C2"/>
-      <stop offset="52%"  stop-color="#C89D66"/>
-      <stop offset="72%"  stop-color="#9A7040"/>
-      <stop offset="88%"  stop-color="#E2C08D"/>
-      <stop offset="100%" stop-color="#7E5A32"/>
-      <animateTransform attributeName="gradientTransform" type="translate"
-        values="-0.35 0; 0.35 0; -0.35 0" dur="9s" repeatCount="indefinite"/>
-    </linearGradient>
-  </defs>
-</svg>
-
-<!-- =========================== NAV =========================== -->
 <header class="nav" id="nav">
-  <div class="nav__bar glass glass--refract" data-glass="nav">
-    <a class="mark" href="#top" aria-label="Muhammed Ashmid — home">
-      <svg class="mark__svg" viewBox="0 0 200 44" role="img" aria-label="Muhammed Ashmid">
-        <g filter="url(#liquid-mark)">
-          <text x="0" y="20" class="mark__ma" fill="url(#bronze-metal)">MA</text>
-          <text x="49" y="14" class="mark__nm">MUHAMMED</text>
-          <text x="49" y="29" class="mark__nm">ASHMID</text>
-        </g>
-      </svg>
-      <span class="vh">Muhammed Ashmid</span>
-    </a>
-
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#explain">Off-plan</a>
-      <a href="#steps">How it runs</a>
-      <a href="#compare">Compare</a>
-      <a href="#render">Renders</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="nav__act">
-      <a class="btn btn--sm" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">
-        <span>Enquire</span>
-      </a>
-      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-
-  <div class="sheet glass" id="sheet" hidden>
-    <a href="#explain">What off-plan means</a>
-    <a href="#steps">How a purchase runs</a>
-    <a href="#compare">Off-plan vs ready</a>
-    <a href="#render">Reading a render</a>
-    <a href="#who">Who he helps</a>
-    <a href="#contact">Contact</a>
-    <a class="sheet__cta" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Message on Instagram</a>
-  </div>
+  <a class="mark" href="#top">
+    <span class="mark-name">Muhammed Ashmid</span>
+    <span class="mark-sub">Dubai Real Estate</span>
+  </a>
+  <nav class="nav-actions">
+    <!-- No phone or WhatsApp number was supplied by the client.
+         Instagram is the only confirmed contact channel — every CTA points there.
+         Swap these hrefs when a WhatsApp link or number is provided. -->
+    <a class="lnk" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a>
+    <a class="btn btn-sm" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
+  </nav>
 </header>
 
 <main id="main">
 
-<!-- =========================== HERO =========================== -->
-<section class="hero" id="hero">
-  <!-- ShaderGradient + R3F-style distorted mesh live here.
-       On coarse pointers / narrow viewports the canvas is never created and
-       .hero__fallback (pure CSS) is what you see. -->
-  <div class="hero__fallback" aria-hidden="true"></div>
-  <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
-  <div class="hero__grain" aria-hidden="true"></div>
+<!-- ==================== SCROLL 1 — THE AGENT ==================== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
 
-  <div class="shell hero__inner">
+    <figure class="portrait reveal">
+      <div class="frame frame-portrait">
+        <img src="img/portrait-ashmid.png" width="471" height="855"
+             alt="Muhammed Ashmid standing in a marble lobby in a navy suit and open white shirt, the Burj Khalifa and the Downtown Dubai skyline behind him through floor-to-ceiling glass."
+             fetchpriority="high" decoding="async">
+        <span class="grain" aria-hidden="true"></span>
+      </div>
+      <figcaption class="portrait-cap">Downtown Dubai</figcaption>
+    </figure>
 
-    <p class="eyebrow reveal" data-reveal>Off-plan &amp; ready property · Dubai, UAE</p>
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Dubai <span class="sep">/</span> Off-plan &amp; ready</p>
 
-    <h1 class="hero__h1 reveal" data-reveal data-delay="1">
-      <span class="hero__l1">Dubai real estate</span>
-      <span class="hero__l2">made <em>simple</em></span>
-    </h1>
+      <h1 class="reveal">Muhammed<br><span class="surname">Ashmid</span></h1>
 
-    <div class="hero__stage">
-      <div class="hero__ring" aria-hidden="true"></div>
+      <p class="lede reveal">Dubai real estate made simple.</p>
 
-      <!-- left credential card (desktop) -->
-      <div class="float float--l glass glass--refract reveal" data-glass="card" data-reveal data-delay="4">
-        <span class="float__k">Approach</span>
-        <p class="float__v">Invest smart.<br>Earn better.</p>
-        <p class="float__s">Trusted off-plan &amp; ready properties.</p>
+      <p class="intro reveal">
+        Off-plan and ready properties across Dubai, for buyers who want the
+        process explained plainly and handled end to end.
+      </p>
+
+      <p class="quote reveal"><span>&ldquo;</span>Invest smart. Earn better.<span>&rdquo;</span></p>
+
+      <div class="cta-row reveal">
+        <a class="btn btn-lg" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
+        <a class="btn btn-lg btn-outline" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Book an appointment</a>
       </div>
 
-      <figure class="portrait reveal" data-tilt data-reveal data-delay="2">
-        <div class="portrait__frame glass glass--refract" data-glass="portrait">
-          <img src="img/portrait-ashmid.png" width="471" height="855" alt="Muhammed Ashmid standing in a Dubai lobby, the Burj Khalifa and the Downtown skyline visible through the glass behind him." fetchpriority="high" decoding="async">
-          <span class="portrait__sheen" aria-hidden="true"></span>
-        </div>
-        <figcaption class="portrait__cap">Muhammed Ashmid · Dubai</figcaption>
-      </figure>
-
-      <!-- right credential card (desktop) -->
-      <div class="float float--r glass glass--refract reveal" data-glass="card" data-reveal data-delay="5">
-        <span class="float__k">Enquiries</span>
-        <p class="float__v">Instagram DM</p>
-        <p class="float__s">@ashmid.realestate_ · 587 followers · 17 posts</p>
-      </div>
-    </div>
-
-    <!-- BRN: the real Broker Registration Number has NOT been supplied by the
-         client. The literal {{BRN}} placeholder below MUST be replaced with the
-         registered number before this page goes live — UAE property marketing
-         legally requires it. Do not invent a number. -->
-    <p class="cred reveal" data-reveal data-delay="6">
-      <span class="cred__i">BRN</span><span class="cred__v">{{BRN}}</span>
-      <span class="cred__sep" aria-hidden="true"></span>
-      <span class="cred__i">Based in</span><span class="cred__v">Dubai, UAE</span>
-    </p>
-
-    <div class="hero__cta reveal" data-reveal data-delay="7">
-      <a class="btn btn--lg" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener"><span>Message on Instagram</span></a>
-      <a class="btn btn--ghost btn--lg" href="#explain"><span>Start with the basics</span></a>
-    </div>
-  </div>
-
-  <div class="hero__scroll" aria-hidden="true"><span></span></div>
-</section>
-
-<!-- ============ LIGHT ZONE: the explanation ============ -->
-<div class="light">
-
-  <!-- ------------------- what off-plan means ------------------- -->
-  <section class="sec sec--explain" id="explain">
-    <div class="shell">
-      <header class="sechead">
-        <p class="ord reveal" data-reveal>01</p>
-        <h2 class="h2 reveal" data-reveal>What “off-plan” <em>actually</em> means</h2>
-        <p class="lede reveal" data-reveal data-delay="1">
-          Most of the confusion around Dubai property is vocabulary, not money. Here is
-          the plain version, before anyone talks to you about a specific building.
-        </p>
-      </header>
-
-      <div class="defs">
-        <article class="def reveal" data-reveal>
-          <h3 class="def__t">Off-plan</h3>
-          <p>A property bought <strong>before it is finished</strong> — sometimes before the
-          ground is broken. You are buying from the developer against approved drawings,
-          floor plans and renders, with a stated handover period. You choose your unit
-          from a layout rather than by walking through it.</p>
-        </article>
-
-        <article class="def reveal" data-reveal data-delay="1">
-          <h3 class="def__t">Ready</h3>
-          <p>A completed, handed-over property. It exists, it can be inspected, surveyed
-          and valued as it stands, and it can be lived in or let straight away. What you
-          see on the viewing is what you own.</p>
-        </article>
-
-        <article class="def reveal" data-reveal data-delay="2">
-          <h3 class="def__t">Handover</h3>
-          <p>The point where a finished off-plan unit is transferred to you and you get the
-          keys. Developers publish a target handover period; construction timelines can move,
-          and any honest advisor will tell you that up front.</p>
-        </article>
-
-        <article class="def reveal" data-reveal data-delay="3">
-          <h3 class="def__t">Payment plan</h3>
-          <p>Off-plan purchases are normally structured in instalments tied to construction
-          milestones rather than paid in one go. The structure is set by the developer and
-          differs project to project — it is one of the first things to read carefully.</p>
-        </article>
-
-        <article class="def reveal" data-reveal data-delay="4">
-          <h3 class="def__t">Escrow</h3>
-          <p>In Dubai, buyer money for an off-plan project goes into a regulated project
-          escrow account rather than straight to the developer. It is a core reason the
-          off-plan market here is structured the way it is.</p>
-        </article>
-
-        <article class="def reveal" data-reveal data-delay="5">
-          <h3 class="def__t">Snagging</h3>
-          <p>The inspection at handover where defects are listed and sent back to the
-          developer to fix. Worth budgeting time for; worth not skipping.</p>
-        </article>
-      </div>
-
-      <p class="note reveal" data-reveal>
-        No figures appear anywhere on this page. Returns, prices and payment structures are
-        specific to a project and a moment, and they belong in a conversation about your
-        situation — not in a headline.
+      <!-- BRN placeholder. The client has NOT supplied a BRN number.
+           UAE property marketing legally requires it and it must never be
+           invented — replace {{BRN}} with the real number before launch. -->
+      <p class="credential reveal">
+        <span class="brn">BRN {{BRN}}</span>
+        <span class="dot"></span>Dubai, UAE
+        <span class="dot"></span>Enquiries via Instagram DM
       </p>
     </div>
-  </section>
 
-  <!-- ------------------- how a purchase runs ------------------- -->
-  <section class="sec sec--steps" id="steps">
-    <div class="shell">
-      <header class="sechead">
-        <p class="ord reveal" data-reveal>02</p>
-        <h2 class="h2 reveal" data-reveal>How a purchase <em>runs</em></h2>
-        <p class="lede reveal" data-reveal data-delay="1">
-          Six stages, in order. Nothing is skipped and nothing is rushed past you.
-        </p>
-      </header>
-
-      <ol class="spine">
-        <li class="step reveal" data-reveal>
-          <span class="step__n">1</span>
-          <h3 class="step__t">The brief</h3>
-          <p>What the property is for — to live in, to let, to hold. Which areas you are open
-          to. What the timeline looks like on your side. Everything after this depends on it.</p>
-        </li>
-        <li class="step reveal" data-reveal data-delay="1">
-          <span class="step__n">2</span>
-          <h3 class="step__t">A shortlist, not a catalogue</h3>
-          <p>A small set of projects or ready units that genuinely answer the brief, with the
-          reasoning for each one written out — including what is wrong with them.</p>
-        </li>
-        <li class="step reveal" data-reveal data-delay="2">
-          <span class="step__n">3</span>
-          <h3 class="step__t">Reading the project</h3>
-          <p>Developer, location, what is actually being delivered, the handover period, the
-          payment structure, the service charges, the exit routes. This is the stage that
-          separates a good purchase from a regretted one.</p>
-        </li>
-        <li class="step reveal" data-reveal data-delay="3">
-          <span class="step__n">4</span>
-          <h3 class="step__t">Reservation &amp; paperwork</h3>
-          <p>Unit selection, the reservation form, the sale and purchase agreement, and the
-          registration steps. You get the documents explained in plain language before you sign
-          anything — never after.</p>
-        </li>
-        <li class="step reveal" data-reveal data-delay="4">
-          <span class="step__n">5</span>
-          <h3 class="step__t">Through construction</h3>
-          <p>For off-plan, the long middle. Milestone updates, instalment dates, and a
-          straight answer whenever a timeline moves. You should not have to chase for news.</p>
-        </li>
-        <li class="step reveal" data-reveal data-delay="5">
-          <span class="step__n">6</span>
-          <h3 class="step__t">Handover &amp; after</h3>
-          <p>Snagging, keys, and the decision about what happens next — move in, furnish, or
-          let. The relationship does not end at the transfer.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ------------------- comparison ------------------- -->
-  <section class="sec sec--compare" id="compare">
-    <div class="shell">
-      <header class="sechead">
-        <p class="ord reveal" data-reveal>03</p>
-        <h2 class="h2 reveal" data-reveal>Off-plan or ready — <em>honestly</em></h2>
-        <p class="lede reveal" data-reveal data-delay="1">
-          Neither one wins. They answer different questions, and the right answer is the one
-          that fits your timeline and your appetite for waiting.
-        </p>
-      </header>
-
-      <div class="cmp reveal" data-reveal data-delay="2">
-        <div class="cmp__head" aria-hidden="true">
-          <span class="cmp__hq"></span>
-          <span class="cmp__ha">Off-plan</span>
-          <span class="cmp__hb">Ready</span>
-        </div>
-        <dl class="cmp__body">
-          <div class="cmp__row">
-            <dt>When you get the keys</dt>
-            <dd data-c="Off-plan"><span>At handover, after construction. A wait, with a target date that can move.</span></dd>
-            <dd data-c="Ready"><span>On transfer. Weeks, not years.</span></dd>
-          </div>
-          <div class="cmp__row">
-            <dt>What you can inspect</dt>
-            <dd data-c="Off-plan"><span>Drawings, floor plans, specifications and renders. Sometimes a show unit.</span></dd>
-            <dd data-c="Ready"><span>The actual property, the actual building, the actual view from the actual window.</span></dd>
-          </div>
-          <div class="cmp__row">
-            <dt>How you pay</dt>
-            <dd data-c="Off-plan"><span>Instalments tied to construction milestones, set by the developer.</span></dd>
-            <dd data-c="Ready"><span>Settled at purchase, or through a mortgage arranged in the usual way.</span></dd>
-          </div>
-          <div class="cmp__row">
-            <dt>Choice of unit</dt>
-            <dd data-c="Off-plan"><span>Widest at launch — floor, aspect, layout are still open.</span></dd>
-            <dd data-c="Ready"><span>Whatever is genuinely available in that building today.</span></dd>
-          </div>
-          <div class="cmp__row">
-            <dt>Income timing</dt>
-            <dd data-c="Off-plan"><span>Nothing until handover; the property has to exist first.</span></dd>
-            <dd data-c="Ready"><span>Can be let once it is yours, subject to the usual tenancy rules.</span></dd>
-          </div>
-          <div class="cmp__row">
-            <dt>The real trade-off</dt>
-            <dd data-c="Off-plan"><span>Patience and trust in a delivery, in exchange for choice and a staged structure.</span></dd>
-            <dd data-c="Ready"><span>Certainty and speed, from a smaller pool of what already exists.</span></dd>
-          </div>
-        </dl>
-      </div>
-
-      <p class="note reveal" data-reveal>
-        If someone answers “which is better?” without asking about your timeline first,
-        they are selling, not advising.
-      </p>
-    </div>
-  </section>
-</div><!-- /.light -->
-
-<!-- ------------------- the render showcase ------------------- -->
-<section class="sec sec--render" id="render">
-  <div class="render__glow" aria-hidden="true"></div>
-  <div class="shell">
-    <header class="sechead sechead--dark">
-      <p class="ord reveal" data-reveal>04</p>
-      <h2 class="h2 reveal" data-reveal>How to read a <em>render</em></h2>
-      <p class="lede reveal" data-reveal data-delay="1">
-        Off-plan is sold with pictures of something that does not exist yet. Knowing what a
-        render is — and what it is not — is the single most useful habit a buyer can build.
-      </p>
-    </header>
-
-    <div class="showcase">
-      <figure class="shot reveal" data-tilt data-reveal data-delay="2">
-        <div class="shot__frame glass glass--refract" data-glass="shot">
-          <img src="img/villa-render.png" width="894" height="758" alt="Architectural visualisation of a contemporary Dubai villa with curved balconies, gold trim, bougainvillea planting and cars on the driveway." loading="lazy" decoding="async">
-          <span class="shot__sheen" aria-hidden="true"></span>
-          <span class="shot__tag">Visualisation</span>
-        </div>
-        <figcaption class="shot__cap">
-          <strong>An architectural visualisation — a computer-generated off-plan render,
-          not a photograph.</strong>
-          It is shown here as an example of the material off-plan buyers are asked to make
-          decisions from. It is not a completed building, not a listing, and not a
-          transaction.
-        </figcaption>
-      </figure>
-
-      <ul class="readlist">
-        <li class="reveal" data-reveal><span>a</span><p><strong>Renders are intent, not evidence.</strong> Planting is mature, the sky is perfect, the cars are staged. Read the geometry and the layout; discount the styling.</p></li>
-        <li class="reveal" data-reveal data-delay="1"><span>b</span><p><strong>Finishes are specified in writing, not in pixels.</strong> The material schedule in the contract is what you are owed. Anything only visible in an image is decoration.</p></li>
-        <li class="reveal" data-reveal data-delay="2"><span>c</span><p><strong>Check what is outside the frame.</strong> Renders crop. What sits on the plot next door matters as much as the façade you are being shown.</p></li>
-        <li class="reveal" data-reveal data-delay="3"><span>d</span><p><strong>Ask what stage it is at.</strong> Concept, approved design and as-built are three different things wearing the same picture.</p></li>
-      </ul>
-    </div>
   </div>
 </section>
 
-<!-- ------------------- who he helps ------------------- -->
-<section class="sec sec--who" id="who">
-  <div class="shell">
-    <header class="sechead sechead--dark">
-      <p class="ord reveal" data-reveal>05</p>
-      <h2 class="h2 reveal" data-reveal>Who this is <em>for</em></h2>
-    </header>
+<!-- ==================== SCROLL 2 — PROPERTIES ==================== -->
+<section class="props" id="properties">
+  <div class="wrap">
 
-    <div class="who">
-      <article class="who__c glass reveal" data-reveal>
-        <h3>First time in Dubai</h3>
-        <p>You have heard the word “off-plan” a hundred times and nobody has slowed down to
-        define it. Start here; questions are the point.</p>
-      </article>
-      <article class="who__c glass reveal" data-reveal data-delay="1">
-        <h3>Buying to hold</h3>
-        <p>Property as a long position rather than a home. You want the structure, the
-        timeline and the risks laid out before the pitch.</p>
-      </article>
-      <article class="who__c glass reveal" data-reveal data-delay="2">
-        <h3>Buying to live in</h3>
-        <p>A real move with a real date attached. That date usually decides the off-plan
-        versus ready question on its own.</p>
-      </article>
+    <div class="props-head">
+      <p class="eyebrow reveal">Off-plan</p>
+      <h2 class="reveal">Seen before<br>it is built.</h2>
+      <p class="props-note reveal">
+        Off-plan property is bought from drawings and renders, long before
+        handover. Below is a developer visualisation &mdash; the way a scheme is
+        presented at that stage.
+      </p>
     </div>
 
-    <div class="flow reveal" data-reveal data-delay="1">
-      <h3 class="flow__t">How an enquiry actually runs</h3>
-      <ol class="flow__l">
-        <li><span>01</span><p>You send a DM on Instagram. A sentence is enough.</p></li>
-        <li><span>02</span><p>A few questions back — purpose, timeline, areas.</p></li>
-        <li><span>03</span><p>A shortlist with the reasoning, including the drawbacks.</p></li>
-        <li><span>04</span><p>Viewings for ready units, plans and project documents for off-plan.</p></li>
-      </ol>
-      <p class="flow__n">No obligation attached to any of it, and no pressure to move faster than your own timeline.</p>
-    </div>
+    <figure class="villa reveal">
+      <div class="frame frame-villa">
+        <img src="img/villa-render.png" width="894" height="758"
+             alt="Architectural render of a contemporary Dubai villa: curved gold-trimmed balconies spilling with bougainvillea, clipped topiary, and two cars on the paved drive under a deep blue sky."
+             loading="lazy" decoding="async">
+        <span class="grain" aria-hidden="true"></span>
+      </div>
+
+      <figcaption class="villa-cap glass">
+        <span class="tag">Developer visualisation</span>
+        <h3>Curved terraces, gold trim, private drive</h3>
+        <p>
+          Bougainvillea over sculpted balconies, topiary gardens and covered
+          parking. A render of an off-plan scheme &mdash; not a photograph, not a
+          completed building.
+        </p>
+        <!-- LISTING DATA GOES HERE.
+             No property name, community, developer, price, size, bedroom or
+             bathroom count, handover date or payment plan was supplied for this
+             image. None have been written in. Drop the real figures in here once
+             the client confirms them, and re-caption the image accordingly. -->
+      </figcaption>
+    </figure>
+
   </div>
 </section>
 
-<!-- ------------------- contact ------------------- -->
-<section class="sec sec--contact" id="contact">
-  <div class="shell contact">
-    <div class="contact__l">
-      <p class="ord reveal" data-reveal>06</p>
-      <h2 class="h2 reveal" data-reveal>Ask the <em>simple</em> question</h2>
-      <p class="lede reveal" data-reveal data-delay="1">
-        Enquiries come through Instagram. It is the fastest way to reach Muhammed directly,
-        and the whole conversation stays in one place.
+<!-- ==================== SCROLL 3 — FEATURED + CLOSE ==================== -->
+<section class="close" id="contact">
+  <div class="wrap close-inner">
+
+    <figure class="featured reveal">
+      <div class="frame frame-featured">
+        <img src="img/portrait-ashmid.png" width="471" height="855"
+             alt="Muhammed Ashmid with the Burj Khalifa and the Downtown Dubai skyline behind him through the lobby glazing."
+             loading="lazy" decoding="async">
+        <span class="grain" aria-hidden="true"></span>
+      </div>
+      <figcaption>Downtown Dubai, late light</figcaption>
+    </figure>
+
+    <div class="close-copy">
+      <p class="eyebrow reveal">Enquiries</p>
+      <h2 class="reveal">Your next Dubai<br>property awaits.</h2>
+      <p class="close-lede reveal">
+        Tell me what you are looking for &mdash; off-plan or ready &mdash; and I
+        will come back to you personally.
       </p>
-      <a class="btn btn--lg reveal" data-reveal data-delay="2" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener"><span>@ashmid.realestate_</span></a>
-      <p class="contact__meta reveal" data-reveal data-delay="3">
-        Instagram · 587 followers · 17 posts<br>
-        <!-- No phone or WhatsApp number has been supplied by the client. Do not
-             invent one. Every CTA points at the Instagram profile until a
-             verified number is provided. -->
-        Dubai, United Arab Emirates
+
+      <div class="cta-row reveal">
+        <a class="btn btn-lg" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
+        <a class="btn btn-lg btn-outline" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Book an appointment</a>
+      </div>
+
+      <p class="handle reveal">
+        <a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a>
+        <span class="dot"></span>587 followers
+        <span class="dot"></span>17 posts
       </p>
     </div>
 
-    <div class="contact__r">
-      <form class="form glass glass--refract" data-glass="card" id="form" novalidate>
-        <p class="form__note">Prefer to write it out? Draft it here — this page has no
-        backend, so nothing is sent or stored. You will get a copy to paste into a DM.</p>
+    <footer class="foot reveal">
+      <span>Muhammed Ashmid</span>
+      <span class="dot"></span>
+      <span>BRN {{BRN}}</span>
+      <span class="dot"></span>
+      <span>Dubai, UAE</span>
+      <span class="dot"></span>
+      <span>&copy; <span id="yr">2026</span></span>
+    </footer>
 
-        <label for="f-name">Name</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name">
-
-        <label for="f-stage">Where you are</label>
-        <select id="f-stage" name="stage">
-          <option>Just starting to look</option>
-          <option>Comparing off-plan and ready</option>
-          <option>Have a project in mind</option>
-          <option>Ready to move on something</option>
-        </select>
-
-        <label for="f-msg">What you want to know</label>
-        <textarea id="f-msg" name="message" rows="4" placeholder="One or two lines is plenty."></textarea>
-
-        <button class="btn btn--full" type="submit"><span>Draft my message</span></button>
-        <output class="form__out" id="form-out" hidden></output>
-      </form>
-    </div>
   </div>
 </section>
 
 </main>
 
-<footer class="foot">
-  <div class="shell foot__in">
-    <div class="foot__brand">
-      <p class="foot__name">Muhammed Ashmid</p>
-      <p class="foot__tag">Dubai real estate made simple</p>
-    </div>
-    <div class="foot__cols">
-      <div>
-        <span class="foot__k">Credential</span>
-        <!-- Placeholder. Replace {{BRN}} with the real Broker Registration Number
-             before launch. Not supplied by the client; must not be invented. -->
-        <p class="foot__v">BRN {{BRN}}</p>
-      </div>
-      <div>
-        <span class="foot__k">Location</span>
-        <p class="foot__v">Dubai, United Arab Emirates</p>
-      </div>
-      <div>
-        <span class="foot__k">Enquiries</span>
-        <p class="foot__v"><a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a></p>
-      </div>
-    </div>
-    <p class="foot__fine">
-      Images on this page: one photograph of Muhammed Ashmid, and one architectural
-      visualisation shown as an example of off-plan render material. The visualisation is
-      not a completed building, not a listing and not a sale. Nothing here is financial
-      advice, and no figures, returns or guarantees are stated anywhere on this page.
-    </p>
-    <p class="foot__c">© <span id="yr">2026</span> Muhammed Ashmid · Dubai, UAE</p>
-  </div>
-</footer>
-
-<script src="vendor/three.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
