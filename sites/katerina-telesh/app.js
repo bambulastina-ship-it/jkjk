@@ -1,99 +1,48 @@
-/* ==========================================================================
-   Katerina Telesh — behaviour. Vanilla, no build step, no dependencies.
-
-   LIBRARY EVALUATION (required by brief)
-   --------------------------------------
-   ShaderGradient      — rejected. It is a React + three.js WebGL wrapper.
-                         Animated shader gradients are also exactly the
-                         "ambient looping animation" the art direction bans,
-                         and they would fight a near-monochrome dossier page.
-   Liquid Logo         — rejected. Built for a logo mark rendered on the GPU.
-                         This client has a wordmark, not a logo, and the
-                         effect reads as tech-startup, not investor advisory.
-   Liquid Glass JS     — rejected. Glassmorphism is explicitly banned in the
-                         art direction, and refraction over a dark ground
-                         destroys the hairline rules the layout depends on.
-   React Three Fiber   — rejected. React + three.js is ~450KB of runtime to
-                         put behind a static one-page landing site with three
-                         images. It would also force a build step, which the
-                         brief rules out.
-
-   Conclusion: none of the four earn their weight here. The only visual
-   effects on the page are an inline SVG grain layer (zero JS) and a small
-   IntersectionObserver wipe, together well under 3KB. Same verdict as
-   Subagent 1, reached independently and for different reasons: the issue
-   is not only payload, it is that all four fight this art direction.
-   ========================================================================== */
-
+/* Katerina Telesh — lean interactions only.
+   No WebGL, no three.js, no animation library. Scope is a 3-scroll landing page:
+   a scroll-state nav, entrance reveals, and the year. That is all it needs. */
 (function () {
   'use strict';
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------------------------------------------------- live year */
+  // year
   var yr = document.getElementById('yr');
-  if (yr) yr.textContent = String(new Date().getFullYear());
+  if (yr) yr.textContent = new Date().getFullYear();
 
-  /* --------------------------------------------------------- mobile menu */
-  var burger = document.getElementById('burger');
-  var drawer = document.getElementById('drawer');
-
-  function setMenu(open) {
-    if (!burger || !drawer) return;
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    drawer.hidden = !open;
-  }
-
-  if (burger && drawer) {
-    setMenu(false);
-    burger.addEventListener('click', function () {
-      setMenu(burger.getAttribute('aria-expanded') !== 'true');
-    });
-    drawer.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setMenu(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenu(false);
-    });
-    // desktop breakpoint takes over: make sure state cannot get stuck
-    var wide = window.matchMedia('(min-width: 900px)');
-    var sync = function () { if (wide.matches) setMenu(false); };
-    wide.addEventListener ? wide.addEventListener('change', sync) : wide.addListener(sync);
-  }
-
-  /* ------------------------------------------------------------- reveals */
-  var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
-
-  if (reduce.matches || !('IntersectionObserver' in window)) {
-    items.forEach(function (el) { el.classList.add('is-in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      // stagger by document order within each batch that enters together
-      var hit = entries.filter(function (en) { return en.isIntersecting; });
-      hit.forEach(function (en, i) {
-        en.target.style.setProperty('--d', Math.min(i, 5) * 70 + 'ms');
-        en.target.classList.add('is-in');
-        io.unobserve(en.target);
+  // nav hairline once scrolled
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var ticking = false;
+    var onScroll = function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        nav.classList.toggle('scrolled', window.scrollY > 24);
+        ticking = false;
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-
-    items.forEach(function (el) { io.observe(el); });
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  /* ---------------------------------------------- form: posts nowhere ---
-     No backend, no storage, no third party. The submit handler exists only
-     to stop the browser navigating and to state plainly that nothing was
-     sent, so no one believes a message reached her. -------------------- */
-  var form = document.getElementById('enq');
-  var note = document.getElementById('formnote');
-  if (form && note) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      note.textContent =
-        'Not sent — this form is a placeholder with no destination. ' +
-        'Please use beacons.ai/ekaterinatelesh to reach Katerina.';
-      note.classList.add('is-said');
+  // entrance reveals
+  var items = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function (n) {
+        return n.classList && n.classList.contains('reveal');
+      });
+      el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 90 + 'ms';
+      el.classList.add('in');
+      io.unobserve(el);
     });
-  }
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  for (var j = 0; j < items.length; j++) io.observe(items[j]);
 })();
