@@ -210,7 +210,7 @@ h3{font-size:clamp(1.4375rem,1.15rem + 1vw,2.125rem);letter-spacing:-.01em}
    right column. Breaks the two-column card rhythm without inventing a widget. */
 .split{display:grid;gap:clamp(2rem,4vw,4.5rem);align-items:center;
   grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr)}
-.split-img{margin-left:calc(50% - 50vw)}
+
 .split-img{position:relative;overflow:hidden;transform-style:preserve-3d;
   border:1px solid var(--hair);border-left:0;box-shadow:0 40px 90px -50px #000;
   transition:transform .8s var(--slow)}
@@ -283,7 +283,7 @@ h3{font-size:clamp(1.4375rem,1.15rem + 1vw,2.125rem);letter-spacing:-.01em}
 
 /* ─── responsive ───────────────────────────────────────── */
 @media (max-width:960px){
-  .split-img{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-right:0}
+
   .split-copy{padding-left:0;border-left:0;border-top:1px solid var(--hair-g);padding-top:var(--s3)}
   .hero-grid{grid-template-columns:minmax(0,1fr)}
   .hero-fig{order:0;justify-self:stretch;width:min(100%,420px)}
@@ -365,3 +365,12 @@ h3{font-size:clamp(1.4375rem,1.15rem + 1vw,2.125rem);letter-spacing:-.01em}
   .hero-fig{order:0;justify-self:stretch;width:min(100%,420px)}
   .hero-type{order:1}
 }
+
+
+/* ─── magnification ceiling ────────────────────────────────
+   Sources run 390-894px. No photograph is ever drawn above ~1.3x its native
+   width; each frame centres its image rather than stretching it to fill. */
+.cine-img{display:flex;justify-content:center;background:var(--pitch)}
+.cine-img img{max-width:1162px}
+.plate img{max-width:550px;margin-inline:auto}
+.strip img{max-width:550px;margin-inline:auto}

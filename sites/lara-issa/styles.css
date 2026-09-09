@@ -210,7 +210,7 @@ h3{font-size:clamp(1.5rem,1.2rem + 1.1vw,2.25rem);letter-spacing:0}
    right column. Breaks the two-column card rhythm without inventing a widget. */
 .split{display:grid;gap:clamp(2rem,4vw,4.5rem);align-items:center;
   grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
-.split-img{margin-right:calc(50% - 50vw)}
+
 .split-img{position:relative;overflow:hidden;transform-style:preserve-3d;
   border:1px solid var(--hair);border-right:0;box-shadow:0 40px 90px -50px #000;
   transition:transform .8s var(--slow)}
@@ -283,7 +283,7 @@ h3{font-size:clamp(1.5rem,1.2rem + 1.1vw,2.25rem);letter-spacing:0}
 
 /* ─── responsive ───────────────────────────────────────── */
 @media (max-width:960px){
-  .split-img{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-left:0}
+
   .split-copy{padding-right:0;border-right:0;border-bottom:1px solid var(--hair-g);padding-bottom:var(--s3)}
   .hero-grid{grid-template-columns:minmax(0,1fr)}
   .hero-fig{order:0;justify-self:stretch;width:min(100%,420px)}
@@ -329,7 +329,8 @@ h3{font-size:clamp(1.5rem,1.2rem + 1.1vw,2.25rem);letter-spacing:0}
 .ch-close{position:relative;overflow:hidden;isolation:isolate}
 .close-bg{position:absolute;inset:0;z-index:-2}
 .close-bg img{width:100%;height:118%;object-fit:cover;object-position:50% 42%;
-  filter:brightness(.62) contrast(1.06) saturate(.9);will-change:transform}
+  filter:blur(7px) brightness(.55) contrast(1.10) saturate(.85);
+  transform:scale(1.04);will-change:transform}
 .ch-close::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(6,6,7,.90),rgba(6,6,7,.72) 46%,rgba(6,6,7,.94)),
              radial-gradient(90% 70% at 50% 46%,rgba(229,193,88,.10),transparent 66%)}
@@ -363,3 +364,16 @@ h3{font-size:clamp(1.5rem,1.2rem + 1.1vw,2.25rem);letter-spacing:0}
 .strip figure:hover img{transform:scale(1.04);filter:saturate(1) contrast(1.06)}
 @media (max-width:900px){.strip{column-count:2}}
 @media (max-width:430px){.strip{column-count:2}}
+
+
+/* ─── magnification ceiling ────────────────────────────────
+   Sources run 390-894px. No photograph is ever drawn above ~1.3x its native
+   width; each frame centres its image rather than stretching it to fill. */
+.cine-img{display:flex;justify-content:center;background:var(--pitch)}
+.cine-img img{max-width:996px}
+.plate img{max-width:654px;margin-inline:auto}
+.strip img{max-width:654px;margin-inline:auto}
+.split-img{display:flex;justify-content:center;width:fit-content;max-width:100%;
+  margin-inline:auto;background:var(--pitch);border:1px solid var(--hair)}
+.split-img img{max-width:507px}
+.close-bg img{max-width:none}
