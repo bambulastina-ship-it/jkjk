@@ -2,216 +2,204 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Lara Issa — Dubai Real Estate Advisor</title>
-<meta name="description" content="Lara Issa, Dubai real estate advisor since 2019. Buying, selling and leasing across Dubai. BRN 89685. Free consultation on WhatsApp.">
-<meta name="theme-color" content="#0A0A0C">
-<link rel="preload" as="font" type="font/woff2" href="fonts/syne-latin.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>
+<meta name="description" content="Lara Issa — Dubai real estate advisor since 2019. Buying, selling and leasing across Dubai. BRN 89685. First consultation free.">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#ch1">Skip to content</a>
 
-<a class="skip" href="#main">Skip to content</a>
+<!-- Liquid Glass JS — optical refraction primitives -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="lg-soft" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="9" result="t"/>
+    <feGaussianBlur in="t" stdDeviation="1" result="tb"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
-<header class="nav" id="nav">
-  <a class="mark" href="#top">
-    <span class="mark-name">Lara Issa</span>
-    <span class="mark-sub">Dubai Real Estate Advisor</span>
+<nav class="rail" aria-label="Sections">
+  <a href="#ch1" data-r="1"><i></i><span>Advisor</span></a>
+  <a href="#ch2" data-r="2"><i></i><span>Spaces</span></a>
+  <a href="#ch3" data-r="3"><i></i><span>Working together</span></a>
+  <a href="#ch4" data-r="4"><i></i><span>Enquire</span></a>
+</nav>
+
+<header class="nav">
+  <a class="mark" href="#ch1">
+    <span class="mark-n" data-liquid>Lara Issa</span>
+    <span class="mark-s">Dubai Real Estate Advisor</span>
   </a>
-  <a class="btn btn-sm" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Contact now</a>
+  <a class="cta-mini" href="https://wa.link/08nnkz" target="_blank" rel="noopener"><span>Contact</span></a>
 </header>
 
-<main id="main">
+<main>
 
-<!-- ================= SCROLL 1 — THE AGENT ================= -->
-<section class="hero" id="top">
-  <div class="hero-inner">
-
-    <figure class="portrait reveal">
-      <div class="frame frame--portrait">
+<!-- ══ I · THE ADVISOR ══ -->
+<section class="ch ch-hero" id="ch1">
+  <canvas id="grad" aria-hidden="true"></canvas>
+  <div class="hero-grid">
+    <figure class="hero-fig">
+      <div class="plate" data-tilt="4">
         <img src="img/portrait-lara.png" width="503" height="840"
-             alt="Lara Issa, Dubai real estate advisor, photographed outside Dubai Festival Plaza."
+             alt="Lara Issa, Dubai real estate advisor, at Dubai Festival Plaza."
              fetchpriority="high" decoding="async">
-        <span class="grain" aria-hidden="true"></span>
+        <span class="vig"></span><span class="grain"></span>
       </div>
-      <figcaption class="portrait-cap">Dubai Festival Plaza</figcaption>
+      <figcaption>Dubai Festival Plaza</figcaption>
     </figure>
 
-    <div class="hero-copy">
-      <p class="eyebrow reveal"><span class="tick"></span>Dubai, UAE &nbsp;·&nbsp; Advising since 2019</p>
-
-      <h1 class="reveal">Lara<br><span class="surname">Issa</span></h1>
-
-      <p class="lede reveal">
-        A Dubai real estate advisor who handles the whole move personally &mdash;
-        from the first viewing to the keys.
+    <div class="hero-type">
+      <p class="marker"><span class="num">I</span><span class="rule"></span>The Advisor</p>
+      <h1><span class="l1">Lara</span><span class="l2">Issa</span></h1>
+      <p class="lede">
+        A Dubai advisor who handles the whole move personally — from
+        the first viewing to the day the keys change hands.
       </p>
-
-      <ul class="spec reveal">
-        <li>Buying</li>
-        <li>Selling</li>
-        <li>Leasing</li>
+      <ul class="pills">
+        <li>Buying</li><li>Selling</li><li>Leasing</li>
       </ul>
-
-      <div class="cta-row reveal">
-        <a class="btn btn-lg" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Contact now</a>
-        <a class="btn btn-lg btn-outline" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Book an appointment</a>
+      <div class="acts">
+        <a class="btn" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Contact now</a>
+        <a class="btn btn-o" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Book an appointment</a>
       </div>
-
-      <p class="note reveal">First consultation is free.</p>
-
-      <p class="credential reveal">
-        <span class="brn">BRN 89685</span>
-        <span class="dot"></span>
-        <a class="ig" href="https://instagram.com/realtor.lara" target="_blank" rel="noopener">@realtor.lara</a>
-        <span class="dot"></span>
-        Dubai, UAE
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= SCROLL 2 — PROPERTIES ================= -->
-<!--
-  REAL LISTING DATA GOES HERE.
-  No property names, locations, prices, bedroom/bathroom counts, sizes or
-  reference numbers have been supplied by the client, so none are stated.
-  The captions below describe only what is visible in each photograph and do
-  NOT claim these are Lara's own listings or sales. When real listing data
-  arrives, replace the <figcaption> blocks (tag / heading / description) and
-  add price, beds, size and community fields at that point — not before.
--->
-<section class="work" id="properties">
-  <div class="wrap">
-    <header class="work-head">
-      <div class="work-head-l">
-        <p class="eyebrow reveal"><span class="tick"></span>Interiors</p>
-        <h2 class="reveal">The kind of<br>spaces I show</h2>
-      </div>
-      <div class="work-head-r reveal">
-        <p>Every viewing is walked in person, so what I tell you about a building
-          is what I have seen standing in it.</p>
-        <a class="btn-ghost" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Ask about a property</a>
-      </div>
-    </header>
-  </div>
-
-  <div class="wrap">
-    <div class="gallery">
-
-      <figure class="shot shot-wide reveal">
-        <div class="frame frame--wide">
-          <img src="img/interior-penthouse.png" width="767" height="511"
-               alt="Open-plan residence interior: veined marble island, sculptural teal glass chandelier and full-height glazing onto the water."
-               loading="lazy" decoding="async">
-          <span class="grain" aria-hidden="true"></span>
-          <figcaption class="glass-cap">
-            <span class="tag">Open plan, water facing</span>
-            <p>Veined marble island, sculptural glass chandelier, full-height glazing onto the sea.</p>
-          </figcaption>
-        </div>
-      </figure>
-
-      <figure class="shot shot-tall reveal">
-        <div class="frame frame--tall">
-          <img src="img/interior-lounge.png" width="390" height="395"
-               alt="Living room with a full-height book-matched marble feature wall, recessed cove lighting and terracotta armchairs."
-               loading="lazy" decoding="async">
-          <span class="grain" aria-hidden="true"></span>
-          <figcaption class="glass-cap">
-            <span class="tag">Marble feature wall</span>
-            <p>Book-matched stone, recessed cove light, terracotta seating.</p>
-          </figcaption>
-        </div>
-      </figure>
-
+      <p class="free">First consultation is free.</p>
+      <dl class="creds">
+        <div><dt>Advising since</dt><dd>2019</dd></div>
+        <div><dt>BRN</dt><dd>89685</dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://instagram.com/realtor.lara" target="_blank" rel="noopener">@realtor.lara</a></dd></div>
+      </dl>
     </div>
   </div>
+  <span class="scroll-hint" aria-hidden="true"><i></i>Scroll</span>
 </section>
 
-<!-- ================= SCROLL 3 — FEATURED + CLOSE ================= -->
-<section class="close" id="contact">
+<!-- ══ II · THE SPACES ══ -->
+<section class="ch ch-work" id="ch2">
+  <div class="wrap">
+    <p class="marker reveal"><span class="num">II</span><span class="rule"></span>The Spaces</p>
+    <h2 class="reveal">The kind of<br><em>spaces I show</em></h2>
+  </div>
 
-  <figure class="featured reveal">
-    <div class="frame frame--band">
-      <img src="img/dubai-opera-night.png" width="767" height="511"
-           alt="Dubai Opera glowing amber at night in Downtown Dubai."
+  <figure class="cine reveal">
+    <div class="cine-img" data-par="0.12">
+      <img src="img/interior-penthouse.png" width="767" height="511"
+           alt="Open-plan residence: veined marble island, sculptural glass chandelier, full-height glazing onto the sea."
            loading="lazy" decoding="async">
-      <span class="grain grain--dark" aria-hidden="true"></span>
+      <span class="grain"></span>
     </div>
-    <figcaption class="band-cap">
-      <span class="tag">Downtown Dubai</span>
-      <span class="band-cap-t">The Opera district after dark</span>
+    <figcaption class="cine-cap">
+      <span class="tag">Residence</span>
+      <h3>Open plan, water facing</h3>
+      <p>Veined marble island, sculptural glass, full-height glazing onto the sea.</p>
     </figcaption>
   </figure>
 
-  <div class="wrap close-inner">
-    <p class="eyebrow reveal"><span class="tick"></span>Enquiries</p>
-    <h2 class="reveal">Let’s find the<br><span class="surname">right one in Dubai</span></h2>
-    <p class="close-lede reveal">
-      Tell me what you are looking for &mdash; buying, selling or leasing &mdash;
-      and I will come back to you personally.
-    </p>
-
-    <div class="cta-row cta-center reveal">
-      <a class="btn btn-lg" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Contact now</a>
-      <a class="btn btn-lg btn-outline" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Book an appointment</a>
-    </div>
-</div>
-</section>
-
-
-<!-- ============ CODA — gallery + details ============
-     Sits after the closing CTA, per client. The details grid below carries only
-     facts the client has supplied. Further information is expected: add it as
-     additional .d-item blocks, do not invent any. -->
-<section class="coda" id="details">
   <div class="wrap">
-    <p class="eyebrow reveal"><span class="rule"></span> Gallery</p>
-
-    <div class="strip reveal">
-      <figure class="strip-i"><img src="img/portrait-lara.png" alt="Lara Issa in Dubai." loading="lazy" decoding="async"><span class="grain"></span></figure>
-      <figure class="strip-i"><img src="img/interior-penthouse.png" alt="Open-plan residence with marble island and sea view." loading="lazy" decoding="async"><span class="grain"></span></figure>
-      <figure class="strip-i"><img src="img/interior-lounge.png" alt="Marble feature wall with terracotta seating." loading="lazy" decoding="async"><span class="grain"></span></figure>
-      <figure class="strip-i"><img src="img/dubai-opera-night.png" alt="Dubai Opera lit at night." loading="lazy" decoding="async"><span class="grain"></span></figure>
-    </div>
-
-    <div class="details reveal">
-      <div class="d-item"><span class="d-k">Advisor</span><span class="d-v">Lara Issa</span></div>
-      <div class="d-item"><span class="d-k">Services</span><span class="d-v">Buying · Selling · Leasing</span></div>
-      <div class="d-item"><span class="d-k">Advising since</span><span class="d-v">2019</span></div>
-      <div class="d-item"><span class="d-k">Location</span><span class="d-v">Dubai, UAE</span></div>
-      <div class="d-item"><span class="d-k">BRN</span><span class="d-v">89685</span></div>
-      <div class="d-item"><span class="d-k">Consultation</span><span class="d-v">First one is free</span></div>
-      <div class="d-item"><span class="d-k">Instagram</span><span class="d-v"><a href="https://instagram.com/realtor.lara" target="_blank" rel="noopener">@realtor.lara</a></span></div>
-      <div class="d-item"><span class="d-k">WhatsApp</span><span class="d-v"><a href="https://wa.link/08nnkz" target="_blank" rel="noopener">Message Lara</a></span></div>
+    <div class="split reveal">
+      <div class="split-copy">
+        <span class="tag">Interior</span>
+        <h3>Marble feature wall</h3>
+        <p>Book-matched stone behind the screen, the ceiling detailed to wash
+           light down it rather than sit on it.</p>
+        <a class="lnk" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Ask about a property</a>
+      </div>
+      <div class="split-img" data-tilt="3">
+        <img src="img/interior-lounge.png" width="390" height="395"
+             alt="Marble feature wall with recessed cove lighting and terracotta seating."
+             loading="lazy" decoding="async">
+        <span class="grain"></span>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="site-foot"><div class="foot reveal">
-      <span>Lara Issa</span>
-      <span class="dot"></span>
-      <span>Dubai Real Estate Advisor</span>
-      <span class="dot"></span>
-      <span>BRN 89685</span>
-      <span class="dot"></span>
-      <a href="https://instagram.com/realtor.lara" target="_blank" rel="noopener">@realtor.lara</a>
-      <span class="dot"></span>
-      <span>&copy; <span id="yr">2026</span></span>
-    </div></footer>
+<!-- ══ III · WORKING TOGETHER ══ -->
+<section class="ch ch-adv" id="ch3">
+  <div class="wrap">
+    <p class="marker reveal"><span class="num">III</span><span class="rule"></span>Working Together</p>
+    <div class="adv">
+      <div class="adv-lead reveal">
+        <h2>One client<br><em>at a time</em></h2>
+        <p>Every viewing is walked in person, so what I tell you about a
+           building is what I have seen standing in it.</p>
+        <p class="adv-note">Advising across Dubai since 2019 — buying, selling
+           and leasing, handled end to end.</p>
+      </div>
+      <div class="adv-cols">
+        <div class="col reveal">
+          <h4>What I handle</h4>
+          <ul>
+            <li>Buying</li><li>Selling</li><li>Leasing</li>
+            <li>Viewings across Dubai</li><li>Handover to keys</li>
+          </ul>
+        </div>
+        <div class="col reveal">
+          <h4>How it starts</h4>
+          <ul>
+            <li>A free first consultation</li>
+            <li>What you are looking for, plainly</li>
+            <li>A shortlist worth your time</li>
+            <li>Viewings walked together</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IV · ENQUIRE ══ -->
+<section class="ch ch-close" id="ch4">
+  <div class="close-bg" data-par="0.08">
+    <img src="img/dubai-opera-night.png" width="767" height="430"
+         alt="Dubai Opera lit at night in Downtown Dubai." loading="lazy" decoding="async">
+    <span class="grain"></span>
+  </div>
+  <div class="wrap close-in">
+    <p class="marker reveal"><span class="num">IV</span><span class="rule"></span>Enquire</p>
+    <h2 class="reveal">Let's find the<br><em>right one in Dubai</em></h2>
+    <p class="close-lede reveal">Tell me what you are looking for — buying, selling
+       or leasing — and I will come back to you personally.</p>
+    <div class="acts acts-c reveal">
+      <a class="btn" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Contact now</a>
+      <a class="btn btn-o" href="https://wa.link/08nnkz" target="_blank" rel="noopener">Book an appointment</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CODA ══ -->
+<section class="coda" id="details">
+  <div class="wrap">
+    <div class="strip reveal">
+      <figure><img src="img/portrait-lara.png" alt="Lara Issa in Dubai." loading="lazy" decoding="async"><span class="grain"></span></figure>
+      <figure><img src="img/interior-penthouse.png" alt="Open-plan residence with sea view." loading="lazy" decoding="async"><span class="grain"></span></figure>
+      <figure><img src="img/interior-lounge.png" alt="Marble feature wall with terracotta seating." loading="lazy" decoding="async"><span class="grain"></span></figure>
+      <figure><img src="img/dubai-opera-night.png" alt="Dubai Opera at night." loading="lazy" decoding="async"><span class="grain"></span></figure>
+    </div>
+    <dl class="facts reveal">
+      <div><dt>Advisor</dt><dd>Lara Issa</dd></div>
+      <div><dt>Services</dt><dd>Buying · Selling · Leasing</dd></div>
+      <div><dt>Advising since</dt><dd>2019</dd></div>
+      <div><dt>BRN</dt><dd>89685</dd></div>
+      <div><dt>Location</dt><dd>Dubai, UAE</dd></div>
+      <div><dt>Consultation</dt><dd>First one is free</dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://instagram.com/realtor.lara" target="_blank" rel="noopener">@realtor.lara</a></dd></div>
+      <div><dt>WhatsApp</dt><dd><a href="https://wa.link/08nnkz" target="_blank" rel="noopener">Message Lara</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Lara Issa</span><span>Dubai Real Estate Advisor</span>
+    <span>BRN 89685</span><span>Dubai, UAE</span>
+    <span>&copy; <span id="yr">2026</span></span>
+  </div>
+</footer>
+
 </main>
-
-<!-- floating glass CTA — appears once the hero has scrolled past -->
-<a class="float-cta" id="floatCta" href="https://wa.link/08nnkz" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-  <span class="float-cta-dot" aria-hidden="true"></span>
-  <span class="float-cta-t">Contact now</span>
-  <span class="float-cta-s">Free consultation</span>
-</a>
-
 <script src="app.js"></script>
 </body>
 </html>

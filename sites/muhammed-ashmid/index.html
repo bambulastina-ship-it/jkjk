@@ -2,176 +2,124 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Muhammed Ashmid — Dubai Real Estate</title>
-<meta name="description" content="Muhammed Ashmid — Dubai real estate made simple. Off-plan and ready properties. Enquiries via Instagram.">
-<meta name="theme-color" content="#0A0A0C">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Muhammed Ashmid — Dubai Real Estate &amp; Investment Advisory</title>
+<meta name="description" content="Muhammed Ashmid — Dubai real estate and investment advisory. Off-plan developments, branded residences and premium apartments and villas.">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#ch1">Skip to content</a>
 
-<a class="skip" href="#main">Skip to content</a>
+<!-- Liquid Glass JS — optical refraction primitives -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="lg-soft" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="13" result="t"/>
+    <feGaussianBlur in="t" stdDeviation="1" result="tb"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
-<header class="nav" id="nav">
-  <a class="mark" href="#top">
-    <span class="mark-name">Muhammed Ashmid</span>
-    <span class="mark-sub">Dubai Real Estate</span>
+<nav class="rail" aria-label="Sections">
+  <a href="#ch1" data-r="1"><i></i><span>Advisor</span></a>
+  <a href="#ch2" data-r="2"><i></i><span>Off-plan</span></a>
+  <a href="#ch3" data-r="3"><i></i><span>Advisory</span></a>
+  <a href="#ch4" data-r="4"><i></i><span>Enquire</span></a>
+</nav>
+
+<header class="nav">
+  <a class="mark" href="#ch1">
+    <span class="mark-n" data-liquid>Muhammed Ashmid</span>
+    <span class="mark-s">Dubai Real Estate &amp; Investment Advisory</span>
   </a>
-  <nav class="nav-actions">
-    <!-- No phone or WhatsApp number was supplied by the client.
-         Instagram is the only confirmed contact channel — every CTA points there.
-         Swap these hrefs when a WhatsApp link or number is provided. -->
-    <a class="lnk" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a>
-    <a class="btn btn-sm" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
-  </nav>
+  <a class="cta-mini" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener"><span>Contact</span></a>
 </header>
 
-<main id="main">
+<main>
 
-<!-- ==================== SCROLL 1 — THE AGENT ==================== -->
-<section class="hero" id="top">
-  <div class="hero-inner">
+<!-- ══ I · THE ADVISOR ══ -->
+<section class="ch ch-hero" id="ch1">
+  <canvas id="grad" aria-hidden="true"></canvas>
+  <div class="hero-grid">
+    <div class="hero-type">
+      <p class="marker"><span class="num">I</span><span class="rule"></span>The Advisor</p>
+      <h1><span class="l1">Muhammed</span><span class="l2">Ashmid</span></h1>
+      <p class="lede">
+        Dubai real estate made simple — off-plan and ready properties
+        for buyers who want the process explained plainly.
+      </p>
+      <ul class="pills">
+        <li>Off-plan</li><li>Ready</li><li>Investment</li>
+      </ul>
+      <div class="acts">
+        <a class="btn" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
+        <a class="btn btn-o" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Book an appointment</a>
+      </div>
+      <p class="quote">"Invest smart. Earn better."</p>
+      <dl class="creds">
+        <div><dt>Focus</dt><dd>Dubai residential &amp; investment</dd></div>
+        <div><dt>Enquiries</dt><dd><a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a></dd></div>
+      </dl>
+    </div>
 
-    <figure class="portrait reveal">
-      <div class="frame frame-portrait">
+    <figure class="hero-fig">
+      <div class="plate" data-tilt="4">
         <img src="img/portrait-ashmid.png" width="471" height="855"
-             alt="Muhammed Ashmid standing in a marble lobby in a navy suit and open white shirt, the Burj Khalifa and the Downtown Dubai skyline behind him through floor-to-ceiling glass."
+             alt="Muhammed Ashmid in a Downtown Dubai lobby, the Burj Khalifa and skyline through the glass."
              fetchpriority="high" decoding="async">
-        <span class="grain" aria-hidden="true"></span>
+        <span class="vig"></span><span class="grain"></span>
       </div>
-      <figcaption class="portrait-cap">Downtown Dubai</figcaption>
+      <figcaption>Downtown Dubai</figcaption>
     </figure>
-
-    <div class="hero-copy">
-      <p class="eyebrow reveal">Dubai <span class="sep">/</span> Off-plan &amp; ready</p>
-
-      <h1 class="reveal">Muhammed<br><span class="surname">Ashmid</span></h1>
-
-      <p class="lede reveal">Dubai real estate made simple.</p>
-
-      <p class="intro reveal">
-        Off-plan and ready properties across Dubai, for buyers who want the
-        process explained plainly and handled end to end.
-      </p>
-
-      <p class="quote reveal"><span>&ldquo;</span>Invest smart. Earn better.<span>&rdquo;</span></p>
-
-      <div class="cta-row reveal">
-        <a class="btn btn-lg" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
-        <a class="btn btn-lg btn-outline" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Book an appointment</a>
-      </div>
-      <p class="credential reveal">Dubai, UAE
-        <span class="dot"></span>Enquiries via Instagram DM
-      </p>
-    </div>
-
   </div>
+  <span class="scroll-hint" aria-hidden="true"><i></i>Scroll</span>
 </section>
 
-<!-- ==================== SCROLL 2 — PROPERTIES ==================== -->
-<section class="props" id="properties">
+<!-- ══ II · OFF-PLAN ══ -->
+<section class="ch ch-work" id="ch2">
   <div class="wrap">
-
-    <div class="props-head">
-      <p class="eyebrow reveal">Off-plan</p>
-      <h2 class="reveal">Seen before<br>it is built.</h2>
-      <p class="props-note reveal">
-        Off-plan property is bought from drawings and renders, long before
-        handover. Below is a developer visualisation &mdash; the way a scheme is
-        presented at that stage.
-      </p>
+    <p class="marker reveal"><span class="num">II</span><span class="rule"></span>Off-Plan</p>
+    <div class="work-head reveal">
+      <h2>Seen before<br><em>it is built</em></h2>
+      <p>Off-plan property is bought from drawings and renders, long before
+         handover. Below is a developer visualisation — the way a scheme is
+         presented at that stage.</p>
     </div>
-
-    <figure class="villa reveal">
-      <div class="frame frame-villa">
-        <img src="img/villa-render.png" width="894" height="758"
-             alt="Architectural render of a contemporary Dubai villa: curved gold-trimmed balconies spilling with bougainvillea, clipped topiary, and two cars on the paved drive under a deep blue sky."
-             loading="lazy" decoding="async">
-        <span class="grain" aria-hidden="true"></span>
-      </div>
-
-      <figcaption class="villa-cap glass">
-        <span class="tag">Developer visualisation</span>
-        <h3>Curved terraces, gold trim, private drive</h3>
-        <p>
-          Bougainvillea over sculpted balconies, topiary gardens and covered
-          parking. A render of an off-plan scheme &mdash; not a photograph, not a
-          completed building.
-        </p>
-        <!-- LISTING DATA GOES HERE.
-             No property name, community, developer, price, size, bedroom or
-             bathroom count, handover date or payment plan was supplied for this
-             image. None have been written in. Drop the real figures in here once
-             the client confirms them, and re-caption the image accordingly. -->
-      </figcaption>
-    </figure>
-
   </div>
-</section>
 
-<!-- ==================== SCROLL 3 — FEATURED + CLOSE ==================== -->
-<section class="close" id="contact">
-  <div class="wrap close-inner">
-
-    <figure class="featured reveal">
-      <div class="frame frame-featured">
-        <img src="img/portrait-ashmid.png" width="471" height="855"
-             alt="Muhammed Ashmid with the Burj Khalifa and the Downtown Dubai skyline behind him through the lobby glazing."
-             loading="lazy" decoding="async">
-        <span class="grain" aria-hidden="true"></span>
-      </div>
-      <figcaption>Downtown Dubai, late light</figcaption>
-    </figure>
-
-    <div class="close-copy">
-      <p class="eyebrow reveal">Enquiries</p>
-      <h2 class="reveal">Your next Dubai<br>property awaits.</h2>
-      <p class="close-lede reveal">
-        Tell me what you are looking for &mdash; off-plan or ready &mdash; and I
-        will come back to you personally.
-      </p>
-
-      <div class="cta-row reveal">
-        <a class="btn btn-lg" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
-        <a class="btn btn-lg btn-outline" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Book an appointment</a>
-      </div>
-
-      <p class="handle reveal">
-        <a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a>
-        <span class="dot"></span>587 followers
-        <span class="dot"></span>17 posts
-      </p>
+  <figure class="cine reveal">
+    <div class="cine-img" data-par="0.10">
+      <img src="img/villa-render.png" width="894" height="758"
+           alt="Developer visualisation of a contemporary Dubai villa with curved balconies, gold trim and bougainvillea."
+           loading="lazy" decoding="async">
+      <span class="grain"></span>
     </div>
-</div>
+    <figcaption class="cine-cap">
+      <span class="tag">Developer visualisation</span>
+      <h3>Curved terraces, gold trim, private drive</h3>
+      <!-- No property name, location, price, bedroom count, handover date or
+           payment plan was supplied. Add real listing data here; invent none. -->
+      <p>Bougainvillea over sculpted balconies, topiary gardens and covered
+         parking. A render of an off-plan scheme — not a photograph, and not a
+         completed building.</p>
+    </figcaption>
+  </figure>
 </section>
 
-
-<!-- ============ CODA — gallery + details ============
-     After the closing CTA, per client. Only supplied facts appear here.
-     Further information is expected: add more .d-item blocks. Never invent.
-     No BRN was supplied and none is shown. -->
-<section class="coda" id="details">
+<!-- ══ III · THE ADVISORY ══ -->
+<section class="ch ch-adv" id="ch3">
   <div class="wrap">
-    <p class="eyebrow reveal">Profile</p>
-    <div class="strip reveal">
-      <figure class="strip-i"><img src="img/portrait-ashmid.png" alt="Muhammed Ashmid in Downtown Dubai." loading="lazy" decoding="async"></figure>
-      <figure class="strip-i"><img src="img/villa-render.png" alt="Developer visualisation of an off-plan Dubai villa." loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="prof reveal">
-      <div class="prof-lead">
-        <h3>Dubai Real Estate &amp; Investment Advisory</h3>
+    <p class="marker reveal"><span class="num">III</span><span class="rule"></span>The Advisory</p>
+    <div class="adv">
+      <div class="adv-lead reveal">
+        <h2>Premium property,<br><em>read properly</em></h2>
         <p>A focused approach to discovering premium properties and investment
            opportunities across Dubai.</p>
-        <div class="stat">
-          <span class="stat-l">Investment approach</span>
-          <p>Helping clients evaluate properties through location, development quality,
-             market potential and long-term desirability.</p>
-        </div>
+        <p class="adv-note">Helping clients evaluate properties through location,
+           development quality, market potential and long-term desirability.</p>
       </div>
-
-      <div class="prof-cols">
-        <div class="col">
+      <div class="adv-cols">
+        <div class="col reveal">
           <h4>Specialties</h4>
           <ul>
             <li>Luxury properties</li>
@@ -182,7 +130,7 @@
             <li>International buyers</li>
           </ul>
         </div>
-        <div class="col">
+        <div class="col reveal">
           <h4>Services</h4>
           <ul>
             <li>Property sourcing</li>
@@ -194,27 +142,49 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="details reveal">
-      <div class="d-item"><span class="d-k">Advisor</span><span class="d-v">Muhammed Ashmid</span></div>
-      <div class="d-item"><span class="d-k">Professional focus</span><span class="d-v">Dubai residential &amp; investment real estate</span></div>
-      <div class="d-item"><span class="d-k">Languages</span><span class="d-v">English · Arabic · Malayalam · Hindi · Tamil</span></div>
-      <div class="d-item"><span class="d-k">Location</span><span class="d-v">Dubai, UAE</span></div>
-      <div class="d-item"><span class="d-k">Instagram</span><span class="d-v"><a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a></span></div>
-      <div class="d-item"><span class="d-k">Enquiries</span><span class="d-v"><a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Instagram DM</a></span></div>
+<!-- ══ IV · ENQUIRE ══ -->
+<section class="ch ch-close" id="ch4">
+  <div class="wrap close-in">
+    <p class="marker reveal"><span class="num">IV</span><span class="rule"></span>Enquire</p>
+    <h2 class="reveal">Your next Dubai<br><em>property awaits</em></h2>
+    <p class="close-lede reveal">Tell me what you are looking for — off-plan or
+       ready — and I will come back to you personally.</p>
+    <div class="acts acts-c reveal">
+      <a class="btn" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Contact now</a>
+      <a class="btn btn-o" href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">Book an appointment</a>
     </div>
   </div>
 </section>
 
-<footer class="site-foot"><div class="foot reveal">
-      <span>Muhammed Ashmid</span>
-      <span class="dot"></span>
-      <span>Dubai, UAE</span>
-      <span class="dot"></span>
-      <span>&copy; <span id="yr">2026</span></span>
-    </div></footer>
-</main>
+<!-- ══ CODA ══ -->
+<section class="coda" id="details">
+  <div class="wrap">
+    <div class="strip reveal">
+      <figure><img src="img/portrait-ashmid.png" alt="Muhammed Ashmid in Downtown Dubai." loading="lazy" decoding="async"><span class="grain"></span></figure>
+      <figure><img src="img/villa-render.png" alt="Developer visualisation of an off-plan Dubai villa." loading="lazy" decoding="async"><span class="grain"></span></figure>
+    </div>
+    <dl class="facts reveal">
+      <div><dt>Advisor</dt><dd>Muhammed Ashmid</dd></div>
+      <div><dt>Professional focus</dt><dd>Dubai residential &amp; investment real estate</dd></div>
+      <div><dt>Approach</dt><dd>Dubai real estate made simple</dd></div>
+      <div><dt>Languages</dt><dd>English · Arabic · Malayalam · Hindi · Tamil</dd></div>
+      <div><dt>Location</dt><dd>Dubai, UAE</dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://instagram.com/ashmid.realestate_" target="_blank" rel="noopener">@ashmid.realestate_</a></dd></div>
+    </dl>
+  </div>
+</section>
 
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Muhammed Ashmid</span><span>Dubai Real Estate &amp; Investment Advisory</span>
+    <span>Dubai, UAE</span><span>&copy; <span id="yr">2026</span></span>
+  </div>
+</footer>
+
+</main>
 <script src="app.js"></script>
 </body>
 </html>

@@ -186,7 +186,7 @@ h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.875rem);text-transform:uppercase;let
 @media (max-width:900px){.scroll-hint{display:none}}
 
 /* ─── II · properties ──────────────────────────────────── */
-.ch-work{padding:var(--s7) 0;background:var(--pitch)}
+.ch-work{padding:var(--s7) 0;background:var(--pitch);overflow-x:clip}
 .ch-work h2{margin-bottom:var(--s5)}
 
 .cine{margin:0 0 var(--s6);position:relative}
@@ -212,7 +212,7 @@ h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.875rem);text-transform:uppercase;let
    right column. Breaks the two-column card rhythm without inventing a widget. */
 .split{display:grid;gap:clamp(2rem,4vw,4.5rem);align-items:center;
   grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr)}
-.split-img{margin-left:calc(var(--pad) * -1)}
+.split-img{margin-left:calc(50% - 50vw)}
 .split-img{position:relative;overflow:hidden;transform-style:preserve-3d;
   border:1px solid var(--hair);border-left:0;box-shadow:0 40px 90px -50px #000;
   transition:transform .8s var(--slow)}
@@ -286,7 +286,7 @@ h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.875rem);text-transform:uppercase;let
 
 /* ─── responsive ───────────────────────────────────────── */
 @media (max-width:960px){
-  .split-img{margin-left:calc(var(--pad) * -1);margin-right:calc(var(--pad) * -1);border-right:0}
+  .split-img{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-right:0}
   .split-copy{padding-left:0;border-left:0;border-top:1px solid var(--hair-g);padding-top:var(--s3)}
   .hero-grid{grid-template-columns:minmax(0,1fr)}
   .hero-fig{order:0;justify-self:stretch;width:min(100%,420px)}
