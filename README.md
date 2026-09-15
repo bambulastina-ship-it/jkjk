@@ -78,6 +78,16 @@ nothing animates.
 > homeowner who wants the phone number waits for it each time. A one-line `sessionStorage` guard
 > would show it once per session instead. Built as specified; say the word to change it.
 
+## Hosting
+
+`vite.config.ts` sets `base: './'` and all asset URLs are relative, so `dist/` works both at a
+domain root and under a sub-path (a preview host, a project subfolder, GitHub Pages).
+
+`scripts/escape-fffd.mjs` is a publish-time helper, not part of `npm run build`. ShaderGradient
+bundles a URI-decoding helper containing five literal U+FFFD characters; some static hosts reject
+raw ones. The script rewrites each to a `\uFFFD` escape — identical at runtime, and it leaves the
+bundle pure ASCII. Run it after `npm run build` only if your host complains.
+
 ## Verification
 
 ```bash

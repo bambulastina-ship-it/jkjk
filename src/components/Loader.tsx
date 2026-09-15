@@ -7,7 +7,7 @@ const LiquidLogo = lazy(() => import('./LiquidLogo'))
 
 const HOLD_MS = 3000
 const FADE_MS = 500
-const LOGO = '/assets/logo.jpg'
+const LOGO = 'assets/logo.jpg'
 
 /**
  * Loading screen. Holds for exactly HOLD_MS, then fades out over FADE_MS.

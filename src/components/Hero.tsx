@@ -40,7 +40,7 @@ export default function Hero() {
         <figure className="hero__figure">
           <img
             className="hero__photo"
-            src="/assets/owner.jpg"
+            src="assets/owner.jpg"
             alt={`The owner of ${site.legalName} on a recent job site`}
             width={1080}
             height={1350}

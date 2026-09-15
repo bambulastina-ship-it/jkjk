@@ -23,7 +23,7 @@ export default function Header() {
     <header className={`header${compact ? ' header--compact' : ''}`}>
       <div className="wrap header__inner">
         <a className="header__logo" href="#top">
-          <img src="/assets/logo.jpg" alt={`${site.legalName} logo`} width={40} height={40} />
+          <img src="assets/logo.jpg" alt={`${site.legalName} logo`} width={40} height={40} />
           <span className="header__logo-text">
             Malwa Belt
             <span>Renovations Ltd.</span>
