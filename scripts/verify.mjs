@@ -55,14 +55,21 @@ for (const width of widths) {
   const page = await ctx.newPage()
   await page.goto(BASE, { waitUntil: 'networkidle' })
   await page.waitForTimeout(3900)
-  await page.evaluate(() => document.querySelectorAll('[data-reveal]').forEach(n => n.classList.add('is-in')))
   await page.evaluate(async () => {
-    const step = window.innerHeight
+    const step = Math.round(window.innerHeight * 0.6)
     for (let y = 0; y < document.body.scrollHeight; y += step) {
-      window.scrollTo(0, y); await new Promise(r => setTimeout(r, 150))
+      window.scrollTo(0, y); await new Promise(r => setTimeout(r, 120))
     }
     window.scrollTo(0, 0)
   })
+
+  // Regression guard: reveal-on-scroll must never leave content invisible.
+  const hidden = await page.evaluate(() =>
+    [...document.querySelectorAll('[data-reveal]')]
+      .filter(n => parseFloat(getComputedStyle(n).opacity) < 0.9)
+      .map(n => n.className.toString().slice(0, 40)))
+  note(`w=${width} reveal elements still hidden: ${hidden.length}`)
+  if (hidden.length) fails.push(`${hidden.length} element(s) stuck invisible at ${width}px: ${hidden[0]}`)
   await page.waitForFunction(() => [...document.images].every(i => i.complete), null, { timeout: 15000 }).catch(() => {})
   await page.waitForTimeout(500)
   await page.screenshot({ path: `${OUT}/page-${width}.png`, fullPage: true })

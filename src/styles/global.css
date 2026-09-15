@@ -190,20 +190,26 @@ h1[tabindex]:focus { outline: none; }
 .hero__phone-stack small { display: block; color: rgb(255 255 255 / 0.62); font-size: 0.875rem; font-weight: 500; }
 .hero__phone:hover { color: var(--amber-400); }
 
-.hero__figure { position: relative; justify-self: center; width: 100%; max-width: 440px; }
+.hero__figure {
+  position: relative; justify-self: center; width: 100%; max-width: 520px; margin: 0;
+  display: flex; flex-direction: column; align-items: center;
+}
 .hero__figure::before {
   content: ''; position: absolute; left: 50%; bottom: 0; translate: -50% 0;
   width: 108%; aspect-ratio: 1; border-radius: 50%;
   background: radial-gradient(closest-side, rgb(242 169 0 / 0.22), transparent 72%);
 }
 .hero__photo {
-  position: relative; width: 100%; aspect-ratio: 4 / 5;
-  object-fit: cover; object-position: center top;
+  position: relative; width: 100%; height: auto;
+  aspect-ratio: 1080 / 1350; object-fit: contain; object-position: center bottom;
+  /* As large as the column allows, but never so tall that the phone number and
+     CTAs get pushed below the fold on a normal laptop. */
+  max-height: calc(100svh - 150px);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   filter: drop-shadow(0 22px 40px rgb(0 0 0 / 0.42));
 }
 .hero__badge {
-  position: absolute; left: 0; bottom: clamp(18px, 6vw, 42px);
+  position: absolute; left: clamp(-8px, -1vw, 0px); bottom: clamp(16px, 5vw, 38px);
   display: flex; align-items: center; gap: 0.65rem;
   background: var(--white); color: var(--navy-900);
   padding: 0.7rem 1rem; border-radius: var(--radius);
@@ -214,9 +220,16 @@ h1[tabindex]:focus { outline: none; }
 .hero__badge .dot { width: 9px; height: 9px; border-radius: 50%; background: #16a34a; flex: none; }
 
 @media (min-width: 900px) {
-  .hero__inner { grid-template-columns: 1.05fr 0.95fr; align-items: end; gap: var(--sp-5); }
-  .hero__copy { padding-bottom: clamp(3rem, 6vw, 5rem); }
-  .hero__figure { justify-self: end; max-width: 460px; }
+  .hero__inner {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    align-items: end; gap: var(--sp-4);
+    padding-block: clamp(2rem, 4vw, 3rem) 0;
+  }
+  .hero__copy { padding-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 38ch; }
+  .hero__figure { justify-self: stretch; max-width: none; }
+}
+@media (min-width: 1200px) {
+  .hero__inner { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: var(--sp-5); }
 }
 
 /* --- Trust strip -------------------------------------------------- */
@@ -376,9 +389,15 @@ h1[tabindex]:focus { outline: none; }
 }
 @media (min-width: 760px) { .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; gap: var(--sp-5); } }
 
-/* --- Scroll reveal ------------------------------------------------ */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 500ms var(--ease), transform 500ms var(--ease); }
-.reveal.is-in { opacity: 1; transform: none; }
+/* --- Scroll reveal ------------------------------------------------
+   Fail-safe by construction: content is only ever hidden while
+   <html> carries .js-anim, which JS adds on startup and unconditionally
+   removes a few seconds later. If the observer never fires, if JS dies,
+   or if the visitor has no JS at all, everything is simply visible.
+   A blank gallery is far worse than a missing fade.                  */
+html.js-anim .reveal { opacity: 0; transform: translateY(18px); }
+.reveal { transition: opacity 500ms var(--ease), transform 500ms var(--ease); }
+html.js-anim .reveal.is-in { opacity: 1; transform: none; }
 
 /* --- Reduced motion: honour it everywhere ------------------------- */
 @media (prefers-reduced-motion: reduce) {
