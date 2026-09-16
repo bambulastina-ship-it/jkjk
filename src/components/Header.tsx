@@ -1,3 +1,4 @@
+import logoSrc from '../assets/logo.jpg'
 import { useEffect, useState } from 'react'
 import { site } from '../site'
 import { Phone, Instagram } from './Icons'
@@ -23,7 +24,7 @@ export default function Header() {
     <header className={`header${compact ? ' header--compact' : ''}`}>
       <div className="wrap header__inner">
         <a className="header__logo" href="#top">
-          <img src="assets/logo.jpg" alt={`${site.legalName} logo`} width={40} height={40} />
+          <img src={logoSrc} alt={`${site.legalName} logo`} width={40} height={40} />
           <span className="header__logo-text">
             Malwa Belt
             <span>Renovations Ltd.</span>

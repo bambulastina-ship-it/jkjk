@@ -1,3 +1,7 @@
+import project1 from './assets/project-1.jpg'
+import project2 from './assets/project-2.jpg'
+import project3 from './assets/project-3.jpg'
+
 /**
  * Single source of truth for business content.
  *
@@ -33,8 +37,8 @@ export const site = {
   ],
 
   work: [
-    { src: '/assets/project-1.jpg', caption: 'Recent project' },
-    { src: '/assets/project-2.jpg', caption: 'Recent project' },
-    { src: '/assets/project-3.jpg', caption: 'Recent project' },
+    { src: project1, caption: 'Recent project' },
+    { src: project2, caption: 'Recent project' },
+    { src: project3, caption: 'Recent project' },
   ],
 } as const

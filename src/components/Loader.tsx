@@ -1,3 +1,4 @@
+import logoSrc from '../assets/logo.jpg'
 import { Suspense, lazy, useEffect, useState, type CSSProperties } from 'react'
 import { site } from '../site'
 import { useReducedMotion } from '../hooks/useMedia'
@@ -7,7 +8,7 @@ const LiquidLogo = lazy(() => import('./LiquidLogo'))
 
 const HOLD_MS = 3000
 const FADE_MS = 500
-const LOGO = 'assets/logo.jpg'
+const LOGO = logoSrc
 
 /**
  * Loading screen. Holds for exactly HOLD_MS, then fades out over FADE_MS.

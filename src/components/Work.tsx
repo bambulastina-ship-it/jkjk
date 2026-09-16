@@ -35,13 +35,12 @@ export default function Work() {
         <div className="work__grid">
           {site.work.map((w, i) => (
             <button
-              className="work__item reveal"
+              className="work__item"
               key={w.src}
-              data-reveal
               onClick={() => setOpen(i)}
               aria-label={`${w.caption} ${i + 1} — open larger image`}
             >
-              <img src={w.src} alt={`${w.caption} by ${site.legalName}`} loading="lazy" decoding="async" />
+              <img src={w.src} alt={`${w.caption} by ${site.legalName}`} decoding="async" />
               <figcaption aria-hidden="true">{w.caption}</figcaption>
             </button>
           ))}

@@ -30,7 +30,13 @@ There is no testimonials section. Real, attributable reviews can be added; inven
 
 ## Images
 
-`public/assets/` — referenced by exact filename.
+`src/assets/` — imported through Vite, which hashes them and resolves each URL against the
+module's own location (`import.meta.url`). That makes them correct on any host regardless of base
+path or trailing slash; hand-written `/assets/...` strings were not, and silently 404'd on a
+sub-path deploy. **Replace an image by overwriting the file in `src/assets/` and rebuilding.**
+
+`public/assets/` holds only `logo.jpg` (favicon) and `project-1.jpg` (og:image), which are
+referenced from `index.html` and so resolve against the document URL.
 
 | File | Used for | Note |
 |---|---|---|

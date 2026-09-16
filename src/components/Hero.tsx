@@ -1,3 +1,4 @@
+import ownerPhoto from '../assets/owner.jpg'
 import { site } from '../site'
 import { Phone, ArrowRight } from './Icons'
 
@@ -40,7 +41,7 @@ export default function Hero() {
         <figure className="hero__figure">
           <img
             className="hero__photo"
-            src="assets/owner.jpg"
+            src={ownerPhoto}
             alt={`The owner of ${site.legalName} on a recent job site`}
             width={1080}
             height={1350}

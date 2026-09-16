@@ -1,3 +1,4 @@
+import logoSrc from '../assets/logo.jpg'
 import { site } from '../site'
 import { Phone, Instagram, MapPin } from './Icons'
 
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <div className="footer__brand">
-              <img src="assets/logo.jpg" alt="" width={44} height={44} />
+              <img src={logoSrc} alt="" width={44} height={44} />
               <strong style={{ color: '#fff', fontFamily: 'var(--font-heading)' }}>
                 {site.legalName}
               </strong>
