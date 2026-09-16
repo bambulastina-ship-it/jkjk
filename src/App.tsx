@@ -5,7 +5,9 @@ import Hero from './components/Hero'
 import TrustStrip from './components/TrustStrip'
 import Services from './components/Services'
 import Work from './components/Work'
+import BeforeAfter from './components/BeforeAfter'
 import Process from './components/Process'
+import Testimonial from './components/Testimonial'
 import ContactCTA from './components/ContactCTA'
 import Footer from './components/Footer'
 import GlassCallBar from './components/GlassCallBar'
@@ -44,7 +46,9 @@ export default function App() {
         <TrustStrip />
         <Services />
         <Work />
+        <BeforeAfter />
         <Process />
+        <Testimonial />
         <ContactCTA />
       </main>
       <Footer />

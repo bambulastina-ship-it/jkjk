@@ -6,6 +6,7 @@ import { Phone, Instagram } from './Icons'
 const links = [
   { href: '#services', label: 'Services' },
   { href: '#work', label: 'Our Work' },
+  { href: '#before-after', label: 'Before & After' },
   { href: '#process', label: 'How It Works' },
   { href: '#contact', label: 'Contact' },
 ]
