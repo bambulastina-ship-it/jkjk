@@ -1,0 +1,3 @@
+# Single page, no client-side router: serve index.html for unknown paths
+# rather than a bare 404.
+/*    /index.html   200

@@ -94,6 +94,16 @@ bundles a URI-decoding helper containing five literal U+FFFD characters; some st
 raw ones. The script rewrites each to a `\uFFFD` escape — identical at runtime, and it leaves the
 bundle pure ASCII. Run it after `npm run build` only if your host complains.
 
+## Deploying
+
+`npm run build` produces a fully static `dist/`. Drag its contents (or a zip of them) onto
+https://app.netlify.com/drop, or point any static host at it — no server, no env vars, no secrets.
+
+`public/_headers` caches the hashed `/assets/*` files for a year (their names change whenever the
+content does) while forcing `index.html` to revalidate, so a deploy takes effect immediately.
+`public/_redirects` serves `index.html` for unknown paths instead of a bare 404. Both live in
+`public/` rather than `dist/`, which is wiped on every build.
+
 ## Verification
 
 ```bash
