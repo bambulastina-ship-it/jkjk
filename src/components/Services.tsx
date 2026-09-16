@@ -5,7 +5,7 @@ const icons = [Home, Ruler, Hammer, PaintRoller, Fence, ShieldCheck]
 
 export default function Services() {
   return (
-    <section className="section" id="services">
+    <section className="section services-band" id="services">
       <div className="wrap">
         <div className="services__head" data-reveal>
           <p className="eyebrow">What we do</p>

@@ -5,7 +5,7 @@ export default function Process() {
     <section className="section process" id="process">
       <div className="wrap">
         <div data-reveal>
-          <p className="eyebrow" style={{ color: 'var(--amber-500)' }}>
+          <p className="eyebrow">
             How it works
           </p>
           <h2>Three steps, no surprises</h2>

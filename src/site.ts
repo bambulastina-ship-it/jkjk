@@ -65,7 +65,11 @@ export const site = {
    */
   testimonial: {
     quote:
-      'Harpreet, Lucky, Inder \u2014 the entire team. Thank you very much. We work by the grace of God. May your business shine brightly with the blessings of God.',
+      'You did a great job! It turned out very well\u2026 it was great to deal with you. ' +
+      'The work that had to be done could have been done by someone else, but the relationship ' +
+      'that was formed, the family relationship, is not something I can form with anyone else. ' +
+      'So I appreciate the people of the Malwa team. Thank you very much, and may your business ' +
+      'shine brightly with the blessings of God.',
     attribution: 'Homeowner',
     location: '',
     translatedFrom: 'Punjabi',
@@ -78,6 +82,5 @@ export const site = {
     { src: project2, caption: 'Recent project' },
     { src: project3, caption: 'Recent project' },
     { src: inProgress1, caption: 'Tiling in progress' },
-    { src: client1, caption: 'Handing over a finished job' },
   ],
 } as const

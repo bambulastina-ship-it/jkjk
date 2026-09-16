@@ -44,11 +44,11 @@ export default function App() {
           <Hero />
         </div>
         <TrustStrip />
-        <Services />
-        <Work />
         <BeforeAfter />
-        <Process />
+        <Work />
         <Testimonial />
+        <Services />
+        <Process />
         <ContactCTA />
       </main>
       <Footer />

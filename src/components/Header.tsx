@@ -4,10 +4,9 @@ import { site } from '../site'
 import { Phone, Instagram } from './Icons'
 
 const links = [
-  { href: '#services', label: 'Services' },
-  { href: '#work', label: 'Our Work' },
   { href: '#before-after', label: 'Before & After' },
-  { href: '#process', label: 'How It Works' },
+  { href: '#work', label: 'Our Work' },
+  { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ]
 

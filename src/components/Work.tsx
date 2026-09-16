@@ -14,7 +14,7 @@ export default function Work() {
   }, [open])
 
   return (
-    <section className="section section--tint" id="work">
+    <section className="section work-band" id="work">
       <div className="wrap">
         <div className="work__head" data-reveal>
           <div>

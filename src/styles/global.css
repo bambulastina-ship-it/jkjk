@@ -306,18 +306,18 @@ h1[tabindex]:focus { outline: none; }
 .lightbox__close:hover { background: rgb(255 255 255 / 0.22); }
 
 /* --- Process ------------------------------------------------------ */
-.process { background: var(--navy-900); color: rgb(255 255 255 / 0.82); }
-.process h2 { color: var(--white); }
-.process .section-lead { color: rgb(255 255 255 / 0.7); }
+.process { background: var(--slate-100); color: var(--color-fg); }
+.process h2 { color: var(--color-heading); }
+.process .section-lead { color: var(--color-muted); }
 .process__grid { display: grid; gap: var(--sp-3); margin-top: var(--sp-4); grid-template-columns: 1fr; counter-reset: step; }
-.process__step { position: relative; padding-top: var(--sp-3); border-top: 2px solid rgb(255 255 255 / 0.14); }
+.process__step { position: relative; padding-top: var(--sp-3); border-top: 2px solid var(--slate-200); }
 .process__step::before {
   counter-increment: step; content: counter(step, decimal-leading-zero);
   font-family: var(--font-heading); font-weight: 700; font-size: 0.875rem;
-  color: var(--amber-500); letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem;
+  color: var(--amber-700); letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem;
 }
-.process__step h3 { color: var(--white); font-size: var(--step-1); }
-.process__step p { color: rgb(255 255 255 / 0.72); font-size: 0.9375rem; margin: 0; }
+.process__step h3 { color: var(--color-heading); font-size: var(--step-1); }
+.process__step p { color: var(--color-muted); font-size: 0.9375rem; margin: 0; }
 @media (min-width: 760px) { .process__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); } }
 
 /* --- Contact CTA -------------------------------------------------- */
@@ -425,11 +425,11 @@ html.js-anim .reveal.is-in { opacity: 1; transform: none; }
 .footer li { color: rgb(255 255 255 / 0.78); }
 
 /* --- Before & after ----------------------------------------------- */
-.ba { background: var(--card); }
+.ba { background: var(--slate-100); }
 .ba__head { max-width: 62ch; margin-bottom: var(--sp-4); }
 .ba__item { display: grid; gap: var(--sp-3); }
 .ba__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-1); }
-.ba__shot { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--slate-100); }
+.ba__shot { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--slate-200); }
 .ba__shot img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: center; }
 .ba__tag {
   position: absolute; top: var(--sp-1); left: var(--sp-1);
@@ -450,10 +450,12 @@ html.js-anim .reveal.is-in { opacity: 1; transform: none; }
   .ba__pair { gap: var(--sp-2); }
 }
 
-/* Gallery flexes to however many photos exist */
+/* Gallery fills the row for whatever number of photos exists, so a fourth
+   photo joins the row instead of being stranded alone underneath. */
 .work__grid { grid-template-columns: 1fr; }
-@media (min-width: 560px) { .work__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 900px) { .work__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 560px) {
+  .work__grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+}
 
 /* --- Testimonial --------------------------------------------------- */
 .tm { background: var(--slate-100); }
@@ -474,3 +476,7 @@ html.js-anim .reveal.is-in { opacity: 1; transform: none; }
   .tm__inner { grid-template-columns: 0.72fr 1.28fr; gap: var(--sp-5); }
   .tm__photo { max-width: 320px; }
 }
+
+/* Work and Services sit between tinted bands — keep them white */
+.work-band { background: var(--card); }
+.services-band { background: var(--card); }
