@@ -425,11 +425,11 @@ html.js-anim .reveal.is-in { opacity: 1; transform: none; }
 .footer li { color: rgb(255 255 255 / 0.78); }
 
 /* --- Before & after ----------------------------------------------- */
-.ba { background: var(--slate-100); }
+.ba { background: var(--card); }
 .ba__head { max-width: 62ch; margin-bottom: var(--sp-4); }
 .ba__item { display: grid; gap: var(--sp-3); }
 .ba__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-1); }
-.ba__shot { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--slate-200); }
+.ba__shot { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--slate-100); }
 .ba__shot img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: center; }
 .ba__tag {
   position: absolute; top: var(--sp-1); left: var(--sp-1);
@@ -478,5 +478,5 @@ html.js-anim .reveal.is-in { opacity: 1; transform: none; }
 }
 
 /* Work and Services sit between tinted bands — keep them white */
-.work-band { background: var(--card); }
+.work-band { background: var(--slate-100); }
 .services-band { background: var(--card); }

@@ -4,8 +4,8 @@ import { site } from '../site'
 import { Phone, Instagram } from './Icons'
 
 const links = [
-  { href: '#before-after', label: 'Before & After' },
   { href: '#work', label: 'Our Work' },
+  { href: '#before-after', label: 'Before & After' },
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ]

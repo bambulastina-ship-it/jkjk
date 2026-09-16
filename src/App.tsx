@@ -44,8 +44,8 @@ export default function App() {
           <Hero />
         </div>
         <TrustStrip />
-        <BeforeAfter />
         <Work />
+        <BeforeAfter />
         <Testimonial />
         <Services />
         <Process />
