@@ -48,14 +48,20 @@
 
   /* -------------------------------- images -------------------------------- */
   // Every image slot degrades to nothing rather than to a broken icon.
-  function mount(src, alt, onOk, onFail) {
-    if (!src) { onFail(); return; }
+  // The figure is attached up front: a lazy image that is not in the document
+  // never enters the viewport, so it would never load. On failure the figure
+  // is removed, so a missing photo leaves no gap.
+  function mount(holder, src, alt, onFail) {
+    if (!src) { if (holder.parentNode) holder.parentNode.removeChild(holder); onFail(); return; }
     var img = el('img');
     img.alt = alt || '';
     img.loading = 'lazy';
-    img.addEventListener('load', function () { onOk(img); });
-    img.addEventListener('error', onFail);
+    img.addEventListener('error', function () {
+      if (holder.parentNode) holder.parentNode.removeChild(holder);
+      onFail();
+    });
     img.src = src;
+    holder.appendChild(img);
   }
 
   if (window.IMAGES) {
@@ -68,13 +74,13 @@
       hl.src = IMAGES.logo;
     }
 
-    var hs = $('.hero__shot'), hi = $('#heroImg');
+    var hs = $('.hero__media'), hi = $('#heroImg');
     if (hs && hi) {
-      if (IMAGES.hero) {
-        hi.addEventListener('load', function () { hi.hidden = false; hs.classList.remove('empty'); });
-        hi.addEventListener('error', function () { hs.classList.add('empty'); });
-        hi.src = IMAGES.hero;
-      } else { hs.classList.add('empty'); }
+      if (IMAGES.hero && IMAGES.hero.src) {
+        hi.alt = IMAGES.hero.alt || '';
+        hi.addEventListener('error', function () { hi.hidden = true; hs.classList.add('empty'); });
+        hi.src = IMAGES.hero.src;
+      } else { hi.hidden = true; hs.classList.add('empty'); }
     }
 
     var gs = $('#gymShots');
@@ -82,7 +88,8 @@
       IMAGES.experience.slice(0, 2).forEach(function (it, i) {
         var f = el('figure');
         f.style.aspectRatio = i === 0 ? '16 / 10' : '16 / 11';
-        mount(it.src, it.alt, function (img) { f.appendChild(img); gs.appendChild(f); }, function () {});
+        gs.appendChild(f);
+        mount(f, it.src, it.alt, function () {});
       });
     }
 
@@ -95,10 +102,10 @@
       var live = 0;
       IMAGES.gallery.forEach(function (it) {
         var f = el('figure');
+        if (it.wide) f.className = 'wide';
         live++;
-        mount(it.src, it.alt,
-          function (img) { f.appendChild(img); gg.appendChild(f); },
-          function () { if (--live <= 0) hideGallery(); });
+        gg.appendChild(f);
+        mount(f, it.src, it.alt, function () { if (--live <= 0) hideGallery(); });
       });
     } else { hideGallery(); }
   }
@@ -115,12 +122,40 @@
     });
   }
 
-  /* -------------------------------- hero rating --------------------------- */
-  if (window.GYM && GYM.rating) {
-    var hsc = $('#heroScore'), hst = $('#heroStars'), hct = $('#heroCount');
-    if (hsc) hsc.textContent = GYM.rating.score;
-    if (hst) hst.innerHTML = new Array(6).join(STAR);
-    if (hct) hct.textContent = 'from ' + GYM.rating.count + ' Google reviews';
+  /* ------------------- hero ratings, locations, amenities ----------------- */
+  var rate = $('#heroRate');
+  if (rate && window.GYM && GYM.ratings) {
+    GYM.ratings.forEach(function (r) {
+      var w = el('span', 'rateItem');
+      w.innerHTML = '<b></b><span class="stars">' + new Array(6).join(STAR) + '</span><span class="t"></span>';
+      $('b', w).textContent = r.score;
+      $('.t', w).textContent = r.source + ' \u00b7 ' + r.count;
+      rate.appendChild(w);
+    });
+  }
+
+  var strip = $('#locStrip');
+  if (strip && window.GYM && GYM.branches) {
+    GYM.branches.forEach(function (b) {
+      var a = el('a'); a.href = '#contact'; a.textContent = b.area; strip.appendChild(a);
+    });
+  }
+
+  var amen = $('#amenList');
+  if (amen && window.AMENITIES) {
+    AMENITIES.forEach(function (t) { var li = el('li'); li.textContent = t; amen.appendChild(li); });
+  }
+
+  var bl = $('#branchList');
+  if (bl && window.GYM && GYM.branches) {
+    GYM.branches.forEach(function (b) {
+      var d = el('div', 'branch');
+      d.innerHTML = '<h3></h3><p></p><a target="_blank" rel="noopener">Open in Google Maps</a>';
+      $('h3', d).textContent = b.area;
+      $('p',  d).textContent = b.address;
+      $('a',  d).href = b.maps;
+      bl.appendChild(d);
+    });
   }
 
   /* ------------------------------- strengths ------------------------------ */
@@ -232,8 +267,15 @@
   }
 
   /* -------------------------------- details ------------------------------- */
-  var map = $('#mapBtn');
-  if (map && window.GYM && GYM.address && GYM.address.mapsUrl) map.href = GYM.address.mapsUrl;
+  var gl = $('#glass');
+  if (gl && !reduced && window.matchMedia('(hover: hover)').matches) {
+    gl.addEventListener('pointermove', function (e) {
+      var r = gl.getBoundingClientRect();
+      gl.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      gl.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+  }
+
   var yr = $('#yr');
   if (yr) yr.textContent = new Date().getFullYear();
 })();

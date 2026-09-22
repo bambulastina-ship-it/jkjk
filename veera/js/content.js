@@ -12,22 +12,39 @@ var GYM = {
   phoneDisplay: '094874 21801',
   phoneLink: 'tel:+919487421801',
   instagram: 'https://www.instagram.com/veeragym/',
-  address: {
-    line1: 'Kilapudur',
-    line2: 'Tiruchirappalli, Tamil Nadu 620001',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=' +
-             encodeURIComponent('Veera Gym Fitness, Kilapudur, Tiruchirappalli, Tamil Nadu 620001')
-  },
+  established: '2018',
   hours: 'Open 24 hours, every day',
-  rating: { score: '4.8', count: '695' }
+  /* Both branches share this number and these hours. */
+  branches: [
+    {
+      area: 'Kilapudur',
+      address: 'Kilapudur, Tiruchirappalli, Tamil Nadu 620001',
+      maps: 'https://www.google.com/maps/search/?api=1&query=' +
+            encodeURIComponent('Veera Gym Fitness, Kilapudur, Tiruchirappalli, Tamil Nadu 620001')
+    },
+    {
+      area: 'Edamalaipatti Pudur',
+      address: 'Crawford Colony Main Rd, Bharathi Nagar, Crawford Colony, ' +
+               'Edamalaipatti Pudur, Tiruchirappalli, Tamil Nadu 620012',
+      maps: 'https://www.google.com/maps/search/?api=1&query=' +
+            encodeURIComponent('Veera Fitness Studio, Crawford Colony Main Rd, Edamalaipatti Pudur, Tiruchirappalli, Tamil Nadu 620012')
+    }
+  ],
+  ratings: [
+    { score: '4.8', source: 'Google',   count: '695 reviews' },
+    { score: '4.9', source: 'Justdial', count: '297 votes'   }
+  ]
 };
+
+/* Service options listed by the business. */
+var AMENITIES = ['Shower', 'Online classes', 'On-site parking', 'Air-conditioned'];
 
 /* Stat band — real numbers only. */
 var STATS = [
-  { value: '4.8',  label: 'Google rating',  star: true },
-  { value: '695',  label: 'Reviews' },
+  { value: '4.8',  label: 'Google · 695 reviews',  star: true },
+  { value: '4.9',  label: 'Justdial · 297 votes',  star: true },
   { value: '24/7', label: 'Always open' },
-  { value: '8',    label: 'Disciplines' }
+  { value: '2',    label: 'Locations in Trichy' }
 ];
 
 /* --------------------------------------------------------------------------
@@ -36,10 +53,19 @@ var STATS = [
    -------------------------------------------------------------------------- */
 var IMAGES = {
   logo:  null,
-  hero:  null,
-  owner: null,
-  experience: [],
-  gallery: []
+  // Wide shot of the whole floor - the warmest, most complete image supplied.
+  hero:  { src: 'assets/images/v2.png', alt: 'The training floor at Veera Gym Fitness' },
+  experience: [
+    { src: 'assets/images/v1.png', alt: 'Resistance machines on the floor at Veera Gym Fitness' }
+  ],
+  // The two screenshots are only 325px wide, so they are used as small tiles
+  // only - blown up they look cheap.
+  gallery: [
+    { src: 'assets/images/v2.png', alt: 'The training floor at Veera Gym Fitness', wide: true },
+    { src: 'assets/images/Screenshot_2026-09-21_204813.png', alt: 'Machines and free weights at Veera Gym Fitness' },
+    { src: 'assets/images/Screenshot_2026-09-21_204747.png', alt: 'Punching bag and turf area at Veera Gym Fitness' },
+    { src: 'assets/images/v1.png', alt: 'Resistance machines at Veera Gym Fitness' }
+  ]
 };
 
 /* --------------------------------------------------------------------------
@@ -97,6 +123,24 @@ var TESTIMONIALS = [
     meta: '7 months ago',
     rating: 5,
     quote: 'Yoga classes are very effective and well guided. The trainer gives personal attention and corrects postures patiently.'
+  },
+  {
+    name: 'SRY TRY 6D J.ASHWIN',
+    meta: 'via Google',
+    rating: null,
+    quote: 'Great gym with awesome vibes, quality equipment, and motivating trainers.'
+  },
+  {
+    name: 'bharu guru',
+    meta: 'via Google',
+    rating: null,
+    quote: 'It was a very relaxing place and I really enjoyed every single day.'
+  },
+  {
+    name: 'Roobben Sanjay',
+    meta: 'via Google',
+    rating: null,
+    quote: 'The ambiance are good coaches are very friendly and good work out day to day'
   },
   {
     name: 'Shenbaga Raj',
