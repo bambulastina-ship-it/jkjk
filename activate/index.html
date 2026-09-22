@@ -23,7 +23,6 @@
 <!-- ============================ 3-SECOND LOADER ============================ -->
 <div class="loader" id="loader" role="status" aria-label="Loading">
   <div class="loader__inner">
-    <img class="loader__logo" src="assets/images/04.jpg" alt="" onerror="this.remove()">
     <svg class="loader__bar-svg" viewBox="0 0 120 40" aria-hidden="true">
       <g class="loader__lift">
         <rect x="14" y="18" width="92" height="4" rx="2" fill="#F4F2EF"/>
@@ -33,7 +32,7 @@
         <rect x="112" y="14" width="8"  height="12" rx="2" fill="#F4F2EF"/>
       </g>
     </svg>
-    <p class="loader__word">ACTIVATE</p>
+    <p class="loader__word"><span>Activate</span></p>
     <div class="loader__track"><span class="loader__fill"></span></div>
   </div>
 </div>
@@ -41,7 +40,8 @@
 <!-- ================================ HEADER ================================ -->
 <header class="hdr" id="hdr">
   <a class="hdr__brand" href="#top" aria-label="Activate Unisex Fitness Studio, home">
-    <img src="assets/images/04.jpg" alt="Activate Unisex Fitness Studio" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'hdr__wordmark',textContent:'ACTIVATE'}))">
+    <span class="hdr__wordmark">Activate</span>
+    <span class="hdr__tag">Unisex Fitness Studio</span>
   </a>
   <nav class="hdr__nav" aria-label="Primary">
     <a href="#experience">Studio</a>
@@ -61,6 +61,11 @@
     </div>
     <div class="hero__scrim"></div>
     <div class="hero__body">
+      <div class="glassmark reveal">
+        <span class="glassmark__word">Activate</span>
+        <span class="glassmark__rule" aria-hidden="true"></span>
+        <span class="glassmark__sub">Unisex Fitness Studio</span>
+      </div>
       <p class="eyebrow reveal">Srirangam &middot; Tiruchirappalli</p>
       <h1 class="hero__title reveal">
         <span>Train with</span>
