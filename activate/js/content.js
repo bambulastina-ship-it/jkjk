@@ -11,6 +11,8 @@ var STUDIO = {
   name: 'Activate Unisex Fitness Studio',
   phoneDisplay: '090429 31302',
   phoneLink: 'tel:+919042931302',
+  phone2Display: '89406 23223',
+  phone2Link: 'tel:+918940623223',
   instagram: 'https://www.instagram.com/activatefitnessstudio/',
   address: {
     line1: 'Ground Floor & First Floor, BR. OGI Complex, No. 45/3',
@@ -78,33 +80,20 @@ var TESTIMONIALS = [
 ];
 
 /* --------------------------------------------------------------------------
-   Services — ONLY what the studio has confirmed.
-   TODO(client): add further services here once confirmed. Do not guess.
+   Services - exactly as the studio lists them on its own material.
+   Nothing here is invented; do not add to it without the studio's say-so.
    -------------------------------------------------------------------------- */
 var SERVICES = [
-  {
-    icon: 'sparkle',
-    title: 'Clean, Well-Kept Floor',
-    body: 'A neat, well-maintained studio across two floors — the thing members mention most.'
-  },
-  {
-    icon: 'users',
-    title: 'Unisex Studio',
-    body: 'Open to everyone, with an atmosphere members describe as comfortable and welcoming.'
-  },
-  {
-    icon: 'whistle',
-    title: 'Gym Master On Floor',
-    body: 'A gym master present to guide technique and keep training safe.'
-  },
-  {
-    icon: 'dumbbell',
-    title: 'Qualified Trainers',
-    body: 'Trainers on hand to support your session and correct your form.'
-  },
-  {
-    icon: 'chart',
-    title: 'Workout Cards Based On BMI',
-    body: 'Your programme is built around your BMI rather than a one-size-fits-all routine.'
-  }
+  'General Fitness',
+  'Strength Training',
+  'Weight Loss',
+  'Muscle Gain',
+  'Hypertension',
+  'Posture Correction',
+  'Nutrition',
+  'Core Strengthening',
+  'Powerlifting',
+  'Body Building',
+  'PCOD & PCOS',
+  'Workout Cards Based On BMI'
 ];

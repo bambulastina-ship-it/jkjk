@@ -194,13 +194,15 @@ p{margin:0 0 1.05em}
   padding-bottom:clamp(96px,13vh,164px);padding-top:150px;
 }
 .glassmark{
+  --mx:50%;--my:40%;
   display:inline-flex;flex-direction:column;align-items:flex-start;gap:10px;
+  isolation:isolate;
   padding:clamp(18px,2vw,26px) clamp(24px,2.6vw,36px);
   margin-bottom:clamp(20px,2.4vw,30px);border-radius:20px;
-  background:linear-gradient(140deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
-  -webkit-backdrop-filter:blur(26px) saturate(170%);
-  backdrop-filter:blur(26px) saturate(170%);
-  border:1px solid rgba(255,255,255,.2);
+  background:linear-gradient(140deg,rgba(255,255,255,.09),rgba(255,255,255,.02));
+  -webkit-backdrop-filter:blur(22px) saturate(150%);
+  backdrop-filter:blur(22px) saturate(150%);
+  border:1px solid rgba(255,255,255,.13);
   box-shadow:
     0 22px 60px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.3),
@@ -208,6 +210,48 @@ p{margin:0 0 1.05em}
   position:relative;overflow:hidden;
   transition:transform .4s var(--ease),border-color .4s var(--ease);
 }
+/* materialise: plain letters -> lit glass */
+.glassmark{
+  -webkit-backdrop-filter:blur(0) saturate(100%);backdrop-filter:blur(0) saturate(100%);
+  background:transparent;border-color:transparent;box-shadow:none;
+}
+.glassmark.in{animation:glassIn 1.5s var(--ease) .15s both}
+@keyframes glassIn{
+  0%{
+    -webkit-backdrop-filter:blur(0) saturate(100%);backdrop-filter:blur(0) saturate(100%);
+    background:rgba(255,255,255,0);border-color:rgba(255,255,255,0);
+    box-shadow:0 0 0 rgba(0,0,0,0);transform:scale(.97);
+  }
+  55%{
+    -webkit-backdrop-filter:blur(30px) saturate(190%);backdrop-filter:blur(30px) saturate(190%);
+    background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.34);
+    box-shadow:0 26px 70px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.45),
+               0 0 46px rgba(224,27,36,.34);
+  }
+  100%{
+    -webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);
+    background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);
+    box-shadow:0 22px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.3),
+               0 0 26px rgba(224,27,36,.16);
+    transform:scale(1);
+  }
+}
+/* red bloom breathing behind the glass */
+.glassmark__glow{
+  position:absolute;inset:-34%;z-index:-1;pointer-events:none;opacity:0;
+  background:radial-gradient(48% 62% at 26% 42%,rgba(224,27,36,.58),transparent 70%);
+  filter:blur(26px);
+}
+.glassmark.in .glassmark__glow{animation:bloom 1.5s var(--ease) .15s both,breathe 5.5s ease-in-out 1.7s infinite}
+@keyframes bloom{0%{opacity:0;transform:scale(.7)}60%{opacity:1;transform:scale(1.06)}100%{opacity:.62;transform:scale(1)}}
+@keyframes breathe{0%,100%{opacity:.5}50%{opacity:.82}}
+/* specular highlight that tracks the pointer */
+.glassmark__spec{
+  position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(34% 58% at var(--mx) var(--my),rgba(255,255,255,.3),transparent 68%);
+  transition:opacity .45s var(--ease);
+}
+.glassmark:hover .glassmark__spec{opacity:1}
 /* slow sheen travelling across the glass */
 .glassmark::after{
   content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;
@@ -216,10 +260,21 @@ p{margin:0 0 1.05em}
 }
 @keyframes sheen{0%{left:-60%}38%,100%{left:130%}}
 .glassmark:hover{transform:translateY(-2px);border-color:rgba(224,27,36,.45)}
-.glassmark__word{
-  font-family:Archivo,sans-serif;font-weight:800;
-  font-size:clamp(2.3rem,5.4vw,4.1rem);line-height:.9;letter-spacing:-.035em;
-  color:var(--bone);text-shadow:0 2px 22px rgba(0,0,0,.35);
+/* liquid-metal wordmark: animated gradient fill + turbulent warp + bloom */
+.liquid{width:clamp(210px,31vw,430px);height:auto;display:block;overflow:visible}
+.liquid__t{
+  font-family:Archivo,sans-serif;font-weight:800;font-size:104px;
+  letter-spacing:-4px;fill:url(#lqFill);filter:url(#lqWarp);
+}
+.glassmark.in .liquid{animation:liquidIn 1.6s var(--ease) .15s both}
+@keyframes liquidIn{
+  0%{opacity:0;transform:scale(.96)}
+  60%{opacity:1}
+  100%{opacity:1;transform:scale(1)}
+}
+@media (prefers-reduced-motion:reduce){
+  .liquid__t{filter:none}
+  .liquid__t animate,.liquid animate{display:none}
 }
 .glassmark__rule{width:52px;height:3px;border-radius:2px;background:var(--red)}
 .glassmark__sub{
@@ -227,7 +282,16 @@ p{margin:0 0 1.05em}
   font-size:clamp(.62rem,1.02vw,.76rem);letter-spacing:.34em;text-transform:uppercase;
   color:rgba(244,242,239,.82);
 }
-@media (prefers-reduced-motion:reduce){.glassmark::after{animation:none;display:none}}
+@media (prefers-reduced-motion:reduce){
+  .glassmark::after{animation:none;display:none}
+  .glassmark.in,.glassmark.in .glassmark__glow,.glassmark.in .glassmark__word{animation:none}
+  .glassmark.in{
+    -webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);
+    background:linear-gradient(140deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
+    border-color:rgba(255,255,255,.2);
+  }
+  .glassmark.in .glassmark__glow{opacity:.6}
+}
 @media (max-width:560px){.glassmark{border-radius:16px}}
 
 .hero__title{font-size:clamp(3.1rem,10.2vw,8rem);line-height:.88;margin-bottom:1.5rem}
@@ -306,18 +370,28 @@ p{margin:0 0 1.05em}
 .services .eyebrow{color:var(--red-deep)}
 .services .eyebrow::before{background:var(--red-deep)}
 .services__grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));
-  gap:clamp(12px,1.2vw,18px);
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));
+  gap:0 clamp(24px,3vw,52px);
+  border-top:1px solid rgba(11,11,12,.14);
 }
 .svc{
-  background:#FBFAF8;border:1px solid rgba(11,11,12,.10);border-radius:3px;
-  padding:clamp(26px,2.2vw,32px);
-  transition:background .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease);
+  display:flex;align-items:baseline;gap:16px;
+  padding:clamp(16px,1.5vw,21px) 4px;
+  border-bottom:1px solid rgba(11,11,12,.14);
+  transition:padding-left .28s var(--ease),color .28s var(--ease);
 }
-.svc:hover{background:#fff;border-color:rgba(224,27,36,.42);transform:translateY(-3px)}
-.svc__ico{width:40px;height:40px;margin-bottom:24px;stroke:var(--red);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.svc h3{font-size:1rem;letter-spacing:.02em;margin-bottom:.7rem;color:var(--ink)}
-.svc p{margin:0;font-size:.94rem;color:rgba(11,11,12,.66)}
+.svc:hover{padding-left:12px}
+.svc__n{
+  font-family:Archivo,sans-serif;font-weight:700;font-size:.66rem;
+  letter-spacing:.14em;color:var(--red);flex:none;min-width:22px;
+}
+.svc__name{
+  font-family:Archivo,sans-serif;font-weight:700;
+  font-size:clamp(1rem,1.5vw,1.2rem);letter-spacing:-.012em;
+  text-transform:uppercase;color:var(--ink);line-height:1.2;
+}
+.svc:hover .svc__name{color:var(--red-deep)}
 
 /* ------------------------------ testimonials ---------------------------- */
 .reviews{background:var(--ink);overflow:hidden}

@@ -91,26 +91,26 @@
   }
 
   /* ------------------------------- services ------------------------------- */
-  var ICONS = {
-    sparkle:  '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M18.5 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2Z"/>',
-    users:    '<circle cx="9" cy="8" r="3.1"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16.2 5.6a3.1 3.1 0 0 1 0 5"/><path d="M17.6 14.4A6 6 0 0 1 21 20"/>',
-    whistle:  '<path d="M3 11.5A5.5 5.5 0 0 1 8.5 6H17a4 4 0 0 1 0 8h-2.1A5.5 5.5 0 1 1 3 11.5Z"/><circle cx="8.5" cy="11.5" r="1.9"/><path d="M13.5 6V3.6"/>',
-    dumbbell: '<path d="M4.5 9v6M8 6.5v11M16 6.5v11M19.5 9v6M8 12h8"/>',
-    chart:    '<path d="M4 20V11M10 20V4M16 20v-6M2 20h20"/>'
-  };
   var svcGrid = $('#servicesGrid');
   if (svcGrid && window.SERVICES) {
-    SERVICES.forEach(function (s) {
-      var card = el('article', 'svc');
-      card.classList.add('reveal');
-      card.innerHTML =
-        '<svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[s.icon] || ICONS.dumbbell) + '</svg>' +
-        '<h3></h3><p></p>';
-      $('h3', card).textContent = s.title;
-      $('p',  card).textContent = s.body;
-      svcGrid.appendChild(card);
-      observe(card);
+    SERVICES.forEach(function (name, n) {
+      var item = el('li', 'svc');
+      item.classList.add('reveal');
+      item.innerHTML = '<span class="svc__n"></span><span class="svc__name"></span>';
+      $('.svc__n', item).textContent = (n + 1 < 10 ? '0' : '') + (n + 1);
+      $('.svc__name', item).textContent = name;
+      svcGrid.appendChild(item);
+      observe(item);
     });
+  }
+
+  /* ----------------------------- second phone ----------------------------- */
+  var p2 = $('#phone2');
+  if (p2 && window.STUDIO && STUDIO.phone2Link) {
+    p2.href = STUDIO.phone2Link;
+    p2.textContent = STUDIO.phone2Display;
+  } else if (p2) {
+    p2.closest('.info-row') && p2.closest('.info-row').remove();
   }
 
   /* ----------------------------- testimonials ----------------------------- */
@@ -246,6 +246,18 @@
         hoursEl.appendChild(line);
       });
     }
+  }
+
+  /* --------------------- glass wordmark specular ------------------------- */
+  // The highlight follows the pointer across the glass, so it reads as a lit
+  // surface rather than a flat panel. Pointer only - no cost on touch.
+  var gmark = $('#glassmark');
+  if (gmark && !reduced && window.matchMedia('(hover: hover)').matches) {
+    gmark.addEventListener('pointermove', function (e) {
+      var r = gmark.getBoundingClientRect();
+      gmark.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      gmark.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
   }
 
   var yr = $('#yr');
