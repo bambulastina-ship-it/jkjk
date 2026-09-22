@@ -81,23 +81,15 @@ p{margin:0 0 1.05em}
 }
 .ld.done{opacity:0;visibility:hidden}
 .ld__in{display:grid;justify-items:center;gap:14px;padding:0 24px;text-align:center}
-.ld__rig{width:clamp(210px,36vw,310px);height:auto;overflow:visible}
-.ld__bar{fill:var(--paper)}
-.ld__cap{fill:var(--paper)}
-.ld__pl rect{fill:var(--red)}
-.ld__pl--2 rect,.ld__pl--4 rect{fill:var(--amber)}
-/* plates slide onto the bar, then the whole rig presses one rep */
-.ld__pl{opacity:0;animation:plate .5s var(--ease) forwards}
-.ld__pl--1{animation-delay:.15s}
-.ld__pl--3{animation-delay:.15s}
-.ld__pl--2{animation-delay:.45s}
-.ld__pl--4{animation-delay:.45s}
-.ld__pl--1,.ld__pl--2{transform-origin:left center}
-.ld__pl--3,.ld__pl--4{transform-origin:right center}
-@keyframes plate{from{opacity:0;transform:translateX(var(--from,-26px))}to{opacity:1;transform:translateX(0)}}
-.ld__pl--3,.ld__pl--4{--from:26px}
-.ld__lift{animation:press 1.5s var(--ease) .95s infinite}
-@keyframes press{0%,100%{transform:translateY(7px)}45%{transform:translateY(-8px)}}
+.ld__rig{width:clamp(74px,12vw,104px);height:auto;overflow:visible}
+.ld__rail{fill:rgba(245,239,230,.22)}
+.ld__cable{stroke:var(--paper);stroke-width:2.5;stroke-linecap:round}
+.ld__pl{fill:rgba(245,239,230,.3)}
+.ld__sel{fill:var(--red)}
+.ld__sel + .ld__sel{fill:var(--amber)}
+/* the selected blocks ride up the stack and settle back */
+.ld__stack{animation:stack 1.6s cubic-bezier(.38,.01,.2,1) infinite}
+@keyframes stack{0%,100%{transform:translateY(0)}42%{transform:translateY(-24px)}}
 .ld__word{margin:0}
 .ld__word span{
   display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;
@@ -116,7 +108,7 @@ p{margin:0 0 1.05em}
 .ld__bar i{display:block;height:100%;width:0;background:var(--red);animation:fill 3s linear forwards}
 @keyframes fill{to{width:100%}}
 @media (prefers-reduced-motion:reduce){
-  .ld__lift{animation:none}.ld__pl{opacity:1;animation:none}
+  .ld__stack{animation:none}
   .ld__word span{clip-path:none;animation:none}
   .ld__tag{opacity:1;animation:none}
   .ld__bar i{animation-duration:.3s}
