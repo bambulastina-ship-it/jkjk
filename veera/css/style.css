@@ -81,9 +81,23 @@ p{margin:0 0 1.05em}
 }
 .ld.done{opacity:0;visibility:hidden}
 .ld__in{display:grid;justify-items:center;gap:14px;padding:0 24px;text-align:center}
-.ld__ecg{width:clamp(200px,34vw,300px);height:auto}
-.ld__trace{stroke-dasharray:420;stroke-dashoffset:420;animation:trace 1.5s linear infinite}
-@keyframes trace{to{stroke-dashoffset:-420}}
+.ld__rig{width:clamp(210px,36vw,310px);height:auto;overflow:visible}
+.ld__bar{fill:var(--paper)}
+.ld__cap{fill:var(--paper)}
+.ld__pl rect{fill:var(--red)}
+.ld__pl--2 rect,.ld__pl--4 rect{fill:var(--amber)}
+/* plates slide onto the bar, then the whole rig presses one rep */
+.ld__pl{opacity:0;animation:plate .5s var(--ease) forwards}
+.ld__pl--1{animation-delay:.15s}
+.ld__pl--3{animation-delay:.15s}
+.ld__pl--2{animation-delay:.45s}
+.ld__pl--4{animation-delay:.45s}
+.ld__pl--1,.ld__pl--2{transform-origin:left center}
+.ld__pl--3,.ld__pl--4{transform-origin:right center}
+@keyframes plate{from{opacity:0;transform:translateX(var(--from,-26px))}to{opacity:1;transform:translateX(0)}}
+.ld__pl--3,.ld__pl--4{--from:26px}
+.ld__lift{animation:press 1.5s var(--ease) .95s infinite}
+@keyframes press{0%,100%{transform:translateY(7px)}45%{transform:translateY(-8px)}}
 .ld__word{margin:0}
 .ld__word span{
   display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;
@@ -102,7 +116,7 @@ p{margin:0 0 1.05em}
 .ld__bar i{display:block;height:100%;width:0;background:var(--red);animation:fill 3s linear forwards}
 @keyframes fill{to{width:100%}}
 @media (prefers-reduced-motion:reduce){
-  .ld__trace{animation:none}
+  .ld__lift{animation:none}.ld__pl{opacity:1;animation:none}
   .ld__word span{clip-path:none;animation:none}
   .ld__tag{opacity:1;animation:none}
   .ld__bar i{animation-duration:.3s}
@@ -507,3 +521,18 @@ body{background:
 .svc,.rev,.branch{border-width:2px;border-left-width:4px}
 .band{border-block:2px solid var(--paper)}
 .amen li{border-radius:0;border-width:2px}
+
+
+/* The Gym photo column: two small warm shots, hard-edged to match the rows */
+.gym__shots{grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,15px);align-content:start}
+.gym__shots figure{
+  position:relative;border:2px solid rgba(245,239,230,.82);border-radius:0;
+  aspect-ratio:4/3;overflow:hidden;
+}
+.gym__shots figure:nth-child(1)::after,.gym__shots figure:nth-child(2)::after{
+  content:"";position:absolute;inset:0;z-index:-1;border:2px solid var(--amber);
+}
+.gym__shots figure:nth-child(1)::after{transform:translate(-11px,11px)}
+.gym__shots figure:nth-child(2)::after{transform:translate(11px,11px);border-color:var(--red)}
+.gym__shots figure img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){.gym__shots{margin-top:36px}}

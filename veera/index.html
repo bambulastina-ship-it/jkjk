@@ -20,10 +20,16 @@
 <!-- ============================ 3-SECOND LOADER ============================ -->
 <div class="ld" id="loader" role="status" aria-label="Loading">
   <div class="ld__in">
-    <svg class="ld__ecg" viewBox="0 0 320 60" aria-hidden="true">
-      <path class="ld__trace" d="M0 30 H108 l9 -21 l10 42 l9 -30 l8 12 h6 l7 -3 H320"
-            fill="none" stroke="#D32030" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round"/>
+    <svg class="ld__rig" viewBox="0 0 320 96" aria-hidden="true">
+      <g class="ld__lift">
+        <rect class="ld__bar" x="58" y="44" width="204" height="7" rx="3.5"/>
+        <g class="ld__pl ld__pl--1"><rect x="92"  y="26" width="13" height="43" rx="2"/></g>
+        <g class="ld__pl ld__pl--2"><rect x="74"  y="32" width="11" height="31" rx="2"/></g>
+        <g class="ld__pl ld__pl--3"><rect x="215" y="26" width="13" height="43" rx="2"/></g>
+        <g class="ld__pl ld__pl--4"><rect x="235" y="32" width="11" height="31" rx="2"/></g>
+        <rect class="ld__cap" x="56"  y="39" width="6" height="17" rx="2"/>
+        <rect class="ld__cap" x="258" y="39" width="6" height="17" rx="2"/>
+      </g>
     </svg>
     <p class="ld__word"><span>Veera</span></p>
     <p class="ld__tag">Gym Fitness</p>
@@ -176,6 +182,7 @@
         <ul class="strengths wipe" id="strengthList"></ul>
         <ul class="amen wipe" id="amenList" aria-label="Service options"></ul>
       </div>
+      <div class="gym__shots wipe" id="gymShots"></div>
     </div>
   </section>
 

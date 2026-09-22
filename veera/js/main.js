@@ -97,7 +97,6 @@
     if (gs && IMAGES.experience && IMAGES.experience.length) {
       IMAGES.experience.slice(0, 2).forEach(function (it, i) {
         var f = el('figure');
-        f.style.aspectRatio = i === 0 ? '16 / 10' : '16 / 11';
         gs.appendChild(f);
         mount(f, it.src, it.alt, function () {});
       });

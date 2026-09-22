@@ -55,8 +55,11 @@ var IMAGES = {
   logo:  null,
   // Wide shot of the whole floor - the warmest, most complete image supplied.
   hero:  { src: 'assets/images/v2.png', alt: 'The training floor at Veera Gym Fitness' },
+  // The two warm, low-res shots - rendered small and side by side so they sit
+  // at close to their native 325px and stay sharp.
   experience: [
-    { src: 'assets/images/v1.png', alt: 'Resistance machines on the floor at Veera Gym Fitness' }
+    { src: 'assets/images/Screenshot_2026-09-21_204813.png', alt: 'Machines and benches on the wooden floor at Veera Gym Fitness' },
+    { src: 'assets/images/Screenshot_2026-09-21_204747.png', alt: 'Punching bag and turf area at Veera Gym Fitness' }
   ],
   // The two screenshots are only 325px wide, so they are used as small tiles
   // only - blown up they look cheap.
