@@ -64,7 +64,8 @@ var IMAGES = {
     { src: 'assets/images/v2.png', alt: 'The training floor at Veera Gym Fitness', wide: true },
     { src: 'assets/images/Screenshot_2026-09-21_204813.png', alt: 'Machines and free weights at Veera Gym Fitness' },
     { src: 'assets/images/Screenshot_2026-09-21_204747.png', alt: 'Punching bag and turf area at Veera Gym Fitness' },
-    { src: 'assets/images/v1.png', alt: 'Resistance machines at Veera Gym Fitness' }
+    { src: 'assets/images/v1.png', alt: 'Resistance machines at Veera Gym Fitness' },
+    { src: 'assets/images/Screenshot_2026-09-21_205601.png', alt: 'Veera Sports & Trophies medal' }
   ]
 };
 

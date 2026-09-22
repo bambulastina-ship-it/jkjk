@@ -46,6 +46,16 @@
     if (!n.closest('.hero')) observe(n);
   });
 
+  // zig-zag rows reveal their photo and copy in sequence rather than together
+  Array.prototype.forEach.call(document.querySelectorAll('.zrow'), function (row) {
+    var parts = row.querySelectorAll('.zrow__fig, .zrow__txt');
+    Array.prototype.forEach.call(parts, function (el2, i) {
+      el2.classList.add('wipe');
+      el2.style.transitionDelay = (i * 130) + 'ms';
+      observe(el2);
+    });
+  });
+
   /* -------------------------------- images -------------------------------- */
   // Every image slot degrades to nothing rather than to a broken icon.
   // The figure is attached up front: a lazy image that is not in the document
