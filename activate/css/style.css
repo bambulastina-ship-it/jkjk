@@ -282,6 +282,8 @@ p{margin:0 0 1.05em}
 }
 .rcard:hover{border-color:rgba(224,27,36,.42);transform:translateY(-3px)}
 .rcard__mark{font-family:Archivo,sans-serif;font-size:3.2rem;line-height:.6;color:var(--red);margin-bottom:20px;user-select:none}
+.rcard__stars{display:flex;gap:3px;margin:-8px 0 18px}
+.rcard__stars svg{width:16px;height:16px;fill:var(--red)}
 .rcard__quote{font-size:.97rem;line-height:1.72;color:rgba(244,242,239,.84);margin:0 0 26px;white-space:pre-line;flex:1}
 .rcard__who{display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);padding-top:20px}
 .rcard__av{

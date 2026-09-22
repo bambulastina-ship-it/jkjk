@@ -47,32 +47,32 @@ var IMAGES = {
 /* --------------------------------------------------------------------------
    Client testimonials — REAL Google reviews, reproduced verbatim.
    Never edit the wording, never add a review that was not actually left.
-   `rating` is intentionally null: the star counts were not confirmed, so no
-   stars are displayed.
+   All four are confirmed 5-star Google reviews.
+  
    -------------------------------------------------------------------------- */
 var TESTIMONIALS = [
   {
     name: 'Mritthika Ramanujam',
     meta: '3 months ago',
-    rating: null,
+    rating: 5,
     quote: 'I really love this gym and the atmosphere here is really motivating. The gym is well maintained, well equipped. All trainers here are som much supportive, makes us comfortable and care for us. Customised workout and diet chart is one the main reason that makes this gym more efficient and reliable. If you want a new experience for working out you can try this for sure !'
   },
   {
     name: 'Jeffrey Caleb',
     meta: '4 months ago',
-    rating: null,
+    rating: 5,
     quote: 'Absolutely loving my experience at this gym! The environment is very positive, motivating, and well-maintained. The equipment is great, the atmosphere feels energetic, and it’s a perfect place to stay consistent with workouts.\n\nA special mention to the trainer — very supportive, knowledgeable, and always encouraging everyone to push their limits safely. Their guidance really makes a huge difference. Highly recommended for anyone looking for a good gym with an amazing vibe and professional training!'
   },
   {
     name: 'Aswitha Subramanian',
     meta: '3 months ago',
-    rating: null,
+    rating: 5,
     quote: 'I joined this gym before 2 months, and my experience has been very positive. The coach is supportive and always willing to help with proper workout techniques. I really liked the gym atmosphere. I’ve noticed a huge improvement in my body and fitness. The coach not only guides me during workouts but also provided a personalized diet chart. I’m very happy with my progress.'
   },
   {
     name: 'Ganesh kumar M',
     meta: '3 months ago',
-    rating: null,
+    rating: 5,
     quote: 'As a complete beginner, I was a little nervous about joining a gym for the first time. But from day one, I felt comfortable and welcomed.\n\nThe gym is very neat, clean, and well-maintained, creating a positive and motivating atmosphere to work out. The trainers are friendly, supportive, and always ready to guide.\n\nI’m really happy with my experience so far and excited to continue my fitness journey. Highly recommended for anyone looking to start their fitness journey!'
   }
 ];

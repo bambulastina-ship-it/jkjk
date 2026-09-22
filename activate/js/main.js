@@ -123,8 +123,15 @@
 
     TESTIMONIALS.forEach(function (t) {
       var card = el('article', 'rcard');
+      var stars = '';
+      if (t.rating) {
+        var star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.9 6.3 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.3 1.3-6.6L2.5 9.1l6.6-.8L12 2Z"/></svg>';
+        stars = '<div class="rcard__stars" role="img" aria-label="' + t.rating + ' out of 5 stars">' +
+                new Array(t.rating + 1).join(star) + '</div>';
+      }
       card.innerHTML =
         '<div class="rcard__mark" aria-hidden="true">“</div>' +
+        stars +
         '<p class="rcard__quote"></p>' +
         '<div class="rcard__who">' +
           '<span class="rcard__av" aria-hidden="true"></span>' +
