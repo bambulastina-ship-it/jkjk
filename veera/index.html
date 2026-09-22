@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veera Gym Fitness — Open 24 Hours, Tiruchirappalli</title>
+<meta name="description" content="Veera Gym Fitness, Kilapudur, Tiruchirappalli. Open 24 hours. Weight training, CrossFit, yoga, aerobics, cycling and more. 4.8 stars from 695 reviews. Call 094874 21801.">
+<meta name="theme-color" content="#141416">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Veera Gym Fitness — Open 24 Hours, Tiruchirappalli">
+<meta property="og:description" content="Open 24 hours. 4.8 stars from 695 reviews. Weight training, CrossFit, yoga, aerobics and more.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================ 3-SECOND LOADER ============================ -->
+<div class="ld" id="loader" role="status" aria-label="Loading">
+  <div class="ld__in">
+    <svg class="ld__ecg" viewBox="0 0 320 60" aria-hidden="true">
+      <path class="ld__trace" d="M0 30 H108 l9 -21 l10 42 l9 -30 l8 12 h6 l7 -3 H320"
+            fill="none" stroke="#C8102E" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <p class="ld__word"><span>Veera</span></p>
+    <p class="ld__tag">Gym Fitness</p>
+    <div class="ld__bar"><i></i></div>
+  </div>
+</div>
+
+<!-- ================================ HEADER ================================ -->
+<header class="hd" id="hd">
+  <a class="hd__brand" href="#top" aria-label="Veera Gym Fitness, home">
+    <img id="hdLogo" alt="Veera Gym Fitness" hidden>
+    <span class="hd__mark">Veera<i>Gym Fitness</i></span>
+  </a>
+  <nav class="hd__nav" aria-label="Primary">
+    <a href="#gym">The Gym</a>
+    <a href="#training">Training</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <a class="bt bt--red bt--sm hd__cta" href="tel:+919487421801">Call Now</a>
+</header>
+
+<main id="top">
+
+  <!-- ================================ HERO ================================ -->
+  <section class="hero">
+    <div class="hero__panel">
+      <div class="hero__inner">
+        <span class="badge wipe"><i></i>Open 24 Hours</span>
+        <h1 class="hero__h wipe">
+          <span>Train on</span>
+          <span>your</span>
+          <span class="em">clock.</span>
+        </h1>
+        <p class="hero__p wipe">
+          A spacious, air-conditioned gym in Kilapudur, Tiruchirappalli &mdash; open every hour
+          of every day, with trainers on the floor and workouts built around you.
+        </p>
+        <div class="hero__cta wipe">
+          <a class="bt bt--red" href="tel:+919487421801">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+            Call Now
+          </a>
+          <a class="bt bt--line" href="#contact">Contact Us</a>
+        </div>
+        <p class="hero__rate wipe">
+          <b id="heroScore">4.8</b>
+          <span class="stars" id="heroStars" aria-hidden="true"></span>
+          <span id="heroCount">from 695 Google reviews</span>
+        </p>
+      </div>
+    </div>
+    <div class="hero__shot">
+      <img id="heroImg" alt="" hidden>
+      <span class="hero__fallback" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <!-- ============================== STAT BAND ============================== -->
+  <section class="band" aria-label="At a glance">
+    <ul class="band__row wrap" id="statRow"></ul>
+  </section>
+
+  <!-- ================================ GYM ================================= -->
+  <section class="sec gym" id="gym">
+    <div class="wrap gym__grid">
+      <div class="gym__copy">
+        <p class="kick wipe">The gym</p>
+        <h2 class="wipe">Room to actually train.</h2>
+        <p class="lead wipe">
+          A spacious, fully air-conditioned floor that stays clean and well kept, with enough
+          equipment and enough space that you are not waiting your turn or working around
+          anybody. Trainers are on hand to guide technique, and programmes are built around the
+          person doing them.
+        </p>
+        <ul class="strengths wipe" id="strengthList"></ul>
+      </div>
+      <div class="gym__shots wipe" id="gymShots"></div>
+    </div>
+  </section>
+
+  <!-- ============================== TRAINING ============================== -->
+  <section class="sec train" id="training">
+    <div class="wrap">
+      <p class="kick wipe">Training</p>
+      <h2 class="wipe">Eight ways to work.</h2>
+      <div class="train__grid" id="serviceGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================== GALLERY =============================== -->
+  <section class="sec gal" id="gallery">
+    <div class="wrap">
+      <p class="kick wipe">Inside Veera</p>
+      <h2 class="wipe">The floor.</h2>
+    </div>
+    <div class="wrap gal__grid" id="galGrid"></div>
+  </section>
+
+  <!-- ============================ TESTIMONIALS ============================ -->
+  <section class="sec revs" id="reviews">
+    <div class="wrap revs__top">
+      <div>
+        <p class="kick wipe">Client testimonials</p>
+        <h2 class="wipe">695 reviews. <span class="em">4.8 stars.</span></h2>
+      </div>
+      <div class="revs__nav wipe">
+        <button class="nbt" id="rPrev" type="button" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="nbt" id="rNext" type="button" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="revs__track" id="rTrack" tabindex="0" role="region" aria-label="Client testimonials, scroll horizontally"></div>
+    <div class="wrap revs__foot">
+      <div class="dots" id="rDots" role="tablist" aria-label="Testimonial navigation"></div>
+      <p class="hint">Drag or swipe</p>
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT / CTA =========================== -->
+  <section class="sec cta" id="contact">
+    <div class="wrap cta__grid">
+      <div>
+        <p class="kick wipe">Get started</p>
+        <h2 class="wipe">Walk in whenever.</h2>
+        <p class="lead wipe">
+          The doors are open every hour of every day. Call and ask anything, or come and look
+          around first.
+        </p>
+        <a class="tel wipe" href="tel:+919487421801" aria-label="Call 094874 21801">094874&nbsp;21801</a>
+        <div class="cta__row wipe">
+          <a class="bt bt--red" href="tel:+919487421801">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+            Call Now
+          </a>
+          <a class="bt bt--line" href="https://www.instagram.com/veeragym/" target="_blank" rel="noopener">Contact Us</a>
+        </div>
+      </div>
+      <div class="card wipe">
+        <dl class="meta">
+          <div><dt>Hours</dt><dd class="meta__big">Open 24 hours<span>Every day of the week</span></dd></div>
+          <div><dt>Address</dt><dd>Kilapudur,<br>Tiruchirappalli, Tamil Nadu 620001</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+919487421801">094874 21801</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/veeragym/" target="_blank" rel="noopener">@veeragym</a></dd></div>
+        </dl>
+        <a class="bt bt--line bt--block" id="mapBtn" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap ft__row">
+    <p>&copy; <span id="yr"></span> Veera Gym Fitness &middot; Kilapudur, Tiruchirappalli</p>
+    <a href="tel:+919487421801">094874 21801</a>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+919487421801" aria-label="Call 094874 21801">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+  Call Now &middot; 094874 21801
+</a>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
