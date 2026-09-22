@@ -20,11 +20,13 @@ const STUDIO = {
       'Activate Unisex Fitness Studio, Nelson Rd, Srirangam, Tiruchirappalli, Tamil Nadu 620005'
     )
   },
-  // TODO(client): opening time + days not yet confirmed. Only "open until 9 PM"
-  // is known, so that is all the site states. Fill `full` when confirmed.
+  // Confirmed opening hours.
   hours: {
     short: 'Open until 9 PM',
-    full: null
+    full: [
+      { days: 'Monday \u2013 Saturday', time: '5:00 AM \u2013 9:00 PM' },
+      { days: 'Sunday',                 time: '7:00 AM \u2013 11:00 AM' }
+    ]
   }
 };
 
