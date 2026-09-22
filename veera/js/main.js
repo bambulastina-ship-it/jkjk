@@ -146,7 +146,12 @@
   var strip = $('#locStrip');
   if (strip && window.GYM && GYM.branches) {
     GYM.branches.forEach(function (b) {
-      var a = el('a'); a.href = '#contact'; a.textContent = b.area; strip.appendChild(a);
+      var a = el('a');
+      a.href = '#contact';
+      a.innerHTML = '<span class="locs__area"></span><span class="locs__sub"></span>';
+      $('.locs__area', a).textContent = b.area;
+      $('.locs__sub',  a).textContent = b.locality || '';
+      strip.appendChild(a);
     });
   }
 
@@ -154,6 +159,11 @@
   if (amen && window.AMENITIES) {
     AMENITIES.forEach(function (t) { var li = el('li'); li.textContent = t; amen.appendChild(li); });
   }
+
+  ['#locsTag', '#branchTag'].forEach(function (sel) {
+    var n = $(sel);
+    if (n && window.GYM && GYM.locationsTagline) n.textContent = GYM.locationsTagline;
+  });
 
   var bl = $('#branchList');
   if (bl && window.GYM && GYM.branches) {

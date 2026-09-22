@@ -13,17 +13,20 @@ var GYM = {
   phoneLink: 'tel:+919487421801',
   instagram: 'https://www.instagram.com/veeragym/',
   established: '2018',
+  locationsTagline: 'Two branches. One number. Both open 24 hours.',
   hours: 'Open 24 hours, every day',
   /* Both branches share this number and these hours. */
   branches: [
     {
       area: 'Kilapudur',
+      locality: 'Tiruchirappalli 620001',
       address: 'Kilapudur, Tiruchirappalli, Tamil Nadu 620001',
       maps: 'https://www.google.com/maps/search/?api=1&query=' +
             encodeURIComponent('Veera Gym Fitness, Kilapudur, Tiruchirappalli, Tamil Nadu 620001')
     },
     {
       area: 'Edamalaipatti Pudur',
+      locality: 'Crawford Colony Main Rd \u00b7 620012',
       address: 'Crawford Colony Main Rd, Bharathi Nagar, Crawford Colony, ' +
                'Edamalaipatti Pudur, Tiruchirappalli, Tamil Nadu 620012',
       maps: 'https://www.google.com/maps/search/?api=1&query=' +
