@@ -69,20 +69,25 @@
 
   /* ------------------------------- gallery -------------------------------- */
   var grid = $('#galleryGrid');
-  if (grid && window.IMAGES && IMAGES.gallery) {
+  function hideGallery() {
+    var sec = document.getElementById('gallery');
+    if (sec) sec.style.display = 'none';
+    var nav = document.querySelector('.hdr__nav a[href="#gallery"]');
+    if (nav) nav.style.display = 'none';
+  }
+  if (grid && window.IMAGES && IMAGES.gallery && IMAGES.gallery.length) {
     var live = 0;
     IMAGES.gallery.forEach(function (item) {
       var fig = el('figure', 'g-item');
       fig.appendChild(imageOrDrop(item.src, item.alt, function () {
         if (fig.parentNode) fig.parentNode.removeChild(fig);
-        if (--live <= 0) {
-          var sec = document.getElementById('gallery');
-          if (sec) sec.style.display = 'none';
-        }
+        if (--live <= 0) hideGallery();
       }));
       grid.appendChild(fig);
       live++;
     });
+  } else {
+    hideGallery();
   }
 
   /* ------------------------------- services ------------------------------- */

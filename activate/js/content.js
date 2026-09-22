@@ -7,7 +7,7 @@
    confirmed.
    ========================================================================== */
 
-const STUDIO = {
+var STUDIO = {
   name: 'Activate Unisex Fitness Studio',
   phoneDisplay: '090429 31302',
   phoneLink: 'tel:+919042931302',
@@ -34,19 +34,13 @@ const STUDIO = {
    Images — drop files into assets/images/ using these exact names.
    Any entry left missing simply does not render; the layout stays intact.
    -------------------------------------------------------------------------- */
-const IMAGES = {
-  logo:  'assets/images/logo.png',
-  hero:  'assets/images/hero.jpg',
-  owner: 'assets/images/owner.jpg',
+var IMAGES = {
+  logo:  'assets/images/04.jpg',
+  hero:  'assets/images/03.png',
+  owner: 'assets/images/a1.png',
   gallery: [
-    { src: 'assets/images/gym-01.jpg', alt: 'Inside Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-02.jpg', alt: 'Training floor at Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-03.jpg', alt: 'Equipment at Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-04.jpg', alt: 'Workout in progress at Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-05.jpg', alt: 'Strength area at Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-06.jpg', alt: 'Cardio area at Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-07.jpg', alt: 'Members training at Activate Unisex Fitness Studio' },
-    { src: 'assets/images/gym-08.jpg', alt: 'Activate Unisex Fitness Studio interior' }
+    // Add more studio photos here to switch the gallery section on, e.g.
+    // { src: 'assets/images/gym-01.jpg', alt: 'Inside Activate Unisex Fitness Studio' }
   ]
 };
 
@@ -56,7 +50,7 @@ const IMAGES = {
    `rating` is intentionally null: the star counts were not confirmed, so no
    stars are displayed.
    -------------------------------------------------------------------------- */
-const TESTIMONIALS = [
+var TESTIMONIALS = [
   {
     name: 'Mritthika Ramanujam',
     meta: '3 months ago',
@@ -87,7 +81,7 @@ const TESTIMONIALS = [
    Services — ONLY what the studio has confirmed.
    TODO(client): add further services here once confirmed. Do not guess.
    -------------------------------------------------------------------------- */
-const SERVICES = [
+var SERVICES = [
   {
     icon: 'sparkle',
     title: 'Clean, Well-Kept Floor',
