@@ -56,6 +56,35 @@
     if (!n.closest('.hero')) observe(n);
   });
 
+  /* ---------------------------- hero background --------------------------- */
+  // Upgrades the hero photo to a silent looping video when one is configured.
+  // The photo stays underneath, so this can only ever improve the hero.
+  (function heroVideo() {
+    if (!window.HERO_VIDEO || !HERO_VIDEO.youtubeId || reduced) return;
+    if (window.matchMedia('(max-width: 860px)').matches) return;   // phones keep the photo
+    var conn = navigator.connection;
+    if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
+
+    var media = document.querySelector('.hero__media');
+    if (!media) return;
+
+    var id = String(HERO_VIDEO.youtubeId).trim();
+    var wrap = el('div', 'hero__video');
+    var f = el('iframe');
+    f.setAttribute('title', 'Inside Activate Unisex Fitness Studio');
+    f.setAttribute('tabindex', '-1');
+    f.setAttribute('aria-hidden', 'true');
+    f.setAttribute('frameborder', '0');
+    f.allow = 'autoplay; encrypted-media';
+    f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+            '?autoplay=1&mute=1&loop=1&playlist=' + encodeURIComponent(id) +
+            '&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3' +
+            (HERO_VIDEO.start ? '&start=' + Number(HERO_VIDEO.start) : '');
+    f.addEventListener('load', function () { wrap.classList.add('is-ready'); });
+    wrap.appendChild(f);
+    media.appendChild(wrap);
+  })();
+
   /* -------------------------------- images -------------------------------- */
   // A photo that has not been uploaded yet simply drops out; nothing looks broken.
   function imageOrDrop(src, alt, onFail) {

@@ -36,6 +36,21 @@ var STUDIO = {
    Images — drop files into assets/images/ using these exact names.
    Any entry left missing simply does not render; the layout stays intact.
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   Hero background video (optional).
+   Put the YouTube video ID in `youtubeId` - for a link like
+   https://www.youtube.com/watch?v=AbCdEf12345 the ID is AbCdEf12345.
+   Leave it null and the hero simply uses the poster photo.
+
+   Notes: the video is always muted and looping (browsers block autoplay with
+   sound), and it is deliberately skipped on phones and on slow connections,
+   where it would cost data and often will not autoplay anyway.
+   -------------------------------------------------------------------------- */
+var HERO_VIDEO = {
+  youtubeId: null,
+  start: 0          // optional: second to start from, e.g. 12
+};
+
 var IMAGES = {
   logo:  'assets/images/04.jpg',
   hero:  'assets/images/03.png',
