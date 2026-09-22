@@ -536,3 +536,9 @@ body{background:
 .gym__shots figure:nth-child(2)::after{transform:translate(11px,11px);border-color:var(--red)}
 .gym__shots figure img{width:100%;height:100%;object-fit:cover}
 @media (max-width:900px){.gym__shots{margin-top:36px}}
+
+/* single photo in The Gym column, and the tail row that follows it */
+.gym__shots{grid-template-columns:1fr}
+.gym__shots figure{aspect-ratio:5/4}
+.gym__shots figure:nth-child(1)::after{transform:translate(16px,16px);border-color:var(--red)}
+.zig--tail{padding-top:0}
